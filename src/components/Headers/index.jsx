@@ -43,7 +43,7 @@ export default function Header() {
           </Grid>
         </Grid>
         <hr />
-        <Grid container spacing={2} className="header__bottom">
+        <Grid container spacing={2} className="header__bottom" pt={2}>
           <Grid item xs={12} md={4} sm={6} lg={3} className="header__box">
             <Typography align="center">
               <a href="#" className="header__box--link header__box--active">
@@ -73,6 +73,12 @@ export default function Header() {
             </Typography>
           </Grid>
         </Grid>
+        <div className="banner">
+          <img
+            alt=""
+            src="https://haeva.com.vn/wwwroot/resources/upload/img/banner/8-2022/778x233.jpg"
+          />
+        </div>
       </Container>
     </div>
   );
