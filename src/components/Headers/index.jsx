@@ -54,7 +54,7 @@ export default function Header() {
           <Grid item xs={12} md={4} sm={6} lg={3} className="header__box">
             <Typography align="center">
               <a href="#" className="header__box--link">
-                option
+                sản phẩm
               </a>
             </Typography>
           </Grid>
