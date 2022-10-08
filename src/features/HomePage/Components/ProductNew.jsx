@@ -168,6 +168,11 @@ function ProductNew(props) {
             </div>
           </Grid>
         </Grid>
+        <div className="sectionNew__viewmore">
+          <button className="sectionNew__viewmore--btn sectionNew__viewmore--btn1">
+            Xem tất cả
+          </button>
+        </div>
       </Container>
     </div>
   );
