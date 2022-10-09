@@ -179,32 +179,6 @@ function ProductNew(props) {
             Xem tất cả
           </button>
         </div>
-        <Swiper
-          spaceBetween={30}
-          centeredSlides={true}
-          // autoplay={{
-          //   delay: 2500,
-          //   disableOnInteraction: false,
-          // }}
-          pagination={{
-            clickable: true,
-          }}
-          modules={[Autoplay, Pagination]}
-          className="mySwiper"
-        >
-          <SwiperSlide>
-            <img src="https://cf.shopee.vn/file/94f7e4ab3e707e1dc893480187910e24" alt="" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://cf.shopee.vn/file/168788478864476ed96c35fdbdad13fb" alt="" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://cf.shopee.vn/file/3f71ad11cbe105f8b55ca89dadd9073a" alt="" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://cf.shopee.vn/file/f03fb9081cccbc08595f1289aa6483f5" alt="" />
-          </SwiperSlide>
-        </Swiper>
       </Container>
     </div>
   );
