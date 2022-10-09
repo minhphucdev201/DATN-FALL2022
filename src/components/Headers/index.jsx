@@ -64,7 +64,9 @@ export default function Header() {
         <Grid container spacing={2} className="header__top">
           <Grid item xs={12} md={4} sm={6} lg={3} className="header__item">
             <Typography variant="h3">
-              <p className="header__item--hotline">HOTLINE : 028 7308 8800</p>
+              <p className="header__item--hotline">
+                HOTLINE : <span>028 7308 8800</span>
+              </p>
             </Typography>
           </Grid>
           <Grid item xs={12} md={4} sm={6} lg={3}>
@@ -152,12 +154,6 @@ export default function Header() {
             </Typography>
           </Grid>
         </Grid>
-        <div className="banner">
-          <img
-            alt=""
-            src="https://haeva.com.vn/wwwroot/resources/upload/img/banner/8-2022/778x233.jpg"
-          />
-        </div>
       </Container>
     </div>
   );

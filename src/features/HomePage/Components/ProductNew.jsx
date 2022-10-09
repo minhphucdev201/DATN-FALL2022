@@ -21,6 +21,12 @@ function ProductNew(props) {
   return (
     <div className="sectionNew">
       <Container>
+        <div className="banner">
+          <img
+            alt=""
+            src="https://haeva.com.vn/wwwroot/resources/upload/img/banner/8-2022/778x233.jpg"
+          />
+        </div>
         <div className="sectionNew__head">
           <h3 className="sectionNew__head--title">SẢN PHẨM MỚI</h3>
           <div className="sectionNew__head--allcat">

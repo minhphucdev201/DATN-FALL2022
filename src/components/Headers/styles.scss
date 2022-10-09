@@ -18,6 +18,12 @@
       color: #333333;
       font-weight: 500;
     }
+    &--hotline > span {
+      font-weight: 550;
+      color: #175c01;
+      letter-spacing: 2px;
+      box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    }
     &--name {
       font-size: 20px;
       color: #175c01;
