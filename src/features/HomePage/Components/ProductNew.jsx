@@ -3,14 +3,9 @@ import Breadcrumbs from "@mui/material/Breadcrumbs";
 import Link from "@mui/material/Link";
 import Typography from "@mui/material/Typography";
 import { Container } from "@mui/system";
-import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
-import { Autoplay, Pagination } from "swiper";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
 import * as React from "react";
-import "./styles.scss";
+
 ProductNew.propTypes = {};
 
 function ProductNew(props) {

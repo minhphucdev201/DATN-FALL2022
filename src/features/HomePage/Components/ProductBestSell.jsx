@@ -3,9 +3,6 @@ import Link from "@mui/material/Link";
 import Typography from "@mui/material/Typography";
 // Import Swiper styles
 import * as React from "react";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
 import "./styles.scss";
 ProductBestSell.propTypes = {};
 
