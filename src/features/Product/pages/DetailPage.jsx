@@ -1,13 +1,21 @@
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
-import { Container } from "@mui/material";
+import { Container, Grid } from "@mui/material";
 import Breadcrumbs from "@mui/material/Breadcrumbs";
 import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import React from "react";
 
-import "./styles.scss";
+// Import Swiper styles
 
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/thumbs";
+
+import { productImages } from "../../../assets/index";
+import ProductImagesSlider from "../../../components/product-images-slider";
+import "./styles.scss";
 // import required modules
 DetailPage.propTypes = {};
 
@@ -50,8 +58,15 @@ function DetailPage(props) {
       </div>
       <Container>
         <div className="productDetail">
-          <div className="productDetail__image"></div>
-          <div className="productDetail__details"></div>
+          <Grid container spacing={2} className="productDetail__main">
+            <Grid item xs={12} md={4} sm={6} lg={6} className="productDetail__image">
+              <ProductImagesSlider images={productImages} />
+            </Grid>
+            <Grid item xs={12} md={4} sm={6} lg={6} className="productDetail__details">
+              <div className="productDetail__details">1</div>
+            </Grid>
+          </Grid>
+
           <div className="productDetail__desc"></div>
           <div className="productDetail__rating"></div>
           <div className="productDetail__related"></div>
