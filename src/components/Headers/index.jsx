@@ -95,7 +95,6 @@ export default function Header() {
             </div>
           </Grid>
         </Grid>
-        <hr />
         <Grid container spacing={2} className="header__bottom" pt={2}>
           <Grid item xs={12} md={4} sm={6} lg={3} className="header__box">
             <Typography align="center">

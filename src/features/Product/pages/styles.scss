@@ -258,3 +258,19 @@
   opacity: 1;
   visibility: visible;
 }
+
+/* css detail page */
+.sectionDetail {
+  margin-top: 1.2rem;
+  &__breadcrumb {
+    border-top: 1px solid #f5f5f5;
+    border-bottom: 1px solid #f5f5f5;
+    padding: 20px 0px;
+  }
+}
+
+/*  css swiper thumbnail detail page  */
+
+/* end css swiper thumbnail detail page */
+
+/* end css detail page  */
