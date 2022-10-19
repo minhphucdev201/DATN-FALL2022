@@ -221,7 +221,7 @@ function ListPage(props) {
                           <h5>TINH DẦU HOẮC HƯƠNG</h5>
                         </a>
                         <p className="product-price">
-                          <span className="old-price">139.000đ</span> 260.000đ
+                          <p>139.000đ</p> <p className="old-price">260.000đ</p>
                         </p>
                       </div>
                       <div className="product-addtocart">
@@ -235,25 +235,25 @@ function ListPage(props) {
                     <div className="single-product-wrapper">
                       <div className="product-img">
                         <img
-                          src="https://cf.shopee.vn/file/ac3425e40c0a8bf41d9e4a0154914f94"
+                          src="https://cf.shopee.vn/file/d6f20d2a2f986bcd87c76a4de6991515"
                           alt=""
                         />
                         <img
                           className="hover-img"
-                          src="https://cf.shopee.vn/file/40c927b36c4b0d3f29e230ebd78d2bb9"
+                          src="https://cf.shopee.vn/file/f56c94800b763ed85570b0a169ed1d6e"
                           alt=""
                         />
 
                         <div className="product-badge offer-badge">
-                          <span>-20%</span>
+                          <span>-12%</span>
                         </div>
                       </div>
                       <div className="product-description">
                         <a href="">
-                          <h5>TINH DẦU GIẢI CẢM</h5>
+                          <h5>TINH DẦU HOẮC HƯƠNG</h5>
                         </a>
                         <p className="product-price">
-                          <span className="old-price">599.000đ</span> 990.000đ
+                          <p>139.000đ</p> <p className="old-price">260.000đ</p>
                         </p>
                       </div>
                       <div className="product-addtocart">
@@ -267,25 +267,25 @@ function ListPage(props) {
                     <div className="single-product-wrapper">
                       <div className="product-img">
                         <img
-                          src="https://cf.shopee.vn/file/9c34fa3e4ffab3dac62fb32c5df60275"
+                          src="https://cf.shopee.vn/file/d6f20d2a2f986bcd87c76a4de6991515"
                           alt=""
                         />
                         <img
                           className="hover-img"
-                          src="https://cf.shopee.vn/file/a3c157b41b5cac5e3f4b3cab78b88249"
+                          src="https://cf.shopee.vn/file/f56c94800b763ed85570b0a169ed1d6e"
                           alt=""
                         />
 
                         <div className="product-badge offer-badge">
-                          <span>-10%</span>
+                          <span>-12%</span>
                         </div>
                       </div>
                       <div className="product-description">
                         <a href="">
-                          <h5>TINH DẦU XÁ XỊ</h5>
+                          <h5>TINH DẦU HOẮC HƯƠNG</h5>
                         </a>
                         <p className="product-price">
-                          <span className="old-price">120.000đ</span> 260.000đ
+                          <p>139.000đ</p> <p className="old-price">260.000đ</p>
                         </p>
                       </div>
                       <div className="product-addtocart">
@@ -319,7 +319,7 @@ function ListPage(props) {
                           <h5>TINH DẦU HOẮC HƯƠNG</h5>
                         </a>
                         <p className="product-price">
-                          <span className="old-price">139.000đ</span> 260.000đ
+                          <p>139.000đ</p> <p className="old-price">260.000đ</p>
                         </p>
                       </div>
                       <div className="product-addtocart">
@@ -329,72 +329,6 @@ function ListPage(props) {
                       </div>
                     </div>
                   </Grid>
-                  <Grid item xs={12} md={6} sm={6} lg={4}>
-                    <div className="single-product-wrapper">
-                      <div className="product-img">
-                        <img
-                          src="https://cf.shopee.vn/file/ac3425e40c0a8bf41d9e4a0154914f94"
-                          alt=""
-                        />
-                        <img
-                          className="hover-img"
-                          src="https://cf.shopee.vn/file/40c927b36c4b0d3f29e230ebd78d2bb9"
-                          alt=""
-                        />
-
-                        <div className="product-badge offer-badge">
-                          <span>-20%</span>
-                        </div>
-                      </div>
-                      <div className="product-description">
-                        <a href="">
-                          <h5>TINH DẦU GIẢI CẢM</h5>
-                        </a>
-                        <p className="product-price">
-                          <span className="old-price">599.000đ</span> 990.000đ
-                        </p>
-                      </div>
-                      <div className="product-addtocart">
-                        <a href="" className="product-btn">
-                          Thêm giỏ hàng
-                        </a>
-                      </div>
-                    </div>
-                  </Grid>
-                  <Grid item xs={12} md={6} sm={6} lg={4}>
-                    <div className="single-product-wrapper">
-                      <div className="product-img">
-                        <img
-                          src="https://cf.shopee.vn/file/9c34fa3e4ffab3dac62fb32c5df60275"
-                          alt=""
-                        />
-                        <img
-                          className="hover-img"
-                          src="https://cf.shopee.vn/file/a3c157b41b5cac5e3f4b3cab78b88249"
-                          alt=""
-                        />
-
-                        <div className="product-badge offer-badge">
-                          <span>-10%</span>
-                        </div>
-                      </div>
-                      <div className="product-description">
-                        <a href="">
-                          <h5>TINH DẦU XÁ XỊ</h5>
-                        </a>
-                        <p className="product-price">
-                          <span className="old-price">120.000đ</span> 260.000đ
-                        </p>
-                      </div>
-                      <div className="product-addtocart">
-                        <a href="" className="product-btn">
-                          Thêm giỏ hàng
-                        </a>
-                      </div>
-                    </div>
-                  </Grid>
-                </Grid>
-                <Grid container spacing={2}>
                   <Grid item xs={12} md={6} sm={6} lg={4}>
                     <div className="single-product-wrapper">
                       <div className="product-img">
@@ -417,7 +351,7 @@ function ListPage(props) {
                           <h5>TINH DẦU HOẮC HƯƠNG</h5>
                         </a>
                         <p className="product-price">
-                          <span className="old-price">139.000đ</span> 260.000đ
+                          <p>139.000đ</p> <p className="old-price">260.000đ</p>
                         </p>
                       </div>
                       <div className="product-addtocart">
@@ -431,57 +365,25 @@ function ListPage(props) {
                     <div className="single-product-wrapper">
                       <div className="product-img">
                         <img
-                          src="https://cf.shopee.vn/file/ac3425e40c0a8bf41d9e4a0154914f94"
+                          src="https://cf.shopee.vn/file/d6f20d2a2f986bcd87c76a4de6991515"
                           alt=""
                         />
                         <img
                           className="hover-img"
-                          src="https://cf.shopee.vn/file/40c927b36c4b0d3f29e230ebd78d2bb9"
+                          src="https://cf.shopee.vn/file/f56c94800b763ed85570b0a169ed1d6e"
                           alt=""
                         />
 
                         <div className="product-badge offer-badge">
-                          <span>-20%</span>
+                          <span>-12%</span>
                         </div>
                       </div>
                       <div className="product-description">
                         <a href="">
-                          <h5>TINH DẦU GIẢI CẢM</h5>
+                          <h5>TINH DẦU HOẮC HƯƠNG</h5>
                         </a>
                         <p className="product-price">
-                          <span className="old-price">599.000đ</span> 990.000đ
-                        </p>
-                      </div>
-                      <div className="product-addtocart">
-                        <a href="" className="product-btn">
-                          Thêm giỏ hàng
-                        </a>
-                      </div>
-                    </div>
-                  </Grid>
-                  <Grid item xs={12} md={6} sm={6} lg={4}>
-                    <div className="single-product-wrapper">
-                      <div className="product-img">
-                        <img
-                          src="https://cf.shopee.vn/file/9c34fa3e4ffab3dac62fb32c5df60275"
-                          alt=""
-                        />
-                        <img
-                          className="hover-img"
-                          src="https://cf.shopee.vn/file/a3c157b41b5cac5e3f4b3cab78b88249"
-                          alt=""
-                        />
-
-                        <div className="product-badge offer-badge">
-                          <span>-10%</span>
-                        </div>
-                      </div>
-                      <div className="product-description">
-                        <a href="">
-                          <h5>TINH DẦU XÁ XỊ</h5>
-                        </a>
-                        <p className="product-price">
-                          <span className="old-price">120.000đ</span> 260.000đ
+                          <p>139.000đ</p> <p className="old-price">260.000đ</p>
                         </p>
                       </div>
                       <div className="product-addtocart">

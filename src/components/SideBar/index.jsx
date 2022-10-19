@@ -1,6 +1,5 @@
-import { Container } from "@mui/material";
-import React, { useState } from "react";
-
+import React from "react";
+import "./styles.scss";
 SideBar.propTypes = {};
 
 function SideBar(props) {

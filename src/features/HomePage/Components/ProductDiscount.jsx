@@ -1,3 +1,4 @@
+import { Box } from "@material-ui/core";
 import { Container, Grid } from "@mui/material";
 // Import Swiper styles
 import { Autoplay, Pagination } from "swiper";
@@ -12,32 +13,34 @@ function ProductDiscount(props) {
   return (
     <div className="sectionNew">
       <Container>
-        <Swiper
-          spaceBetween={30}
-          centeredSlides={true}
-          autoplay={{
-            delay: 2500,
-            disableOnInteraction: false,
-          }}
-          pagination={{
-            clickable: true,
-          }}
-          modules={[Autoplay, Pagination]}
-          className="mySwiper"
-        >
-          <SwiperSlide>
-            <img src="https://cf.shopee.vn/file/94f7e4ab3e707e1dc893480187910e24" alt="" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://cf.shopee.vn/file/168788478864476ed96c35fdbdad13fb" alt="" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://cf.shopee.vn/file/3f71ad11cbe105f8b55ca89dadd9073a" alt="" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://cf.shopee.vn/file/f03fb9081cccbc08595f1289aa6483f5" alt="" />
-          </SwiperSlide>
-        </Swiper>
+        <Box sx={{ height: "400px" }}>
+          <Swiper
+            spaceBetween={30}
+            centeredSlides={true}
+            autoplay={{
+              delay: 2500,
+              disableOnInteraction: false,
+            }}
+            pagination={{
+              clickable: true,
+            }}
+            modules={[Autoplay, Pagination]}
+            className="mySwiper"
+          >
+            <SwiperSlide>
+              <img src="https://cf.shopee.vn/file/94f7e4ab3e707e1dc893480187910e24" alt="" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src="https://cf.shopee.vn/file/168788478864476ed96c35fdbdad13fb" alt="" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src="https://cf.shopee.vn/file/3f71ad11cbe105f8b55ca89dadd9073a" alt="" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src="https://cf.shopee.vn/file/f03fb9081cccbc08595f1289aa6483f5" alt="" />
+            </SwiperSlide>
+          </Swiper>
+        </Box>
         <div className="sectionNew__head">
           <h3 className="sectionNew__head--title">GIẢM GIÁ - KHUYẾN MÃI</h3>
         </div>

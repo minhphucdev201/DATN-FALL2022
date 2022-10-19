@@ -43,7 +43,7 @@ a {
   }
   &__viewmore {
     margin-top: 20px;
-    margin-bottom: 2rem;
+    margin-bottom: 20px;
     text-align: center;
     &--btn {
       background: none;
@@ -52,15 +52,16 @@ a {
       letter-spacing: 2px;
       padding: 12px 50px;
       overflow: hidden;
-      transition: color 0.8s linear;
+      transition: color 0.5s linear;
       cursor: pointer;
       position: relative;
+      border: 0.5px solid #2e7d32;
     }
     &--btn:hover {
       color: #ffffff;
     }
     &--btn::before {
-      background-color: #175c01;
+      background-color: #2e7d32;
       content: "";
       position: absolute;
       top: 0;
