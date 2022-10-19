@@ -22,7 +22,7 @@ function ProductImagesSlider(props) {
         navigation={true}
         modules={[Navigation, Thumbs]}
         // grabCursor={true}
-        thumbs={{ swiper: activeThumb }}
+        thumbs={{ activeThumb }}
         className="product-images-slider"
       >
         {props.images.map((item, index) => (
