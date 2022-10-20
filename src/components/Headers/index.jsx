@@ -10,6 +10,7 @@ import Grid from "@mui/material/Grid";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import { alpha, styled } from "@mui/material/styles";
+
 import * as React from "react";
 import "./styles.scss";
 
@@ -89,7 +90,7 @@ export default function Header() {
               </div>
               <div className="header__cart">
                 <span>
-                  <ShoppingCart color="" />
+                  <ShoppingCart color=""></ShoppingCart>
                 </span>
               </div>
             </div>
@@ -97,11 +98,9 @@ export default function Header() {
         </Grid>
         <Grid container spacing={2} className="header__bottom" pt={2}>
           <Grid item xs={12} md={4} sm={6} lg={3} className="header__box">
-            <Typography align="center">
-              <a href="#" className="header__box--link header__box--active">
-                Trang chủ
-              </a>
-            </Typography>
+            <a className="header__box--link header__box--active">
+              <Typography align="center">Trang chủ</Typography>
+            </a>
           </Grid>
           <Grid item xs={12} md={4} sm={6} lg={3} className="header__box">
             <Typography align="center">
@@ -118,6 +117,9 @@ export default function Header() {
                   size="large"
                 >
                   Sản phẩm
+                  {/* <NavLink to="/products">
+                    <Button color="inherit">Sản phẩm</Button>
+                  </NavLink> */}
                 </Button>
                 <StyledMenu
                   id="demo-customized-menu"
