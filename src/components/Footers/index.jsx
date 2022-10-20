@@ -8,7 +8,7 @@ function Footer(props) {
   return (
     <div className="footer">
       <Container>
-        <Grid container spacing={2} className="footer__top">
+        <Grid container spacing={2} className="footer__top" sx={{ paddingTop: "16px" }}>
           <Grid item xs={12} md={4} sm={6} lg={3}>
             <div className="footer__item">
               <h3 className="footer__item--title">HERBAL OIL</h3>
@@ -26,24 +26,24 @@ function Footer(props) {
             <div className="footer__item">
               <h3 className="footer__item--title">DANH MỤC SẢN PHẨM</h3>
               <div className="footer__content">
-                <ul className="footer__list">
-                  <li className="footer__item">
-                    <a href="#" className="footer__item--link">
+                <ul className="footer__lists">
+                  <li className="footer__items">
+                    <a href="#" className="footer__items--link">
                       SẢN PHẨM MỚI
                     </a>
                   </li>
                   <li className="footer__item">
-                    <a href="#" className="footer__item--link">
+                    <a href="#" className="footer__items--link">
                       TINH DẦU THIÊN NHIÊN
                     </a>
                   </li>
                   <li className="footer__item">
-                    <a href="#" className="footer__item--link">
+                    <a href="#" className="footer__items--link">
                       TINH DẦU THƠM PHÒNG
                     </a>
                   </li>
                   <li className="footer__item">
-                    <a href="#" className="footer__item--link">
+                    <a href="#" className="footer__items--link">
                       TINH DẦU XỊT THƠM
                     </a>
                   </li>
@@ -55,24 +55,24 @@ function Footer(props) {
             <div className="footer__item">
               <h3 className="footer__item--title">CHÍNH SÁCH KHÁCH HÀNG</h3>
               <div className="footer__content">
-                <ul className="footer__list">
-                  <li className="footer__item">
-                    <a href="#" className="footer__item--link">
+                <ul className="footer__lists">
+                  <li className="footer__items">
+                    <a href="#" className="footer__items--link">
                       CHÍNH SÁCH BẢO MẬT
                     </a>
                   </li>
                   <li className="footer__item">
-                    <a href="#" className="footer__item--link">
+                    <a href="#" className="footer__items--link">
                       CHỈNH SÁCH BẢO HÀNH
                     </a>
                   </li>
                   <li className="footer__item">
-                    <a href="#" className="footer__item--link">
+                    <a href="#" className="footer__items--link">
                       CHÍNH SÁCH ĐỔI TRẢ
                     </a>
                   </li>
                   <li className="footer__item">
-                    <a href="#" className="footer__item--link">
+                    <a href="#" className="footer__items--link">
                       HƯỚNG DẪN MUA HÀNG
                     </a>
                   </li>
@@ -130,7 +130,7 @@ function Footer(props) {
         <hr />
         <div className="footer__copyright" align="center">
           <span className="footer__copyright--item">
-            <CopyrightIcon /> Bản quyền thuộc về &nbsp;
+            <CopyrightIcon sx={{ marginRight: "8px" }} /> Bản quyền thuộc về &nbsp;
             <a href="https://www.facebook.com/phucdut201" target="_blank">
               HERBAL OILD &nbsp;
             </a>

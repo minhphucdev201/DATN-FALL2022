@@ -8,8 +8,8 @@ ProductFeature.propTypes = {};
 function ProductFeature(props) {
   return (
     <div>
-      {/* <ListPage /> */}
-      <DetailPage />
+      <ListPage />
+      {/* <DetailPage /> */}
     </div>
   );
 }

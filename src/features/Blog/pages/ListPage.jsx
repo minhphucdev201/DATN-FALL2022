@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./styles.scss";
-import { Container, Grid, Link, Stack, Typography } from "@mui/material";
+import { Box, Container, Grid, Link, Pagination, Stack, Typography } from "@mui/material";
 import { Breadcrumbs } from "@material-ui/core";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 ListPage.propTypes = {};
@@ -50,7 +50,7 @@ function ListPage(props) {
                     </a>
                   </div>
                 </Grid>
-                <Grid item xs={12} lg={8} sx={{ textAlign: "left" }}>
+                <Grid item xs={12} lg={8} sx={{ textAlign: "left", width: "90%" }}>
                   <h3 className="sectionBlog__post--title">
                     5 Lợi Ích Khi Dùng Máy Xông Phun Sương
                   </h3>
@@ -173,15 +173,151 @@ function ListPage(props) {
                   </p>
                 </Grid>
               </Grid>
+              <div className="sectionBlog__pag">
+                <Box sx={{ textAlign: "center" }}>
+                  <Pagination padding="20px" count={10} color="success" size="medium"></Pagination>
+                </Box>
+              </div>
             </Grid>
 
             <Grid item xs={12} lg={4} className="sectionBlog__newslatest">
-              <Grid container>
-                <Grid item xs={12} lg={4}>
-                  1
+              <div className="sectionBlog__newslatest--titleblog">
+                <h3>Bài viết mới nhất</h3>
+              </div>
+              <Grid spacing={1} container className="sectionBlog__item">
+                <Grid item xs={12} lg={3}>
+                  <div>
+                    <a className="sectionBlog__newslatest--thumbnail" href="#">
+                      <img
+                        src="https://haeva.com.vn/wwwroot/resources/upload/img/news/1-2022/tinh-dau-moc-toc-6.jpg"
+                        alt=""
+                      />
+                    </a>
+                  </div>
                 </Grid>
-                <Grid item xs={12} lg={8}>
-                  1
+                <Grid item xs={12} lg={9}>
+                  <h3 className="sectionBlog__newslatest--title">
+                    Top 3 các loại tinh dầu có tính khử trùng diệt khuẩn hiệu quả nhất
+                  </h3>
+                </Grid>
+              </Grid>
+              <Grid spacing={1} container className="sectionBlog__item">
+                <Grid item xs={12} lg={3}>
+                  <div>
+                    <a className="sectionBlog__newslatest--thumbnail" href="#">
+                      <img
+                        src="https://haeva.com.vn/wwwroot/resources/upload/img/news/11-2021/machine.jpeg"
+                        alt=""
+                      />
+                    </a>
+                  </div>
+                </Grid>
+                <Grid item xs={12} lg={9}>
+                  <h3 className="sectionBlog__newslatest--title">
+                    Tinh Dầu Xông Phòng Giúp Thư Giãn
+                  </h3>
+                </Grid>
+              </Grid>
+              <Grid spacing={1} container className="sectionBlog__item">
+                <Grid item xs={12} lg={3}>
+                  <div>
+                    <a className="sectionBlog__newslatest--thumbnail" href="#">
+                      <img
+                        src="https://haeva.com.vn/wwwroot/resources/upload/img/news/7-2021/tinh-dau-bac-ha-.jpeg"
+                        alt=""
+                      />
+                    </a>
+                  </div>
+                </Grid>
+                <Grid item xs={12} lg={9}>
+                  <h3 className="sectionBlog__newslatest--title">
+                    6 tác dụng của tinh dầu Bạc Hà với sức khỏe & làm đẹp
+                  </h3>
+                </Grid>
+              </Grid>
+              <Grid spacing={1} container className="sectionBlog__item">
+                <Grid item xs={12} lg={3}>
+                  <div>
+                    <a className="sectionBlog__newslatest--thumbnail" href="#">
+                      <img
+                        src="https://haeva.com.vn/wwwroot/resources/upload/img/news/6-2021/banner-8-1876x1247-01.jpg"
+                        alt=""
+                      />
+                    </a>
+                  </div>
+                </Grid>
+                <Grid item xs={12} lg={9}>
+                  <h3 className="sectionBlog__newslatest--title">
+                    Hướng dẫn cách vệ sinh và bảo trì máy xông tinh dầu tại nhà
+                  </h3>
+                </Grid>
+              </Grid>
+              <Grid spacing={1} container className="sectionBlog__item">
+                <Grid item xs={12} lg={3}>
+                  <div>
+                    <a className="sectionBlog__newslatest--thumbnail" href="#">
+                      <img
+                        src="https://haeva.com.vn/wwwroot/resources/upload/img/news/7-2021/tinh-dau-chanh-01.jpeg"
+                        alt=""
+                      />
+                    </a>
+                  </div>
+                </Grid>
+                <Grid item xs={12} lg={9}>
+                  <h3 className="sectionBlog__newslatest--title">
+                    9 tác dụng của tinh dầu Chanh cho sức khoẻ & sắc đẹp
+                  </h3>
+                </Grid>
+              </Grid>
+              <Grid spacing={1} container className="sectionBlog__item">
+                <Grid item xs={12} lg={3}>
+                  <div>
+                    <a className="sectionBlog__newslatest--thumbnail" href="#">
+                      <img
+                        src="https://haeva.com.vn/wwwroot/resources/upload/img/news/7-2021/937bb5735035a76bfe24.jpeg"
+                        alt=""
+                      />
+                    </a>
+                  </div>
+                </Grid>
+                <Grid item xs={12} lg={9}>
+                  <h3 className="sectionBlog__newslatest--title">
+                    7 tinh dầu xông Phòng Ngủ mang hương thơm thư giãn dễ ngủ nhất
+                  </h3>
+                </Grid>
+              </Grid>
+              <Grid spacing={1} container className="sectionBlog__item">
+                <Grid item xs={12} lg={3}>
+                  <div>
+                    <a className="sectionBlog__newslatest--thumbnail" href="#">
+                      <img
+                        src="https://haeva.com.vn/wwwroot/resources/upload/img/news/8-2021/2148204544189967244422547943153456868527996n.jpeg"
+                        alt=""
+                      />
+                    </a>
+                  </div>
+                </Grid>
+                <Grid item xs={12} lg={9}>
+                  <h3 className="sectionBlog__newslatest--title">
+                    Lợi ích tuyệt vời từ Combo tinh dầu thiên nhiên
+                  </h3>
+                </Grid>
+              </Grid>
+              <Grid spacing={1} container className="sectionBlog__item">
+                <Grid item xs={12} lg={3}>
+                  <div>
+                    <a className="sectionBlog__newslatest--thumbnail" href="#">
+                      <img
+                        src="https://haeva.com.vn/wwwroot/resources/upload/img/news/11-2021/banner-bf-1200x600-01.jpg"
+                        alt=""
+                      />
+                    </a>
+                  </div>
+                </Grid>
+                <Grid item xs={12} lg={9}>
+                  <h3 className="sectionBlog__newslatest--title">
+                    Top 5 Tinh Dầu mang lại may mắn trong ngày đen tối
+                  </h3>
                 </Grid>
               </Grid>
             </Grid>

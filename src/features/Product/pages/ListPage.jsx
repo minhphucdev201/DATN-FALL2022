@@ -155,10 +155,14 @@ function ListPage(props) {
           <Grid item xs={8} className="main__right">
             <div className="main__products">
               <div className="main__sortcat">
-                <Typography variant="subtitle1" className="main__sortcat--txt">
+                <Typography
+                  variant="subtitle1"
+                  className="main__sortcat--txt"
+                  sx={{ letterSpacing: "0.5px" }}
+                >
                   Xếp theo :
                 </Typography>
-                <FormControl className="main__sortcat--btn">
+                <FormControl className="main__sortcat--btn" sx={{ marginLeft: "12px" }}>
                   <RadioGroup
                     row
                     aria-labelledby="demo-row-radio-buttons-group-label"
@@ -198,7 +202,7 @@ function ListPage(props) {
                 </FormControl>
               </div>
               <div className="main__productsview">
-                <Grid container spacing={2}>
+                <Grid container spacing={2} pt={3}>
                   <Grid item xs={12} md={6} sm={6} lg={4}>
                     <div className="single-product-wrapper">
                       <div className="product-img">
