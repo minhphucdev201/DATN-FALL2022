@@ -82,12 +82,20 @@
       font-size: 18px;
       text-transform: uppercase;
       margin-top: 20px;
+      cursor: pointer;
     }
 
     &--active {
       font-weight: 550;
       color: #175c01;
       border-bottom: 1px solid #175c01;
+      padding-bottom: 8px;
+      text-decoration: none;
+    }
+    &--link:hover {
+      color: #175c01;
+      border-bottom: 1px solid #175c01;
+      padding-bottom: 8px;
       text-decoration: none;
     }
   }

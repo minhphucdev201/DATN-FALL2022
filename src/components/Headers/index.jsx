@@ -1,6 +1,4 @@
 import { ShoppingCart } from "@mui/icons-material";
-import EditIcon from "@mui/icons-material/Edit";
-import FileCopyIcon from "@mui/icons-material/FileCopy";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import PersonIcon from "@mui/icons-material/Person";
 import SearchIcon from "@mui/icons-material/Search";
@@ -9,9 +7,12 @@ import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
+import PopupState, { bindMenu, bindTrigger } from "material-ui-popup-state";
+
 import { alpha, styled } from "@mui/material/styles";
 
 import * as React from "react";
+import { Link } from "react-router-dom";
 import "./styles.scss";
 
 const StyledMenu = styled((props) => (
@@ -85,12 +86,14 @@ export default function Header() {
               </div>
               <div className="header__user">
                 <span>
-                  <PersonIcon color="" />
+                  <PersonIcon color="success" />
                 </span>
               </div>
               <div className="header__cart">
                 <span>
-                  <ShoppingCart color=""></ShoppingCart>
+                  <Link to="/cart">
+                    <ShoppingCart color="success"></ShoppingCart>
+                  </Link>
                 </span>
               </div>
             </div>
@@ -98,9 +101,11 @@ export default function Header() {
         </Grid>
         <Grid container spacing={2} className="header__bottom" pt={2}>
           <Grid item xs={12} md={4} sm={6} lg={3} className="header__box">
-            <a className="header__box--link header__box--active">
-              <Typography align="center">Trang chủ</Typography>
-            </a>
+            <Typography align="center">
+              <Link to="/">
+                <a className="header__box--link header__box--active">Trang chủ</a>
+              </Link>
+            </Typography>
           </Grid>
           <Grid item xs={12} md={4} sm={6} lg={3} className="header__box">
             <Typography align="center">
@@ -148,11 +153,31 @@ export default function Header() {
             </Typography>
           </Grid>
           <Grid item xs={12} md={4} sm={6} lg={3} className="header__box">
-            <Typography align="left">
+            {/* <Typography align="left">
               <a href="#" className="header__box--link">
                 chính sách - hướng dẫn
               </a>
-            </Typography>
+            </Typography> */}
+            <Link to="blog">
+              <Button variant="fill">TIN TỨC</Button>
+            </Link>
+            <PopupState variant="" popupId="demo-popup-menu">
+              {(popupState) => (
+                <React.Fragment>
+                  <Button variant="" {...bindTrigger(popupState)}>
+                    <KeyboardArrowDownIcon />
+                  </Button>
+                  <Menu {...bindMenu(popupState)}>
+                    <MenuItem onClick={popupState.close}>
+                      <Link to="/blog/:id">Tin khuyến mãi</Link>
+                    </MenuItem>
+                    <MenuItem onClick={popupState.close}>
+                      <Link>Mẹo sử dụng tinh dầu</Link>
+                    </MenuItem>
+                  </Menu>
+                </React.Fragment>
+              )}
+            </PopupState>
           </Grid>
         </Grid>
       </Container>
