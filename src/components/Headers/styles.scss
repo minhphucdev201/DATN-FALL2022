@@ -1,7 +1,6 @@
 .header {
-  //   margin-top: 20px;
+  margin-top: 12px;
   &__top {
-    // margin-bottom: 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -76,7 +75,7 @@
   &__box {
     // width: 20%;
     &--link {
-      color: #2c3e50;
+      color: #1c1c1c;
       width: 100%;
       text-decoration: none;
       font-size: 18px;

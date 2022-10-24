@@ -53,12 +53,21 @@ const StyledMenu = styled((props) => (
 }));
 export default function Header() {
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorEls, setAnchorEls] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
     setAnchorEl(null);
+  };
+
+  const opens = Boolean(anchorEls);
+  const handleClicks = (event) => {
+    setAnchorEls(event.currentTarget);
+  };
+  const handleCloses = () => {
+    setAnchorEls(null);
   };
   return (
     <div>
@@ -109,40 +118,57 @@ export default function Header() {
           </Grid>
           <Grid item xs={12} md={4} sm={6} lg={3} className="header__box">
             <Typography align="center">
-              <a href="#" className="header__box--link">
-                <Button
-                  id="demo-customized-button"
-                  aria-controls={open ? "demo-customized-menu" : undefined}
-                  aria-haspopup="true"
-                  aria-expanded={open ? "true" : undefined}
-                  disableElevation={true}
-                  onClick={handleClick}
-                  endIcon={<KeyboardArrowDownIcon />}
-                  color="inherit"
-                  size="large"
-                >
-                  Sản phẩm
-                  {/* <NavLink to="/products">
-                    <Button color="inherit">Sản phẩm</Button>
-                  </NavLink> */}
-                </Button>
-                <StyledMenu
-                  id="demo-customized-menu"
-                  MenuListProps={{
-                    "aria-labelledby": "demo-customized-button",
-                  }}
-                  anchorEl={anchorEl}
-                  open={open}
-                  onClose={handleClose}
-                >
-                  <MenuItem onClick={handleClose} disableRipple>
+              {/* <a href="#" className="header__box--link" style={{ color: "#1c1c1c" }}> */}
+              <Button
+                id="basic-button"
+                aria-controls={open ? "basic-menu" : undefined}
+                aria-haspopup="true"
+                aria-expanded={open ? "true" : undefined}
+                onClick={handleClick}
+                endIcon={<KeyboardArrowDownIcon />}
+                sx={{
+                  color: "#1c1c1c",
+                  fontSize: "18px",
+                  fontWeight: "400",
+                }}
+              >
+                SẢN PHẨM
+              </Button>
+              <Menu
+                id="basic-menu"
+                anchorEl={anchorEl}
+                open={open}
+                onClose={handleClose}
+                MenuListProps={{
+                  "aria-labelledby": "basic-button",
+                }}
+              >
+                <Link to="/products/1">
+                  <MenuItem
+                    onClick={handleClose}
+                    sx={{ color: "#1c1c1c", fontSize: "16px", fontWeight: "400" }}
+                  >
+                    Tinh dầu thiên nhiên
+                  </MenuItem>
+                </Link>
+                <Link to="/products/2">
+                  <MenuItem
+                    onClick={handleClose}
+                    sx={{ color: "#1c1c1c", fontSize: "16px", fontWeight: "400" }}
+                  >
                     Tinh Dầu Xá Xị
                   </MenuItem>
-                  <MenuItem onClick={handleClose} disableRipple>
-                    Tinh Dầu Thiên Nhiên
+                </Link>
+                <Link to="/products">
+                  <MenuItem
+                    onClick={handleClose}
+                    sx={{ color: "#1c1c1c", fontSize: "16px", fontWeight: "400" }}
+                  >
+                    Tất cả sản phẩm
                   </MenuItem>
-                </StyledMenu>
-              </a>
+                </Link>
+              </Menu>
+              {/* </a> */}
             </Typography>
           </Grid>
           <Grid item xs={12} md={4} sm={6} lg={3} className="header__box">
@@ -153,31 +179,57 @@ export default function Header() {
             </Typography>
           </Grid>
           <Grid item xs={12} md={4} sm={6} lg={3} className="header__box">
-            {/* <Typography align="left">
-              <a href="#" className="header__box--link">
-                chính sách - hướng dẫn
-              </a>
-            </Typography> */}
-            <Link to="blog">
-              <Button variant="fill">TIN TỨC</Button>
-            </Link>
-            <PopupState variant="" popupId="demo-popup-menu">
-              {(popupState) => (
-                <React.Fragment>
-                  <Button variant="" {...bindTrigger(popupState)}>
-                    <KeyboardArrowDownIcon />
-                  </Button>
-                  <Menu {...bindMenu(popupState)}>
-                    <MenuItem onClick={popupState.close}>
-                      <Link to="/blog/:id">Tin khuyến mãi</Link>
-                    </MenuItem>
-                    <MenuItem onClick={popupState.close}>
-                      <Link>Mẹo sử dụng tinh dầu</Link>
-                    </MenuItem>
-                  </Menu>
-                </React.Fragment>
-              )}
-            </PopupState>
+            <Typography>
+              <Button
+                id="basic-button"
+                aria-controls={open ? "basic-menu" : undefined}
+                aria-haspopup="true"
+                aria-expanded={open ? "true" : undefined}
+                onClick={handleClicks}
+                endIcon={<KeyboardArrowDownIcon />}
+                sx={{
+                  color: "#1c1c1c",
+                  fontSize: "18px",
+                  fontWeight: "400",
+                }}
+              >
+                TIN TỨC
+              </Button>
+              <Menu
+                id="basic-menu"
+                anchorEl={anchorEls}
+                open={opens}
+                onClose={handleCloses}
+                MenuListProps={{
+                  "aria-labelledby": "basic-button",
+                }}
+              >
+                <Link to="/blog/1">
+                  <MenuItem
+                    onClick={handleCloses}
+                    sx={{ color: "#1c1c1c", fontSize: "16px", fontWeight: "400" }}
+                  >
+                    Tin khuyến mãi
+                  </MenuItem>
+                </Link>
+                <Link to="/blog/2" color="inherit">
+                  <MenuItem
+                    onClick={handleCloses}
+                    sx={{ color: "#1c1c1c", fontSize: "16px", fontWeight: "400" }}
+                  >
+                    Mẹo sử dụng tinh dầu
+                  </MenuItem>
+                </Link>
+                <Link to="/blog/">
+                  <MenuItem
+                    onClick={handleCloses}
+                    sx={{ color: "#1c1c1c", fontSize: "16px", fontWeight: "400" }}
+                  >
+                    Tất cả
+                  </MenuItem>
+                </Link>
+              </Menu>
+            </Typography>
           </Grid>
         </Grid>
       </Container>
