@@ -114,7 +114,7 @@ function LoginForm(props) {
           </div>
           <div className="login__box">
             <p className="">
-              BẠN CHƯA CÓ TÀI KHOẢN. ĐĂNG KÝ{" "}
+              BẠN CHƯA CÓ TÀI KHOẢN. ĐĂNG KÝ &nbsp;
               <a href="login__box--link" style={{ color: "#2e7d32" }}>
                 TẠI ĐÂY.
               </a>

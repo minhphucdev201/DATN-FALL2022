@@ -15,6 +15,8 @@ import DetailPage from "./features/Product/pages/DetailPage";
 import ListPageBlog from "./features/Blog/pages/ListPageBlog";
 import DetailPageBlog from "./features/Blog/pages/DetailPageBlog";
 import Login from "./features/Auth/components/Login";
+import RegisterForm from "./features/Auth/components/RegisterForm";
+import Account from "./features/Auth/components/Account";
 function App() {
   return (
     <div className="App">
@@ -32,6 +34,8 @@ function App() {
         </Route>
         <Route path="/cart" element={<CartFeature />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<RegisterForm />} />
+        <Route path="/account" element={<Account />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
 
