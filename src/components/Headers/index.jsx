@@ -82,7 +82,9 @@ export default function Header() {
           </Grid>
           <Grid item xs={12} md={4} sm={6} lg={3}>
             <Typography variant="h3">
-              <p className="header__item--name">HERBAL OIL</p>
+              <Link to="/">
+                <p className="header__item--name">HERBAL OIL</p>
+              </Link>
             </Typography>
           </Grid>
           <Grid item xs={12} md={4} sm={6} lg={3}>
@@ -95,7 +97,9 @@ export default function Header() {
               </div>
               <div className="header__user">
                 <span>
-                  <PersonIcon color="success" />
+                  <Link to="/register">
+                    <PersonIcon color="success" />
+                  </Link>
                 </span>
               </div>
               <div className="header__cart">
