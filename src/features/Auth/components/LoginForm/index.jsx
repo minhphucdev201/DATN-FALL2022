@@ -63,7 +63,7 @@ function LoginForm(props) {
           spacing={1}
           sx={{ display: "flex", justifyContent: "center", alignContent: "center" }}
         >
-          <Grid item xs={12} sm={6} md={6} lg={1} sx={{ marginRight: "10px" }}>
+          <Grid item xs={12} sm={6} md={6} lg={1} sx={{ marginRight: "4px" }}>
             <div className="login__social--facebook">
               <img
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkPAcp6myHZQn8VsfoQV5Lmv2OE24hD22VCdBkHoO2LVc0nv9M1VSMkuuHO1NMs_H1tfU&usqp=CAU"
@@ -72,7 +72,7 @@ function LoginForm(props) {
               <span>Facebook</span>
             </div>
           </Grid>
-          <Grid item xs={12} sm={6} md={6} lg={1} sx={{ marginLeft: "10px" }}>
+          <Grid item xs={12} sm={6} md={6} lg={1} sx={{ marginLeft: "4px" }}>
             <div className="login__social--google">
               <img
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyBF69Ugt82cQ4Agk9RFemPGatG_2MhmSpgO_eTOrBLxC24CutQjdmnXiBB7jSCQB6Ef0&usqp=CAU"

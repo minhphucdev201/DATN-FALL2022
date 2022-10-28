@@ -12,7 +12,7 @@ import PopupState, { bindMenu, bindTrigger } from "material-ui-popup-state";
 import { alpha, styled } from "@mui/material/styles";
 
 import * as React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "./styles.scss";
 
 const StyledMenu = styled((props) => (
@@ -52,6 +52,8 @@ const StyledMenu = styled((props) => (
   },
 }));
 export default function Header() {
+  const activeLink = "active-menu";
+  const normalLink = "";
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [anchorEls, setAnchorEls] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -115,14 +117,16 @@ export default function Header() {
         <Grid container spacing={2} className="header__bottom" pt={2}>
           <Grid item xs={12} md={4} sm={6} lg={3} className="header__box">
             <Typography align="center">
-              <Link to="/">
+              <NavLink
+                to="/home"
+                className={({ isActive }) => (isActive ? activeLink : normalLink)}
+              >
                 <a className="header__box--link header__box--active">Trang chủ</a>
-              </Link>
+              </NavLink>
             </Typography>
           </Grid>
           <Grid item xs={12} md={4} sm={6} lg={3} className="header__box">
             <Typography align="center">
-              {/* <a href="#" className="header__box--link" style={{ color: "#1c1c1c" }}> */}
               <Button
                 id="basic-button"
                 aria-controls={open ? "basic-menu" : undefined}
@@ -138,6 +142,7 @@ export default function Header() {
               >
                 SẢN PHẨM
               </Button>
+
               <Menu
                 id="basic-menu"
                 anchorEl={anchorEl}
@@ -147,14 +152,17 @@ export default function Header() {
                   "aria-labelledby": "basic-button",
                 }}
               >
-                <Link to="/products/1">
+                <NavLink
+                  to="/products/1"
+                  className={({ isActive }) => (isActive ? activeLink : normalLink)}
+                >
                   <MenuItem
                     onClick={handleClose}
                     sx={{ color: "#1c1c1c", fontSize: "16px", fontWeight: "400" }}
                   >
                     Tinh dầu thiên nhiên
                   </MenuItem>
-                </Link>
+                </NavLink>
                 <Link to="/products/2">
                   <MenuItem
                     onClick={handleClose}
@@ -177,11 +185,17 @@ export default function Header() {
           </Grid>
           <Grid item xs={12} md={4} sm={6} lg={3} className="header__box">
             <Typography align="center">
-              <a href="#" className="header__box--link">
-                Giảm giá
-              </a>
+              <NavLink
+                to="/blog"
+                className={({ isActive }) => (isActive ? activeLink : normalLink)}
+              >
+                <a href="#" className="header__box--link">
+                  Giảm giá
+                </a>
+              </NavLink>
             </Typography>
           </Grid>
+
           <Grid item xs={12} md={4} sm={6} lg={3} className="header__box">
             <Typography>
               <Button

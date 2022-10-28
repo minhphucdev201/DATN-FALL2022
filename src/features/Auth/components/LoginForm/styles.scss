@@ -33,13 +33,13 @@
       height: 40px;
     }
     &--facebook > span {
-      width: 80%;
       color: #ffffff;
       letter-spacing: 0.5px;
       font-size: 16px;
       text-align: center;
       line-height: 16px;
       margin-right: 12px;
+      width: 100%;
     }
     &--google {
       width: 100%;
@@ -54,13 +54,13 @@
       height: 40px;
     }
     &--google > span {
-      width: 100%;
       margin-right: 12px;
       color: #ffffff;
       letter-spacing: 0.5px;
       font-size: 16px;
       text-align: center;
       line-height: 16px;
+      width: 100%;
     }
   }
   &__form {

@@ -1,3 +1,8 @@
+.active-menu {
+  color: #2e7d32;
+  border-bottom: 1px solid #2e7d32;
+  padding-bottom: 8px;
+}
 .header {
   margin-top: 12px;
   &__top {
@@ -12,6 +17,7 @@
     align-items: center;
     justify-content: space-around;
   }
+
   &__item {
     padding-top: 0px;
     &--hotline {
@@ -21,12 +27,12 @@
     }
     &--hotline > span {
       font-weight: 550;
-      color: #175c01;
+      color: #2e7d32;
       letter-spacing: 2px;
     }
     &--name {
       font-size: 20px;
-      color: #175c01;
+      color: #2e7d32;
       font-weight: 550;
     }
   }
@@ -41,7 +47,7 @@
     height: 30px;
     border-radius: 40px;
     background: #ffffff;
-    border: 1px solid #175c01;
+    border: 1px solid #2e7d32;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -59,7 +65,7 @@
       margin-left: 8px;
     }
     &--btn {
-      color: #175c01;
+      color: #2e7d32;
       // background: #F5F5F5;
       width: 30px;
       height: 30px;
@@ -72,7 +78,6 @@
   }
 
   &__box {
-    // width: 20%;
     &--link {
       color: #1c1c1c;
       width: 100%;
@@ -83,19 +88,13 @@
       cursor: pointer;
     }
 
-    &--active {
-      font-weight: 550;
-      color: #175c01;
-      border-bottom: 1px solid #175c01;
-      padding-bottom: 8px;
-      text-decoration: none;
-    }
     &--link:hover {
-      color: #175c01;
-      border-bottom: 1px solid #175c01;
-      padding-bottom: 8px;
-      text-decoration: none;
+      color: #2e7d32;
     }
+    // &--active {
+    //   border-bottom: 1px solid #2e7d32;
+    //   padding-bottom: 8px;
+    // }
   }
 }
 .banner {
