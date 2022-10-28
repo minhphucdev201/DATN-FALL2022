@@ -1,7 +1,9 @@
-.active-menu {
+.active {
   color: #2e7d32;
   border-bottom: 1px solid #2e7d32;
   padding-bottom: 8px;
+}
+.inactive {
 }
 .header {
   margin-top: 12px;
@@ -79,7 +81,7 @@
 
   &__box {
     &--link {
-      color: #1c1c1c;
+      // color: #1c1c1c;
       width: 100%;
       text-decoration: none;
       font-size: 18px;

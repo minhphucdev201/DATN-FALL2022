@@ -117,11 +117,8 @@ export default function Header() {
         <Grid container spacing={2} className="header__bottom" pt={2}>
           <Grid item xs={12} md={4} sm={6} lg={3} className="header__box">
             <Typography align="center">
-              <NavLink
-                to="/home"
-                className={({ isActive }) => (isActive ? activeLink : normalLink)}
-              >
-                <a className="header__box--link header__box--active">Trang chủ</a>
+              <NavLink to="/home" className={({ isActive }) => (isActive ? "active" : "inactive")}>
+                <a className="header__box--link">Trang chủ</a>
               </NavLink>
             </Typography>
           </Grid>
@@ -152,10 +149,7 @@ export default function Header() {
                   "aria-labelledby": "basic-button",
                 }}
               >
-                <NavLink
-                  to="/products/1"
-                  className={({ isActive }) => (isActive ? activeLink : normalLink)}
-                >
+                <NavLink to="/products/1">
                   <MenuItem
                     onClick={handleClose}
                     sx={{ color: "#1c1c1c", fontSize: "16px", fontWeight: "400" }}
@@ -185,10 +179,7 @@ export default function Header() {
           </Grid>
           <Grid item xs={12} md={4} sm={6} lg={3} className="header__box">
             <Typography align="center">
-              <NavLink
-                to="/blog"
-                className={({ isActive }) => (isActive ? activeLink : normalLink)}
-              >
+              <NavLink to="blog" className={({ isActive }) => (isActive ? "active" : "inactive")}>
                 <a href="#" className="header__box--link">
                   Giảm giá
                 </a>
