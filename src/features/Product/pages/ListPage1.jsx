@@ -20,12 +20,11 @@ import ListItemText from "@mui/material/ListItemText";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import React from "react";
-import { Link } from "react-router-dom";
 
 import "./styles.scss";
-ListPage.propTypes = {};
+ListPage1.propTypes = {};
 
-function ListPage(props) {
+function ListPage1(props) {
   const [open, setOpen] = React.useState(true);
 
   const handleClick = () => {
@@ -38,7 +37,7 @@ function ListPage(props) {
           src="https://images.unsplash.com/photo-1466781783364-36c955e42a7f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80"
           alt=""
         />
-        <h1>Tất cả sản phẩm</h1>
+        <h1>tinh dầu thiên nhiên</h1>
       </div>
       <Container className="main">
         <Grid container spacing={2}>
@@ -223,9 +222,7 @@ function ListPage(props) {
                       </div>
                       <div className="product-description">
                         <a href="">
-                          <Link to="/productDetail/">
-                            <h5>TINH DẦU HOẮC HƯƠNG</h5>
-                          </Link>
+                          <h5>TINH DẦU HOẮC HƯƠNG</h5>
                         </a>
                         <p className="product-price">
                           <p>139.000đ</p> <p className="old-price">260.000đ</p>
@@ -233,9 +230,7 @@ function ListPage(props) {
                       </div>
                       <div className="product-addtocart">
                         <a href="" className="product-btn">
-                          <Link to="/productDetail" style={{ color: "#1c1c1c" }}>
-                            Thêm giỏ hàng
-                          </Link>
+                          Thêm giỏ hàng
                         </a>
                       </div>
                     </div>
@@ -417,4 +412,4 @@ function ListPage(props) {
   );
 }
 
-export default ListPage;
+export default ListPage1;
