@@ -178,11 +178,9 @@ export default function Header() {
             </Typography>
           </Grid>
           <Grid item xs={12} md={4} sm={6} lg={3} className="header__box">
-            <Typography align="center">
-              <NavLink to="blog" className={({ isActive }) => (isActive ? "active" : "inactive")}>
-                <a href="#" className="header__box--link">
-                  Giảm giá
-                </a>
+            <Typography align="center ">
+              <NavLink to="/blog" className={({ isActive }) => (isActive ? "active" : "inactive")}>
+                <a className="header__box--link">Giảm giá</a>
               </NavLink>
             </Typography>
           </Grid>
