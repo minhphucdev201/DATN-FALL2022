@@ -33,9 +33,9 @@ function ProductBestSell(props) {
                   color="inherit"
                   href="/material-ui/getting-started/installation/"
                 >
-                  Tinh dầu thiên nhiên
+                  Tinh dầu
                 </Link>
-                <Typography color="text.primary">Tinh dầu xịt thơm</Typography>
+                <Typography color="text.primary">Tinh dầu thiên nhiên</Typography>
               </Breadcrumbs>
             </div>
           </div>

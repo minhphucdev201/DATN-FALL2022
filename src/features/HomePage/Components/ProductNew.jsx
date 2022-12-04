@@ -3,16 +3,23 @@ import Breadcrumbs from "@mui/material/Breadcrumbs";
 import Link from "@mui/material/Link";
 import Typography from "@mui/material/Typography";
 import { Container } from "@mui/system";
+import { PropTypes } from "prop-types";
+import { React } from "react";
+import { formatPrice } from "./../../../utils/common";
 // Import Swiper styles
-import * as React from "react";
 
-ProductNew.propTypes = {};
-
-function ProductNew(props) {
+ProductNew.propTypes = {
+  data: PropTypes.array,
+};
+ProductNew.defaultProps = {
+  data: [],
+};
+function ProductNew({ data }) {
   function handleClick(event) {
     event.preventDefault();
     console.info("You clicked a breadcrumb.");
   }
+
   return (
     <div className="sectionNew">
       <Container>
@@ -35,145 +42,41 @@ function ProductNew(props) {
                   color="inherit"
                   href="/material-ui/getting-started/installation/"
                 >
-                  Tinh dầu thiên nhiên
+                  Tinh dầu
                 </Link>
-                <Typography color="text.primary">Tinh dầu xông thơm phòng</Typography>
+                <Typography color="text.primary">Tinh dầu thiên nhiên</Typography>
               </Breadcrumbs>
             </div>
           </div>
         </div>
         <Grid container spacing={2} className="sectionNew__blocks">
-          <Grid className="sectionNew__item" item xs={12} md={4} sm={6} lg={3}>
-            <div className="single-product-wrapper">
-              <div className="product-img">
-                <img
-                  src="https://haeva.com.vn/wwwroot/resources/upload/img/banner/8-2022/3-Post%20SP-10.jpg"
-                  alt=""
-                />
-                <img
-                  className="hover-img"
-                  src="https://haeva.com.vn/wwwroot/resources/upload/img/banner/8-2022/post-sp-03.jpg"
-                  alt=""
-                />
-
-                <div className="product-badge offer-badge">
-                  <span>-30%</span>
+          {data.map((product) => (
+            <Grid key={product.id} className="sectionNew__item" item xs={12} md={4} sm={6} lg={3}>
+              <div className="single-product-wrapper">
+                <div className="product-img">
+                  <img src={product.thumbnail[0].imageUrl} alt="" />
+                  <img src={product.thumbnail[0].img2} className="hover-img" alt="" />
+                  <div className="product-badge offer-badge">
+                    <span>{product.promotionPercent}%</span>
+                  </div>
+                </div>
+                <div className="product-description">
+                  <a href="">
+                    <h5>{product.name}</h5>
+                  </a>
+                  <p className="product-price">
+                    <p>{formatPrice(product.salePrice)}</p>{" "}
+                    <p className="old-price">{formatPrice(product.originalPrice)}</p>
+                  </p>
+                </div>
+                <div className="product-addtocart">
+                  <a href="" className="product-btn">
+                    Thêm giỏ hàng
+                  </a>
                 </div>
               </div>
-              <div className="product-description">
-                <a href="">
-                  <h5>TINH DẦU CAFFE</h5>
-                </a>
-                <p className="product-price">
-                  <span className="old-price">599.000đ</span> 990.000đ
-                </p>
-              </div>
-              <div className="product-addtocart">
-                <a href="" className="product-btn">
-                  Thêm giỏ hàng
-                </a>
-              </div>
-            </div>
-          </Grid>
-          <Grid item xs={12} md={4} sm={6} lg={3}>
-            {" "}
-            <div className="single-product-wrapper">
-              <div className="product-img">
-                <img
-                  src="https://haeva.com.vn/wwwroot/resources/upload/img/banner/8-2022/3-Post%20SP-10.jpg"
-                  alt=""
-                />
-                <img
-                  className="hover-img"
-                  src="https://haeva.com.vn/wwwroot/resources/upload/img/banner/8-2022/post-sp-03.jpg"
-                  alt=""
-                />
-
-                <div className="product-badge offer-badge">
-                  <span>-30%</span>
-                </div>
-              </div>
-              <div className="product-description">
-                <a href="">
-                  <h5>TINH DẦU CAFFE</h5>
-                </a>
-                <p className="product-price">
-                  <span className="old-price">599.000đ</span> 990.000đ
-                </p>
-              </div>
-              <div className="product-addtocart">
-                <a href="" className="product-btn">
-                  Thêm giỏ hàng
-                </a>
-              </div>
-            </div>
-          </Grid>
-          <Grid item xs={12} md={4} sm={6} lg={3}>
-            {" "}
-            <div className="single-product-wrapper">
-              <div className="product-img">
-                <img
-                  src="https://haeva.com.vn/wwwroot/resources/upload/img/banner/8-2022/3-Post%20SP-10.jpg"
-                  alt=""
-                />
-                <img
-                  className="hover-img"
-                  src="https://haeva.com.vn/wwwroot/resources/upload/img/banner/8-2022/post-sp-03.jpg"
-                  alt=""
-                />
-
-                <div className="product-badge offer-badge">
-                  <span>-30%</span>
-                </div>
-              </div>
-              <div className="product-description">
-                <a href="">
-                  <h5>TINH DẦU CAFFE</h5>
-                </a>
-                <p className="product-price">
-                  <span className="old-price">599.000đ</span> 990.000đ
-                </p>
-              </div>
-              <div className="product-addtocart">
-                <a href="" className="product-btn">
-                  Thêm giỏ hàng
-                </a>
-              </div>
-            </div>
-          </Grid>
-          <Grid item xs={12} md={4} sm={6} lg={3}>
-            {" "}
-            <div className="single-product-wrapper">
-              <div className="product-img">
-                <img
-                  src="https://haeva.com.vn/wwwroot/resources/upload/img/banner/8-2022/3-Post%20SP-10.jpg"
-                  alt=""
-                />
-                <img
-                  className="hover-img"
-                  src="https://haeva.com.vn/wwwroot/resources/upload/img/banner/8-2022/post-sp-03.jpg"
-                  alt=""
-                />
-
-                <div className="product-badge offer-badge">
-                  <span>-30%</span>
-                </div>
-              </div>
-              <div className="product-description">
-                <a href="">
-                  <h5>TINH DẦU CAFFE</h5>
-                </a>
-                <p className="product-price">
-                  <span className="old-price">599.000đ</span> 990.000đ
-                </p>
-              </div>
-              <div className="product-addtocart">
-                <a href="" className="product-btn">
-                  Thêm giỏ hàng
-                </a>
-              </div>
-            </div>
-          </Grid>
+            </Grid>
+          ))}
         </Grid>
         <div className="sectionNew__viewmore">
           <button className="sectionNew__viewmore--btn sectionNew__viewmore--btn1">

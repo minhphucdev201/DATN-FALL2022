@@ -127,7 +127,7 @@ a {
   z-index: 10;
 }
 .single-product-wrapper .product-img .product-badge.offer-badge {
-  background-color: #175c01;
+  background-color: #2e7d32;
 }
 .single-product-wrapper .product-img .product-badge.new-badge {
   background-color: #0315ff;
@@ -147,9 +147,18 @@ a {
   font-weight: 600;
 }
 .single-product-wrapper .product-description h5 {
-  color: #222222;
+  color: rgba(0, 0, 0, 0.87);
   margin: 0;
   margin-top: 12px;
+  text-align: left;
+  word-wrap: break-word;
+  white-space: normal;
+  overflow: hidden;
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  text-transform: capitalize;
 }
 .single-product-wrapper .product-description p span {
   margin-bottom: 0;
@@ -188,7 +197,7 @@ a {
 
 .single-product-wrapper .product-addtocart .product-btn:hover {
   color: #ffffff;
-  background: #175c01;
+  background-color: #2e7d32;
   transition: all 0.3s;
 }
 

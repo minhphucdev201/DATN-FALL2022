@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import Footer from "./components/Footers";
 // import './App.css';
@@ -17,7 +17,7 @@ import DetailPageBlog from "./features/Blog/pages/DetailPageBlog";
 import Login from "./features/Auth/components/Login";
 import RegisterForm from "./features/Auth/components/RegisterForm";
 import Account from "./features/Auth/components/Account";
-import ListPage1 from "./features/Product/pages/ListPage1";
+import productApi from "./api/productApi";
 function App() {
   return (
     <div className="App">
@@ -27,7 +27,6 @@ function App() {
         <Route path="/home" element={<HomePage />} />
         <Route path="/products" element={<ProductFeature />}>
           <Route path="" element={<ListPage />} />
-          <Route path=":id" element={<ListPage1 />} />
         </Route>
         <Route path="/productDetail" element={<ProductFeature />}>
           <Route path="" element={<DetailPage />} />

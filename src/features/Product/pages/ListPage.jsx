@@ -19,18 +19,38 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
-import React from "react";
+import { React, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import ProductSkeletonList from "../components/ProductSkeletonList";
 
+import productApi from "./../../../api/productApi";
 import "./styles.scss";
+import ProductList from "./../components/ProductList";
 ListPage.propTypes = {};
 
 function ListPage(props) {
-  const [open, setOpen] = React.useState(true);
-
+  const [open, setOpen] = useState(true);
+  const [productList, setProductList] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [filters, setFilters] = useState({
+    page: 1,
+    limit: 10,
+  });
   const handleClick = () => {
     setOpen(!open);
   };
+  useEffect(() => {
+    (async () => {
+      try {
+        const { data } = await productApi.getAll(filters);
+        setProductList(data);
+        console.log({ data });
+      } catch (error) {
+        console.log("Failed fetch to data:", error);
+      }
+      setLoading(false);
+    })();
+  }, [filters]);
   return (
     <div>
       <div className="sectionBanner">
@@ -203,205 +223,8 @@ function ListPage(props) {
                 </FormControl>
               </div>
               <div className="main__productsview">
-                <Grid container spacing={2} pt={3}>
-                  <Grid item xs={12} md={6} sm={6} lg={4}>
-                    <div className="single-product-wrapper">
-                      <div className="product-img">
-                        <img
-                          src="https://cf.shopee.vn/file/d6f20d2a2f986bcd87c76a4de6991515"
-                          alt=""
-                        />
-                        <img
-                          className="hover-img"
-                          src="https://cf.shopee.vn/file/f56c94800b763ed85570b0a169ed1d6e"
-                          alt=""
-                        />
-
-                        <div className="product-badge offer-badge">
-                          <span>-12%</span>
-                        </div>
-                      </div>
-                      <div className="product-description">
-                        <a href="">
-                          <Link to="/productDetail/">
-                            <h5>TINH DẦU HOẮC HƯƠNG</h5>
-                          </Link>
-                        </a>
-                        <p className="product-price">
-                          <p>139.000đ</p> <p className="old-price">260.000đ</p>
-                        </p>
-                      </div>
-                      <div className="product-addtocart">
-                        <a href="" className="product-btn">
-                          <Link to="/productDetail" style={{ color: "#1c1c1c" }}>
-                            Thêm giỏ hàng
-                          </Link>
-                        </a>
-                      </div>
-                    </div>
-                  </Grid>
-                  <Grid item xs={12} md={6} sm={6} lg={4}>
-                    <div className="single-product-wrapper">
-                      <div className="product-img">
-                        <img
-                          src="https://cf.shopee.vn/file/d6f20d2a2f986bcd87c76a4de6991515"
-                          alt=""
-                        />
-                        <img
-                          className="hover-img"
-                          src="https://cf.shopee.vn/file/f56c94800b763ed85570b0a169ed1d6e"
-                          alt=""
-                        />
-
-                        <div className="product-badge offer-badge">
-                          <span>-12%</span>
-                        </div>
-                      </div>
-                      <div className="product-description">
-                        <a href="">
-                          <h5>TINH DẦU HOẮC HƯƠNG</h5>
-                        </a>
-                        <p className="product-price">
-                          <p>139.000đ</p> <p className="old-price">260.000đ</p>
-                        </p>
-                      </div>
-                      <div className="product-addtocart">
-                        <a href="" className="product-btn">
-                          Thêm giỏ hàng
-                        </a>
-                      </div>
-                    </div>
-                  </Grid>
-                  <Grid item xs={12} md={6} sm={6} lg={4}>
-                    <div className="single-product-wrapper">
-                      <div className="product-img">
-                        <img
-                          src="https://cf.shopee.vn/file/d6f20d2a2f986bcd87c76a4de6991515"
-                          alt=""
-                        />
-                        <img
-                          className="hover-img"
-                          src="https://cf.shopee.vn/file/f56c94800b763ed85570b0a169ed1d6e"
-                          alt=""
-                        />
-
-                        <div className="product-badge offer-badge">
-                          <span>-12%</span>
-                        </div>
-                      </div>
-                      <div className="product-description">
-                        <a href="">
-                          <h5>TINH DẦU HOẮC HƯƠNG</h5>
-                        </a>
-                        <p className="product-price">
-                          <p>139.000đ</p> <p className="old-price">260.000đ</p>
-                        </p>
-                      </div>
-                      <div className="product-addtocart">
-                        <a href="" className="product-btn">
-                          Thêm giỏ hàng
-                        </a>
-                      </div>
-                    </div>
-                  </Grid>
-                </Grid>
                 <Grid container spacing={2}>
-                  <Grid item xs={12} md={6} sm={6} lg={4}>
-                    <div className="single-product-wrapper">
-                      <div className="product-img">
-                        <img
-                          src="https://cf.shopee.vn/file/d6f20d2a2f986bcd87c76a4de6991515"
-                          alt=""
-                        />
-                        <img
-                          className="hover-img"
-                          src="https://cf.shopee.vn/file/f56c94800b763ed85570b0a169ed1d6e"
-                          alt=""
-                        />
-
-                        <div className="product-badge offer-badge">
-                          <span>-12%</span>
-                        </div>
-                      </div>
-                      <div className="product-description">
-                        <a href="">
-                          <h5>TINH DẦU HOẮC HƯƠNG</h5>
-                        </a>
-                        <p className="product-price">
-                          <p>139.000đ</p> <p className="old-price">260.000đ</p>
-                        </p>
-                      </div>
-                      <div className="product-addtocart">
-                        <a href="" className="product-btn">
-                          Thêm giỏ hàng
-                        </a>
-                      </div>
-                    </div>
-                  </Grid>
-                  <Grid item xs={12} md={6} sm={6} lg={4}>
-                    <div className="single-product-wrapper">
-                      <div className="product-img">
-                        <img
-                          src="https://cf.shopee.vn/file/d6f20d2a2f986bcd87c76a4de6991515"
-                          alt=""
-                        />
-                        <img
-                          className="hover-img"
-                          src="https://cf.shopee.vn/file/f56c94800b763ed85570b0a169ed1d6e"
-                          alt=""
-                        />
-
-                        <div className="product-badge offer-badge">
-                          <span>-12%</span>
-                        </div>
-                      </div>
-                      <div className="product-description">
-                        <a href="">
-                          <h5>TINH DẦU HOẮC HƯƠNG</h5>
-                        </a>
-                        <p className="product-price">
-                          <p>139.000đ</p> <p className="old-price">260.000đ</p>
-                        </p>
-                      </div>
-                      <div className="product-addtocart">
-                        <a href="" className="product-btn">
-                          Thêm giỏ hàng
-                        </a>
-                      </div>
-                    </div>
-                  </Grid>
-                  <Grid item xs={12} md={6} sm={6} lg={4}>
-                    <div className="single-product-wrapper">
-                      <div className="product-img">
-                        <img
-                          src="https://cf.shopee.vn/file/d6f20d2a2f986bcd87c76a4de6991515"
-                          alt=""
-                        />
-                        <img
-                          className="hover-img"
-                          src="https://cf.shopee.vn/file/f56c94800b763ed85570b0a169ed1d6e"
-                          alt=""
-                        />
-
-                        <div className="product-badge offer-badge">
-                          <span>-12%</span>
-                        </div>
-                      </div>
-                      <div className="product-description">
-                        <a href="">
-                          <h5>TINH DẦU HOẮC HƯƠNG</h5>
-                        </a>
-                        <p className="product-price">
-                          <p>139.000đ</p> <p className="old-price">260.000đ</p>
-                        </p>
-                      </div>
-                      <div className="product-addtocart">
-                        <a href="" className="product-btn">
-                          Thêm giỏ hàng
-                        </a>
-                      </div>
-                    </div>
-                  </Grid>
+                  {loading ? <ProductSkeletonList /> : <ProductList data={productList} />}
                 </Grid>
               </div>
               <div className="main__products--pag">
