@@ -1,4 +1,4 @@
-import { Grid } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 import "../pages/styles.scss";
@@ -7,17 +7,19 @@ ProductList.propTypes = {
   data: PropTypes.array,
 };
 ProductList.defaultProps = {
-  data: 10,
+  data: [],
 };
 function ProductList({ data }) {
   return (
-    <Grid container spacing={2}>
-      {data.map((product) => (
-        <Grid key={product.id} item xs={12} md={6} sm={6} lg={4}>
-          <Product product={product} />
-        </Grid>
-      ))}
-    </Grid>
+    <Box>
+      <Grid container spacing={2}>
+        {data.map((product) => (
+          <Grid key={product.id} item xs={12} md={6} sm={6} lg={4}>
+            <Product product={product} />
+          </Grid>
+        ))}
+      </Grid>
+    </Box>
   );
 }
 

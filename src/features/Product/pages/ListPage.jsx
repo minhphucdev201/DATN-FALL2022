@@ -31,10 +31,15 @@ ListPage.propTypes = {};
 function ListPage(props) {
   const [open, setOpen] = useState(true);
   const [productList, setProductList] = useState([]);
+  const [pagination, setPagination] = useState({
+    limit: 9,
+    total: 10,
+    page: 1,
+  });
   const [loading, setLoading] = useState(true);
   const [filters, setFilters] = useState({
     page: 1,
-    limit: 10,
+    limit: 9,
   });
   const handleClick = () => {
     setOpen(!open);
@@ -42,15 +47,22 @@ function ListPage(props) {
   useEffect(() => {
     (async () => {
       try {
-        const { data } = await productApi.getAll(filters);
+        const { data, pagination } = await productApi.getAll(filters);
         setProductList(data);
-        console.log({ data });
+        console.log(pagination);
+        setPagination(pagination);
       } catch (error) {
         console.log("Failed fetch to data:", error);
       }
       setLoading(false);
     })();
   }, [filters]);
+  const handlePageChange = (e, page) => {
+    setFilters((prevFilters) => ({
+      ...prevFilters,
+      page: page,
+    }));
+  };
   return (
     <div>
       <div className="sectionBanner">
@@ -229,7 +241,14 @@ function ListPage(props) {
               </div>
               <div className="main__products--pag">
                 <Box>
-                  <Pagination padding="20px" count={10} color="success" size="medium"></Pagination>
+                  <Pagination
+                    padding="20px"
+                    count={Math.ceil(pagination.total / pagination.limit)}
+                    page={pagination.page}
+                    onChange={handlePageChange}
+                    color="success"
+                    size="medium"
+                  ></Pagination>
                 </Box>
               </div>
             </div>

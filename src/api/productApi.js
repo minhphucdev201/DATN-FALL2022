@@ -2,13 +2,11 @@ import axiosClient from "./axiosClient";
 
 const productApi = {
   async getAll(params) {
-    const url = "/products";
-    return axiosClient.get(url, { params });
-    // const productList = await axiosClient.get("/products", { params });
-    // return {
-    //   data: productList,
-    // };
+    const count = await axiosClient.get("/products/count", { params: params });
+    const productList = await axiosClient.get("/products", { params: params });
+    return productList;
   },
+
   getProductNew(params) {
     const url = "/products?column=_id&type=desc&idCatalog=637d04b09047be588e8bfb82";
     return axiosClient.get(url, { params });
