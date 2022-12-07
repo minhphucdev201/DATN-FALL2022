@@ -1,4 +1,4 @@
-import { Add } from "@mui/icons-material";
+import { Add, Category } from "@mui/icons-material";
 import RemoveIcon from "@mui/icons-material/Remove";
 import {
   Box,
@@ -28,10 +28,12 @@ import "./styles.scss";
 import ProductList from "./../components/ProductList";
 import ProductSort from "../components/ProductSort";
 import ProductFilters from "../components/ProductFilters";
+import FilterViewer from "../components/FilterViewer";
 ListPage.propTypes = {};
 
 function ListPage(props) {
   const [open, setOpen] = useState(true);
+
   const [productList, setProductList] = useState([]);
   const [pagination, setPagination] = useState({
     limit: 9,
@@ -82,6 +84,9 @@ function ListPage(props) {
       ...newFilters,
     }));
   };
+  const setNewFilters = (newFilters) => {
+    setFilters(newFilters);
+  };
   return (
     <div>
       <div className="sectionBanner">
@@ -99,6 +104,7 @@ function ListPage(props) {
           <Grid item xs={8} className="main__right">
             <div className="main__products">
               <ProductSort currentSort="column=salePrice&type=asc" onChange={handleSortChange} />
+              <FilterViewer filters={filters} onChange={setNewFilters} />
               <div className="main__productsview">
                 <Grid container spacing={2}>
                   {loading ? <ProductSkeletonList /> : <ProductList data={productList} />}

@@ -5,13 +5,26 @@ import RemoveIcon from "@mui/icons-material/Remove";
 import { Add } from "@mui/icons-material";
 import catalogApi from "./../../../../api/catalogApi";
 import { React, useState, useEffect } from "react";
+import { makeStyles } from "@material-ui/core";
+import { NavLink } from "react-router-dom";
 FilterByCatalog.propTypes = {
   onChange: PropTypes.func,
 };
-
+const useStyles = makeStyles((theme) => ({
+  root: {},
+  link: {
+    color: "inherit",
+    textDecoration: "none",
+    "&.active > div": {
+      // backgroundColor: theme.palette.action.selected,
+      color: "black",
+    },
+  },
+}));
 function FilterByCatalog({ onChange }) {
   const [categoryList, setCategoryList] = useState([]);
   const [open, setOpen] = useState(true);
+  const classes = useStyles();
   const handleClick = () => {
     setOpen(!open);
   };
@@ -29,7 +42,7 @@ function FilterByCatalog({ onChange }) {
   }, []);
   const handleCategoryClick = (category) => {
     if (onChange) {
-      onChange(category._id);
+      onChange(category);
     }
   };
   return (

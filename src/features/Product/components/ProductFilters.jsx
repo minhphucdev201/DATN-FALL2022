@@ -12,14 +12,15 @@ ProductFilters.propTypes = {
 };
 
 function ProductFilters({ filters, onChange }) {
-  const handleCatalogChange = (newCatalogId) => {
+  const handleCatalogChange = (category) => {
     if (!onChange) return;
     const newFilters = {
       ...filters,
-      idCatalog: newCatalogId,
+      idCatalog: category._id,
     };
-    console.log(newFilters);
     onChange(newFilters);
+    console.log(newFilters);
+    console.log(category);
   };
   const handleChange = (values) => {
     console.log(values);
@@ -35,7 +36,7 @@ function ProductFilters({ filters, onChange }) {
   };
   return (
     <Box>
-      <FilterByCatalog onChange={handleCatalogChange} />
+      <FilterByCatalog filters={filters} onChange={handleCatalogChange} />
       <FilterPriceFast filters={filters} onChange={handlePriceFastChange} />
       <FilterByPrice onChange={handleChange} />
       <FilterByService filters={filters} onChange={handleChange} />
