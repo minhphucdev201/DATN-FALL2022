@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import Footer from "./components/Footers";
 // import './App.css';
 import Header from "./components/Headers";
@@ -22,7 +22,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Routes>
+      {/* <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/home" element={<HomePage />} />
         <Route path="/products" element={<ProductFeature />}>
@@ -30,7 +30,6 @@ function App() {
         </Route>
         <Route path="/productDetail" element={<ProductFeature />}>
           <Route path="" element={<DetailPage />} />
-          {/* <Route path=":id" element={<DetailPage />} /> */}
         </Route>
 
         <Route path="/blog" element={<BlogFeature />}>
@@ -42,8 +41,14 @@ function App() {
         <Route path="/register" element={<RegisterForm />} />
         <Route path="/account" element={<Account />} />
         <Route path="*" element={<NotFound />} />
-      </Routes>
+      </Routes> */}
+      <Switch>
+        <Route path="/" component={HomePage} exact />
+        <Route path="/products" component={ProductFeature} />
+        <Route path="/cart" component={CartFeature} />
 
+        <Route component={NotFound} />
+      </Switch>
       <Footer />
     </div>
   );

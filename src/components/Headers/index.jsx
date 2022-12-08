@@ -27,6 +27,7 @@ const StyledMenu = styled((props) => (
       horizontal: "right",
     }}
     {...props}
+    z
   />
 ))(({ theme }) => ({
   "& .MuiPaper-root": {
@@ -117,7 +118,7 @@ export default function Header() {
         <Grid container spacing={2} className="header__bottom" pt={2}>
           <Grid item xs={12} md={4} sm={6} lg={3} className="header__box">
             <Typography align="center">
-              <NavLink to="/home" className={({ isActive }) => (isActive ? "active" : "inactive")}>
+              <NavLink to="/" className={({ isActive }) => (isActive ? "active" : "inactive")}>
                 <a className="header__box--link">Trang chủ</a>
               </NavLink>
             </Typography>

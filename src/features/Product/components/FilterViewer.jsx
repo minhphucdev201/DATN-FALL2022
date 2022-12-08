@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Box, Chip } from "@mui/material";
 import { makeStyles } from "@material-ui/core";
+import { useMemo } from "react";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -53,22 +54,19 @@ const FILTER_LIST = [
     },
     onToggle: () => {},
   },
-  //   {
-  //     id: 3,
-  //     getLabel: (filters) => `${filters.salePrice["$gte"]} đến ${filters.salePrice["$lte"]}`,
-  //     isActive: () => true,
-  //     isVisible: (filters) =>
-  //       Object.keys(filters).includes("salePrice[$gte]") &&
-  //       Object.keys(filters).includes("salePrice[$lte]"),
-  //     isRemovable: true,
-  //     onRemove: (filters) => {
-  //         const newFilters = { ...filters };
-  //         delete newFilters.salePrice[$gte];
-  //         delete newFilters.salePrice[$lte];
-  //         return newFilters;
-  //     },
-  //     onToggle: () => {},
+  // {
+  //   id: 3,
+  //   getLabel: (filters) => `${filters.salePrice["$gte"]} `,
+  //   isActive: () => true,
+  //   isVisible: (filters) => Object.keys(filters).includes("salePrice[$gte]"),
+  //   isRemovable: true,
+  //   onRemove: (filters) => {
+  //     const newFilters = { ...filters };
+  //     delete newFilters.salePrice[$gte];
+  //     return newFilters;
   //   },
+  //   onToggle: () => {},
+  // },
   {
     id: 4,
     getLabel: (filters) => `Danh mục: ${filters["idCatalog"]}`,
@@ -85,9 +83,12 @@ const FILTER_LIST = [
 ];
 function FilterViewer({ filters = {}, onChange = null }) {
   const classes = useStyles();
+  const visibleFilters = useMemo(() => {
+    return FILTER_LIST.filter((x) => x.isVisible(filters));
+  }, [filters]);
   return (
     <Box component="ul" className={classes.root}>
-      {FILTER_LIST.filter((x) => x.isVisible(filters)).map((x) => (
+      {visibleFilters.map((x) => (
         <li key={x.id}>
           <Chip
             label={x.getLabel(filters)}

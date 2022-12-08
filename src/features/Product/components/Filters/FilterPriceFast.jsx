@@ -1,44 +1,61 @@
 import RemoveIcon from "@mui/icons-material/Remove";
 import { Box, Button, Checkbox, FormControlLabel, TextField } from "@mui/material";
+import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
+import CheckBoxIcon from "@mui/icons-material/CheckBox";
+import Radio from "@mui/material/Radio";
+import RadioGroup from "@mui/material/RadioGroup";
+
 import { React, useState } from "react";
 import "../../pages/styles.scss";
 import { PropTypes } from "prop-types";
 FilterPriceFast.propTypes = {
-  filters: PropTypes.object,
   onChange: PropTypes.func,
 };
 
-function FilterPriceFast({ filters = {}, onChange }) {
+function FilterPriceFast({ onChange }) {
+  const [checked, setChecked] = useState(false);
   const handleChange = (e) => {
-    if (!onChange) return;
     const { name, value } = e.target;
-
+    if (!onChange) return;
     onChange({ [name]: value });
+    if (!e.target.checked) {
+      setChecked(false);
+      onChange({ [name]: value });
+      // value = "0";
+    }
   };
   return (
     <div className="main__filterPrice">
       <div>
         <h3 className="main__filterPrice--title">Giá sản phẩm</h3>
-        <ul className="main__filterPrice--list">
+        <RadioGroup
+          aria-labelledby="demo-controlled-radio-buttons-group"
+          name="controlled-radio-buttons-group"
+        >
+          {/* <ul className="main__filterPrice--list"> */}
           {[
             { name: "salePrice[$gte]", value: "50000", label: "Giá trên 50.000đ" },
-            { name: "salePrice[$gte]", value: "1000000", label: "Giá trên 1.000.000đ" },
+            { name: "salePrice[$gte]", value: "500000", label: "Giá trên 500.000đ" },
+            {
+              name: "salePrice[$gte]",
+              value: "1000000",
+              label: "Giá trên 1.000.000đ",
+            },
           ].map((service) => (
-            <li key={service.value} className="main__filterPrice--item">
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    name={service.name}
-                    onChange={handleChange}
-                    color="success"
-                    value={service.value}
-                  />
-                }
-                label={service.label}
-              />
-            </li>
+            <FormControlLabel
+              control={
+                <Radio
+                  name={service.name}
+                  onChange={handleChange}
+                  color="success"
+                  value={service.value}
+                />
+              }
+              label={service.label}
+            />
           ))}
-        </ul>
+        </RadioGroup>
+        {/* </ul> */}
       </div>
     </div>
   );

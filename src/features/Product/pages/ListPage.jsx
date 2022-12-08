@@ -1,39 +1,33 @@
-import { Add, Category } from "@mui/icons-material";
-import RemoveIcon from "@mui/icons-material/Remove";
-import {
-  Box,
-  Button,
-  Checkbox,
-  Container,
-  FormControlLabel,
-  Grid,
-  Pagination,
-  TextField,
-  Typography,
-} from "@mui/material";
-import Collapse from "@mui/material/Collapse";
-import FormControl from "@mui/material/FormControl";
-import FormLabel from "@mui/material/FormLabel";
-import List from "@mui/material/List";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemText from "@mui/material/ListItemText";
-import Radio from "@mui/material/Radio";
-import RadioGroup from "@mui/material/RadioGroup";
+import { Box, Container, Grid, Pagination } from "@mui/material";
 import { React, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import ProductSkeletonList from "../components/ProductSkeletonList";
-
-import productApi from "./../../../api/productApi";
-import "./styles.scss";
-import ProductList from "./../components/ProductList";
-import ProductSort from "../components/ProductSort";
-import ProductFilters from "../components/ProductFilters";
+import queryString from "query-string";
+import { useHistory, useLocation } from "react-router-dom";
 import FilterViewer from "../components/FilterViewer";
+import ProductFilters from "../components/ProductFilters";
+import ProductSort from "../components/ProductSort";
+import productApi from "./../../../api/productApi";
+import ProductList from "./../components/ProductList";
+import { useMemo } from "react";
+import "./styles.scss";
 ListPage.propTypes = {};
 
 function ListPage(props) {
-  const [open, setOpen] = useState(true);
-
+  const history = useHistory();
+  const location = useLocation();
+  const queryParams = useMemo(() => {
+    const params = queryString.parse(location.search);
+    return {
+      ...params,
+      column: params.column || "salePrice",
+      type: params.type || "ASC",
+      page: Number.parseInt(params.page) || 1,
+      limit: Number.parseInt(params.limit) || 9,
+      isPromotion: params.isPromotion === "true",
+      isFreeShip: params.isFreeShip === "true",
+    };
+  }, [location.search]);
+  console.log("==>", location);
   const [productList, setProductList] = useState([]);
   const [pagination, setPagination] = useState({
     limit: 9,
@@ -41,19 +35,29 @@ function ListPage(props) {
     page: 1,
   });
   const [loading, setLoading] = useState(true);
-  const [filters, setFilters] = useState({
-    page: 1,
-    limit: 9,
-    column: "salePrice",
-    type: "ASC",
-  });
-  const handleClick = () => {
-    setOpen(!open);
-  };
+
+  // filters default
+  // const [filters, setFilters] = useState(() => ({
+  //   ...queryParams,
+  //   column: queryParams.column || "salePrice",
+  //   type: queryParams.type || "ASC",
+  //   page: Number.parseInt(queryParams.page) || 1,
+  //   limit: Number.parseInt(queryParams.limit) || 9,
+  // }));
+  // useEffect(() => {
+  //   history.push({
+  //     // lay pathname hien tai
+  //     pathname: history.location.pathname,
+  //     // update filter len tren url
+  //     search: queryString.stringify(filters),
+  //   });
+  // }, [history, filters]);
+
+  // lay data product
   useEffect(() => {
     (async () => {
       try {
-        const { data, pagination } = await productApi.getAll(filters);
+        const { data, pagination } = await productApi.getAll(queryParams);
         setProductList(data);
         console.log(data, pagination);
         setPagination(pagination);
@@ -62,30 +66,70 @@ function ListPage(props) {
       }
       setLoading(false);
     })();
-  }, [filters]);
-  const handlePageChange = (e, page) => {
-    setFilters((prevFilters) => ({
-      ...prevFilters,
-      page: page,
-    }));
-  };
+  }, [queryParams]);
 
+  // xu li page (pagination)
+  const handlePageChange = (e, page) => {
+    // setFilters((prevFilters) => ({
+    //   ...prevFilters,
+    //   page: page,
+    // }));
+    const filters = {
+      ...queryParams,
+      page: page,
+    };
+    history.push({
+      // lay pathname hien tai
+      pathname: history.location.pathname,
+      // update filter len tren url
+      search: queryString.stringify(filters),
+    });
+  };
+  // sap xep theo gia
   const handleSortChange = (newValues) => {
-    setFilters((prevFilters) => ({
-      ...prevFilters,
+    // setFilters((prevFilters) => ({
+    //   ...prevFilters,
+    //   column: "salePrice",
+    //   type: "DESC",
+    // }));
+
+    const filters = {
+      ...queryParams,
       column: "salePrice",
       type: "DESC",
-    }));
+    };
+    history.push({
+      // lay pathname hien tai
+      pathname: history.location.pathname,
+      // update filter len tren url
+      search: queryString.stringify(filters),
+    });
   };
 
   const handleFiltersChange = (newFilters) => {
-    setFilters((prevFilters) => ({
-      ...prevFilters,
+    // setFilters((prevFilters) => ({
+    //   ...prevFilters,
+    //   ...newFilters,
+    // }));
+    const filters = {
+      ...queryParams,
       ...newFilters,
-    }));
+    };
+    history.push({
+      // lay pathname hien tai
+      pathname: history.location.pathname,
+      // update filter len tren url
+      search: queryString.stringify(filters),
+    });
   };
   const setNewFilters = (newFilters) => {
-    setFilters(newFilters);
+    // setFilters(newFilters);
+    history.push({
+      // lay pathname hien tai
+      pathname: history.location.pathname,
+      // update filter len tren url
+      search: queryString.stringify(newFilters),
+    });
   };
   return (
     <div>
@@ -99,12 +143,12 @@ function ListPage(props) {
       <Container className="main">
         <Grid container spacing={2}>
           <Grid item xs={4} className="main__left">
-            <ProductFilters filters={filters} onChange={handleFiltersChange} />
+            <ProductFilters filters={queryParams} onChange={handleFiltersChange} />
           </Grid>
           <Grid item xs={8} className="main__right">
             <div className="main__products">
               <ProductSort currentSort="column=salePrice&type=asc" onChange={handleSortChange} />
-              <FilterViewer filters={filters} onChange={setNewFilters} />
+              <FilterViewer filters={queryParams} onChange={setNewFilters} />
               <div className="main__productsview">
                 <Grid container spacing={2}>
                   {loading ? <ProductSkeletonList /> : <ProductList data={productList} />}

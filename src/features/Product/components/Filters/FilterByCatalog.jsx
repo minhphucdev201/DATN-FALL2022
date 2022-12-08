@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import "../../pages/styles.scss";
-import { Collapse, List, ListItemButton, ListItemText, Typography } from "@mui/material";
+import { Collapse, List, ListItem, ListItemButton, ListItemText, Typography } from "@mui/material";
 import RemoveIcon from "@mui/icons-material/Remove";
 import { Add } from "@mui/icons-material";
 import catalogApi from "./../../../../api/catalogApi";

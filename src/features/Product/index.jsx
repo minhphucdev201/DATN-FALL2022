@@ -1,12 +1,20 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
-
+// import { Outlet } from "react-router-dom";
+import { Route, useRouteMatch } from "react-router-dom/cjs/react-router-dom.min";
+import { Switch } from "react-router-dom";
+import ListPage from "./pages/ListPage";
+import DetailPage from "./pages/DetailPage";
 ProductFeature.propTypes = {};
 ProductFeature.defaultProps = {};
 function ProductFeature(props) {
+  const match = useRouteMatch();
   return (
     <div>
-      <Outlet />
+      {/* <Outlet /> */}
+      <Switch>
+        <Route path={match.url} exact component={ListPage} />
+        <Route path={`${match.url}/:productId`} exact component={DetailPage} />
+      </Switch>
     </div>
   );
 }
