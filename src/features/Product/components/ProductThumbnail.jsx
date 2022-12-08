@@ -2,16 +2,15 @@ import { Box } from "@mui/material";
 import PropTypes from "prop-types";
 import { React, useState } from "react";
 import { FreeMode, Navigation, Thumbs } from "swiper";
+import "swiper/css/bundle";
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/free-mode";
-import "swiper/css/navigation";
-import "swiper/css/thumbs";
+
+import "./styles.scss";
 ProductThumbnail.propTypes = {
   product: PropTypes.array,
 };
 
-function ProductThumbnail({ product = {} }) {
+function ProductThumbnail({ product }) {
   const [activeThumb, setActiveThumb] = useState(null);
   return (
     <>
@@ -23,12 +22,12 @@ function ProductThumbnail({ product = {} }) {
         spaceBetween={10}
         navigation={true}
         modules={[Navigation, Thumbs]}
-        grabCursor={true}
+        // grabCursor={true}
         thumbs={{ swiper: activeThumb }}
-        className="product-images-slider"
+        className="mySwiper2"
       >
         <SwiperSlide>
-          <img src={product.thumbnail[0].img2} alt={product.thumbnail[0]._id} />
+          <img src={product.thumbnail[0].img2} alt="product images" />
         </SwiperSlide>
       </Swiper>
       <Swiper
@@ -37,13 +36,13 @@ function ProductThumbnail({ product = {} }) {
         slidesPerView={4}
         freeMode={true}
         modules={[FreeMode, Navigation, Thumbs]}
-        className="product-images-slider-thumbs"
+        className="mySwiper"
       >
         {product.images.map((img) => (
           <SwiperSlide>
-            <div className="product-images-slider-thumbs-wrapper">
-              <img src={img} />
-            </div>
+            {/* <div className="product-images-slider-thumbs-wrapper"> */}
+            <img src={img} alt="product images" />
+            {/* </div> */}
           </SwiperSlide>
         ))}
       </Swiper>
