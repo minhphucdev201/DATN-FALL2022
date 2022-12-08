@@ -13,7 +13,7 @@ function ProductFeature(props) {
       {/* <Outlet /> */}
       <Switch>
         <Route path={match.url} exact component={ListPage} />
-        <Route path={`${match.url}/:productId`} exact component={DetailPage} />
+        <Route path={`${match.url}/:productId`} component={DetailPage} />
       </Switch>
     </div>
   );

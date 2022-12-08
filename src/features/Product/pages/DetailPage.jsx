@@ -25,7 +25,10 @@ import "swiper/css/thumbs";
 import { productImages } from "../../../assets/index";
 import ProductImagesSlider from "../../../components/product-images-slider";
 import "./styles.scss";
+import ProductThumbnail from "../components/ProductThumbnail";
 // import required modules
+import { useRouteMatch } from "react-router-dom/cjs/react-router-dom.min";
+import useProductDetail from "./../hooks/useProductDetail";
 DetailPage.propTypes = {};
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -59,6 +62,13 @@ const useStyles = makeStyles((theme) => ({
 }));
 function DetailPage(props) {
   const classes = useStyles();
+  const {
+    params: { productId },
+  } = useRouteMatch();
+  const { product, loading } = useProductDetail(productId);
+  if (loading) {
+    return <Box>Loading</Box>;
+  }
   function handleClick(event) {
     event.preventDefault();
     console.info("You clicked a breadcrumb.");
@@ -99,7 +109,8 @@ function DetailPage(props) {
         <div className="productDetail">
           <Grid container spacing={2} className="productDetail__main">
             <Grid item xs={12} md={4} sm={6} lg={6} className="productDetail__image">
-              <ProductImagesSlider images={productImages} />
+              {/* <ProductImagesSlider images={productImages} /> */}
+              <ProductThumbnail product={product} />
             </Grid>
             <Grid item xs={12} md={4} sm={6} lg={6} className="productDetail__details">
               <div className="productDetail__details--main">

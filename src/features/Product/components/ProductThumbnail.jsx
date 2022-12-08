@@ -1,16 +1,14 @@
-import React from "react";
+import { Box } from "@mui/material";
 import PropTypes from "prop-types";
+import { React, useState } from "react";
+import { Navigation, Thumbs } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { FreeMode, Navigation, Thumbs } from "swiper";
-import { useState } from "react";
-import "./styles.scss";
-ProductImagesSlider.propTypes = {
-  images: PropTypes.array.isRequired,
+ProductThumbnail.propTypes = {
+  product: PropTypes.array,
 };
 
-function ProductImagesSlider(props) {
-  const [activeThumb, setActiveThumb] = useState();
-
+function ProductThumbnail({ product = {} }) {
+  const [activeThumb, setActiveThumb] = useState(null);
   return (
     <>
       <Swiper
@@ -21,15 +19,13 @@ function ProductImagesSlider(props) {
         spaceBetween={10}
         navigation={true}
         modules={[Navigation, Thumbs]}
-        // grabCursor={true}
-        thumbs={{ activeThumb }}
+        grabCursor={true}
+        thumbs={{ swiper: activeThumb }}
         className="product-images-slider"
       >
-        {props.images.map((item, index) => (
-          <SwiperSlide key={index}>
-            <img src={item} alt="product images" />
-          </SwiperSlide>
-        ))}
+        <SwiperSlide>
+          <img src={product.thumbnail[0].img2} alt={product.thumbnail[0]._id} />
+        </SwiperSlide>
       </Swiper>
       <Swiper
         onSwiper={setActiveThumb}
@@ -38,10 +34,10 @@ function ProductImagesSlider(props) {
         modules={[Navigation, Thumbs]}
         className="product-images-slider-thumbs"
       >
-        {props.images.map((item, index) => (
-          <SwiperSlide key={index}>
+        {product.images.map((img) => (
+          <SwiperSlide>
             <div className="product-images-slider-thumbs-wrapper">
-              <img src={item} alt="product images" />
+              <img src={img} />
             </div>
           </SwiperSlide>
         ))}
@@ -50,4 +46,4 @@ function ProductImagesSlider(props) {
   );
 }
 
-export default ProductImagesSlider;
+export default ProductThumbnail;

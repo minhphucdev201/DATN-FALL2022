@@ -1,14 +1,20 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { formatPrice } from "./../../../utils/common";
+import { useHistory } from "react-router-dom";
 
 Product.propTypes = {
   product: PropTypes.object,
 };
 Product.defaultProps = {};
 function Product({ product }) {
+  const history = useHistory();
+  const handleClick = () => {
+    // navigate to detail page : /product/:productId
+    history.push(`/products/${product._id}`);
+  };
   return (
-    <div className="single-product-wrapper">
+    <div className="single-product-wrapper" onClick={handleClick}>
       <div className="product-img">
         <img src={product.thumbnail[0].imageUrl} alt="" />
         <img className="hover-img" src={product.thumbnail[0].img2} alt="" />
