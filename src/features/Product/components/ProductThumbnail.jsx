@@ -1,8 +1,12 @@
 import { Box } from "@mui/material";
 import PropTypes from "prop-types";
 import { React, useState } from "react";
-import { Navigation, Thumbs } from "swiper";
+import { FreeMode, Navigation, Thumbs } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/free-mode";
+import "swiper/css/navigation";
+import "swiper/css/thumbs";
 ProductThumbnail.propTypes = {
   product: PropTypes.array,
 };
@@ -31,7 +35,8 @@ function ProductThumbnail({ product = {} }) {
         onSwiper={setActiveThumb}
         spaceBetween={10}
         slidesPerView={4}
-        modules={[Navigation, Thumbs]}
+        freeMode={true}
+        modules={[FreeMode, Navigation, Thumbs]}
         className="product-images-slider-thumbs"
       >
         {product.images.map((img) => (
