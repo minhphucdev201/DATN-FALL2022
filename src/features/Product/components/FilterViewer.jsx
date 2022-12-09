@@ -87,9 +87,9 @@ function FilterViewer({ filters = {}, onChange = null }) {
     return FILTER_LIST.filter((x) => x.isVisible(filters));
   }, [filters]);
   return (
-    <Box component="ul" className={classes.root}>
+    <Box component="ul" sx={{ marginBottom: "24px" }} className={classes.root}>
       {visibleFilters.map((x) => (
-        <li key={x.id}>
+        <li component="li" key={x.id}>
           <Chip
             label={x.getLabel(filters)}
             color={x.isActive(filters) ? "success" : "default"}

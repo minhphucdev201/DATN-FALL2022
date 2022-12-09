@@ -111,6 +111,7 @@
     }
   }
   &__right {
+    padding-left: 0;
   }
   &__products {
     &--pag {
@@ -272,7 +273,28 @@
   &__breadcrumb {
     border-top: 1px solid #f5f5f5;
     border-bottom: 1px solid #f5f5f5;
-    padding: 20px 0px;
+    padding: 12px 0px;
+  }
+  &__list {
+    display: flex;
+    background: transparent;
+    color: rgba(112, 126, 137, 0.5);
+    padding: 0;
+    list-style: none;
+    margin: 0;
+    &--item {
+      display: flex;
+      align-items: center;
+      margin-right: 6px;
+    }
+    &--link {
+      color: #2c3e50;
+      font-size: 14px;
+      font-weight: 400;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
   }
 }
 

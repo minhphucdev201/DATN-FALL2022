@@ -42,9 +42,9 @@ function ProductNew({ data }) {
                   color="inherit"
                   href="/material-ui/getting-started/installation/"
                 >
-                  Tinh dầu
+                  Tinh Dầu
                 </Link>
-                <Typography color="text.primary">Tinh dầu thiên nhiên</Typography>
+                <Typography color="text.primary">Tinh Dầu Thiên Nhiên</Typography>
               </Breadcrumbs>
             </div>
           </div>
@@ -55,7 +55,7 @@ function ProductNew({ data }) {
               <div className="single-product-wrapper">
                 <div className="product-img">
                   <img src={product.thumbnail[0].imageUrl} alt="" />
-                  <img src={product.thumbnail[0].img2} className="hover-img" alt="" />
+                  <img src={product.thumbnail[1].img2} className="hover-img" alt="" />
                   <div className="product-badge offer-badge">
                     <span>{product.promotionPercent}%</span>
                   </div>

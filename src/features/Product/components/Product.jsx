@@ -17,7 +17,7 @@ function Product({ product }) {
     <div className="single-product-wrapper" onClick={handleClick}>
       <div className="product-img">
         <img src={product.thumbnail[0].imageUrl} alt="" />
-        <img className="hover-img" src={product.thumbnail[0].img2} alt="" />
+        <img className="hover-img" src={product.thumbnail[1].img2} alt="" />
 
         <div className="product-badge offer-badge">
           <span>-12%</span>

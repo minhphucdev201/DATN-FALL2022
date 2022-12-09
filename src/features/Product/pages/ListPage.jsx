@@ -23,8 +23,8 @@ function ListPage(props) {
       type: params.type || "ASC",
       page: Number.parseInt(params.page) || 1,
       limit: Number.parseInt(params.limit) || 9,
-      isPromotion: params.isPromotion === "true",
-      isFreeShip: params.isFreeShip === "true",
+      // isPromotion: params.isPromotion === "true",
+      // isFreeShip: params.isFreeShip === "true",
     };
   }, [location.search]);
   console.log("==>", location);
