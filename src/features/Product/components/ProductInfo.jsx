@@ -42,9 +42,15 @@ function ProductInfo({ product = {} }) {
         <div className="productDetail__price--box">
           <span className="productDetail__price--special">{formatPrice(product.salePrice)}</span>
           <span className="productDetail__price--old">{formatPrice(product.originalPrice)}</span>
+          <span
+            className="productDetail__price--special"
+            style={{ color: "#2E7D32", fontSize: "18px", marginLeft: "20px" }}
+          >
+            -{product.promotionPercent}%
+          </span>
         </div>
       </div>
-      <div className="productDetail__formgroup">
+      {/* <div className="productDetail__formgroup">
         <div className="productDetail__formgroup--box">
           <label className="productDetail__formgroup--label">Số lượng : </label>
           <div class="qty-input">
@@ -73,7 +79,7 @@ function ProductInfo({ product = {} }) {
             <a className="productDetail__btnmua--btn">Mua Ngay</a>
           </div>
         </div>
-      </div>
+      </div> */}
 
       <div className="productDetail__service">
         <div className="productDetail__service--item">

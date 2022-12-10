@@ -34,6 +34,7 @@ import ProductBestSell from "./../../HomePage/Components/ProductBestSell";
 import ProductBreadcrumb from "./../components/ProductBreadcrumb";
 import ProductRelate from "./../components/ProductRelate";
 import productApi from "./../../../api/productApi";
+import AddToCartForm from "../components/AddToCartForm";
 DetailPage.propTypes = {};
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -86,7 +87,9 @@ function DetailPage(props) {
   if (loading) {
     return <Box>Loading</Box>;
   }
-
+  const handleAddToCartSubmit = (formValues) => {
+    console.log("Form Submit:", formValues);
+  };
   return (
     <div className="sectionDetail">
       <ProductBreadcrumb product={product} />
@@ -99,6 +102,7 @@ function DetailPage(props) {
             </Grid>
             <Grid item xs={12} md={4} sm={6} lg={6} className="productDetail__details">
               <ProductInfo product={product} />
+              {/* <AddToCartForm onSubmit={handleAddToCartSubmit} /> */}
             </Grid>
           </Grid>
 
