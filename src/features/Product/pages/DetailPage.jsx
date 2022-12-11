@@ -1,15 +1,7 @@
 import { makeStyles } from "@material-ui/core";
-import NavigateNextIcon from "@mui/icons-material/NavigateNext";
-import StarIcon from "@mui/icons-material/Star";
-import StarHalfIcon from "@mui/icons-material/StarHalf";
-import { Container, Grid } from "@mui/material";
-import Breadcrumbs from "@mui/material/Breadcrumbs";
-import Link from "@mui/material/Link";
-import Stack from "@mui/material/Stack";
-import Typography from "@mui/material/Typography";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import ChatBubbleOutlineOutlinedIcon from "@mui/icons-material/ChatBubbleOutlineOutlined";
 import StarOutlineIcon from "@mui/icons-material/StarOutline";
+import { Container, Grid } from "@mui/material";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import { React, useEffect, useState } from "react";
@@ -22,19 +14,15 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
 
-import { productImages } from "../../../assets/index";
-import ProductImagesSlider from "../../../components/product-images-slider";
-import "./styles.scss";
 import ProductThumbnail from "../components/ProductThumbnail";
+import "./styles.scss";
 // import required modules
 import { useRouteMatch } from "react-router-dom/cjs/react-router-dom.min";
-import useProductDetail from "./../hooks/useProductDetail";
-import ProductInfo from "./../components/ProductInfo";
-import ProductBestSell from "./../../HomePage/Components/ProductBestSell";
-import ProductBreadcrumb from "./../components/ProductBreadcrumb";
-import ProductRelate from "./../components/ProductRelate";
 import productApi from "./../../../api/productApi";
-import AddToCartForm from "../components/AddToCartForm";
+import ProductBreadcrumb from "./../components/ProductBreadcrumb";
+import ProductInfo from "./../components/ProductInfo";
+import ProductRelate from "./../components/ProductRelate";
+import useProductDetail from "./../hooks/useProductDetail";
 DetailPage.propTypes = {};
 const useStyles = makeStyles((theme) => ({
   root: {

@@ -27,7 +27,6 @@ function ListPage(props) {
       // isFreeShip: params.isFreeShip === "true",
     };
   }, [location.search]);
-  console.log("==>", location);
   const [productList, setProductList] = useState([]);
   const [pagination, setPagination] = useState({
     limit: 9,

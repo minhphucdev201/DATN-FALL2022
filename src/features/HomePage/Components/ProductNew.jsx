@@ -19,7 +19,6 @@ function ProductNew({ data }) {
     event.preventDefault();
     console.info("You clicked a breadcrumb.");
   }
-
   return (
     <div className="sectionNew">
       <Container>

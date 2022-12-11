@@ -20,11 +20,15 @@ function ProductBreadcrumb({ product = {} }) {
               <NavigateNextIcon sx={{ paddingLeft: "0px" }} size="large" color="inherit" />
             </li>
             <li className="sectionDetail__list--item">
-              <a className="sectionDetail__list--link">{product.idCatalog.name}</a>
+              <a href="/" className="sectionDetail__list--link">
+                {product.idCatalog.name}
+              </a>
               <NavigateNextIcon sx={{ paddingLeft: "0px" }} size="large" color="inherit" />
             </li>
             <li className="sectionDetail__list--item">
-              <a className="sectionDetail__list--link">{product.name}</a>
+              <a href="/" className="sectionDetail__list--link">
+                {product.name}
+              </a>
             </li>
           </ul>
         </Stack>

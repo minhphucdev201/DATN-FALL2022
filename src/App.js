@@ -46,6 +46,7 @@ function App() {
         <Route path="/" component={HomePage} exact />
         <Route path="/products" component={ProductFeature} />
         <Route path="/cart" component={CartFeature} />
+        <Route path="/blog" component={BlogFeature} />
 
         <Route component={NotFound} />
       </Switch>
