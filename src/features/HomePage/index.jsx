@@ -11,6 +11,19 @@ HomePage.propTypes = {};
 function HomePage(props) {
   const [productNew, setProductNew] = useState([]);
   const [productDiscount, setProductDiscount] = useState([]);
+  const [productList, setProductList] = useState({});
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const { data } = await productApi.getAll({});
+        setProductList(data);
+        console.log(data);
+      } catch (error) {
+        console.log("Failed to fetch productList", error);
+      }
+    })();
+  }, []);
   useEffect(() => {
     (async () => {
       try {

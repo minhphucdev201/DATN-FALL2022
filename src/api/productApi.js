@@ -2,7 +2,6 @@ import axiosClient from "./axiosClient";
 
 const productApi = {
   async getAll(params) {
-    const count = await axiosClient.get("/products/count", { params: params });
     const productList = await axiosClient.get("/products", { params: params });
     return productList;
   },

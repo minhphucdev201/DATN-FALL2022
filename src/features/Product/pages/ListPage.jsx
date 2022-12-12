@@ -10,6 +10,7 @@ import productApi from "./../../../api/productApi";
 import ProductList from "./../components/ProductList";
 import { useMemo } from "react";
 import "./styles.scss";
+import ProductSearch from "../components/ProductSearch";
 ListPage.propTypes = {};
 
 function ListPage(props) {
@@ -130,6 +131,21 @@ function ListPage(props) {
       search: queryString.stringify(newFilters),
     });
   };
+  const handleSearchChange = (newFilters) => {
+    console.log("New filters:", newFilters);
+    const filters = {
+      ...queryParams,
+      page: 1,
+      name: newFilters.searchTerm,
+    };
+    history.push({
+      // lay pathname hien tai
+      pathname: history.location.pathname,
+      // update filter len tren url
+      search: queryString.stringify(filters),
+    });
+  };
+
   return (
     <div>
       <div className="sectionBanner">
@@ -146,6 +162,7 @@ function ListPage(props) {
           </Grid>
           <Grid item xs={8} className="main__right">
             <div className="main__products">
+              <ProductSearch onSubmit={handleSearchChange} />
               <ProductSort currentSort="column=salePrice&type=asc" onChange={handleSortChange} />
               <FilterViewer filters={queryParams} onChange={setNewFilters} />
               <div className="main__productsview">

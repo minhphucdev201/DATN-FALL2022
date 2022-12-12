@@ -10,7 +10,6 @@ Product.defaultProps = {};
 function Product({ product }) {
   const history = useHistory();
   const handleClick = () => {
-    // navigate to detail page : /product/:productId
     history.push(`/products/${product._id}`);
   };
   return (
@@ -40,5 +39,4 @@ function Product({ product }) {
     </div>
   );
 }
-
 export default Product;

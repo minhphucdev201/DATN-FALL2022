@@ -24,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
 function FilterByCatalog({ onChange }) {
   const [categoryList, setCategoryList] = useState([]);
   const [open, setOpen] = useState(true);
+  const [selectedIndex, setSelectedIndex] = useState("");
   const classes = useStyles();
   const handleClick = () => {
     setOpen(!open);
@@ -45,6 +46,7 @@ function FilterByCatalog({ onChange }) {
       onChange(category);
     }
   };
+
   return (
     <div className="main__viewcat">
       <h2 className="main__viewcat--title">Danh Mục</h2>
@@ -55,15 +57,18 @@ function FilterByCatalog({ onChange }) {
           {open ? <RemoveIcon /> : <Add />}
         </ListItemButton>
         <Collapse in={open} timeout="auto" unmountOnExit>
-          <List component="div" disablePadding>
+          <List>
             {categoryList.map((category) => (
-              <ListItemButton
-                key={category._id}
-                onClick={() => handleCategoryClick(category)}
-                sx={{ pl: 4 }}
-              >
-                <ListItemText primary={category.name} />
-              </ListItemButton>
+              <ListItem>
+                <ListItemButton
+                  key={category._id}
+                  onClick={() => handleCategoryClick(category)}
+                  sx={{ pl: 4 }}
+                  selected={selectedIndex === 0}
+                >
+                  <ListItemText primary={category.name} />
+                </ListItemButton>
+              </ListItem>
             ))}
           </List>
         </Collapse>
