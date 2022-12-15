@@ -1,6 +1,7 @@
 import { Card, CardActionArea, CardContent, CardMedia, Typography } from "@mui/material";
 import { PropTypes } from "prop-types";
 import { React } from "react";
+import { useHistory } from "react-router-dom";
 import { FreeMode, Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/free-mode";
@@ -11,6 +12,8 @@ BlogRelate.propTypes = {
 };
 
 function BlogRelate({ blog = {} }) {
+  const history = useHistory();
+
   return (
     <>
       <div className="blogDetail__related--head">
@@ -26,8 +29,13 @@ function BlogRelate({ blog = {} }) {
         className="mySwiper"
       >
         {blog.map((blog) => (
-          <SwiperSlide>
-            <div className="post">
+          <SwiperSlide key={blog._id}>
+            <div
+              className="post"
+              onClick={() => {
+                history.push(`/blogs/${blog._id}`);
+              }}
+            >
               <Card sx={{ boxShadow: "none", outline: "none" }}>
                 <CardActionArea sx={{ width: "100%" }}>
                   <div className="post__image">
