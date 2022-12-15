@@ -1,23 +1,64 @@
 import { yupResolver } from "@hookform/resolvers/yup";
+import { Button, makeStyles } from "@material-ui/core";
+import QuantityField from "../../../components/form-controls/QuantityField";
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import PropTypes from "prop-types";
-import React from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
-import { Button } from "@mui/material";
-import InputField from "../../../components/form-controls/InputField";
-import QuantityField from "./../../../components/form-controls/QuantityField/index";
+import { Box } from "@mui/material";
 AddToCartForm.propTypes = {
   onSubmit: PropTypes.func,
 };
-
+const useStyles = makeStyles((theme) => ({
+  root: {
+    paddingLeft: "30px",
+  },
+  main: {
+    marginTop: "12px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    border: "1px solid #2e7d32",
+    padding: "6px 8px",
+    backgroundColor: "#f5f5f5f5",
+    maxWidth: "216px",
+    maxHeight: "46px",
+    borderRadius: "2px",
+  },
+  btncart: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    textTransform: "capitalize",
+    letterSpacing: "0.5px",
+    fontWeight: "500",
+    marginLeft: "6px",
+    fontSize: "16px",
+    backgroundColor: "none",
+    outline: "none",
+    color: "#2E7D32",
+    "& > span": {
+      background: "none",
+      "& :hover": {
+        background: "none",
+        outline: "none",
+      },
+    },
+  },
+}));
 function AddToCartForm({ onSubmit = null }) {
+  const classes = useStyles();
   const schema = yup.object().shape({
-    quantity: yup.number().min(1, "Vui lòng nhập 1 số").required("Vui lòng nhập số lượng"),
+    quantity: yup
+      .number()
+      .min(1, "Vui lòng nhập ít nhất là 1")
+      .required("vui lòng nhập số lượng")
+      .typeError("Vui lòng nhập 1 số"),
   });
   // create object form
   const form = useForm({
     defaultValues: {
-      quantity: "1",
+      quantity: 1,
     },
     resolver: yupResolver(schema),
   });
@@ -28,11 +69,14 @@ function AddToCartForm({ onSubmit = null }) {
     }
   };
   return (
-    <form onSubmit={form.handleSubmit(handleSubmit)}>
+    <form onSubmit={form.handleSubmit(handleSubmit)} className={classes.root}>
       <QuantityField name="quantity" label="Quantity" form={form} />
-      <Button type="submit" variant="contained" color="primary" fullWidth size="large">
-        Mua Hàng
-      </Button>
+      <Box className={classes.main}>
+        <AddShoppingCartIcon color="success" />
+        <Button type="submit" className={classes.btncart} color="success">
+          Thêm Vào Giỏ Hàng
+        </Button>
+      </Box>
     </form>
   );
 }

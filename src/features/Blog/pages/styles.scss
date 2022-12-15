@@ -1,3 +1,33 @@
+/* css detail page */
+.sectionDetail {
+  margin-top: 1.2rem;
+  &__breadcrumb {
+    border-top: 1px solid #f5f5f5;
+    border-bottom: 1px solid #f5f5f5;
+    padding: 12px 0px;
+  }
+  &__list {
+    display: flex;
+    background: transparent;
+    color: rgba(112, 126, 137, 0.5);
+    padding: 0;
+    list-style: none;
+    margin: 0;
+    &--item {
+      display: flex;
+      align-items: center;
+      margin-right: 6px;
+    }
+    &--link {
+      color: #2c3e50;
+      font-size: 14px;
+      font-weight: 400;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+  }
+}
 .sectionBlog {
   margin-top: 1.2rem;
   &__breadcrumb {
@@ -16,6 +46,8 @@
     margin-bottom: 20px;
     &--thumbnail {
       width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
     &--thumbnail > img {
       width: 100%;
@@ -30,6 +62,11 @@
       margin: 0;
       letter-spacing: 0.5px;
       width: 95%;
+      cursor: pointer;
+    }
+    &--title:hover {
+      transition: all 0.3s ease-in-out;
+      opacity: 0.9;
     }
     &--desc {
       font-size: 14px;
@@ -67,6 +104,11 @@
       text-align: left;
       margin: 0;
       letter-spacing: 0.5px;
+      cursor: pointer;
+    }
+    &--title:hover {
+      transition: all 0.3s ease-in-out;
+      opacity: 0.9;
     }
   }
   &__item {

@@ -1,140 +1,98 @@
-import React from "react";
+import { yupResolver } from "@hookform/resolvers/yup";
+import InputField from "../../../../components/form-controls/InputField";
 import PropTypes from "prop-types";
+import React from "react";
+import { useForm } from "react-hook-form";
+import * as yup from "yup";
+import { Avatar, Button, Typography } from "@mui/material";
+import { LockOutlined } from "@mui/icons-material";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import LinearProgress from "@mui/material/LinearProgress";
+import { makeStyles } from "@material-ui/core";
+import PasswordField from "../../../../components/form-controls/PasswordField";
 
-import {
-  Breadcrumbs,
-  Button,
-  ButtonGroup,
-  Container,
-  Grid,
-  Link,
-  Stack,
-  TextField,
-  Typography,
-} from "@mui/material";
-import NavigateNextIcon from "@mui/icons-material/NavigateNext";
-import { NavLink } from "react-router-dom";
-import "./styles.scss";
-LoginForm.propTypes = {};
-
+LoginForm.propTypes = {
+  onSubmit: PropTypes.func,
+};
+const useStyles = makeStyles((theme) => ({
+  root: {
+    maxWidth: "350px",
+    position: "relative",
+    paddingTop: theme.spacing(3),
+  },
+  avatar: {
+    margin: "0 auto",
+    backgroundColor: "#546de5",
+  },
+  title: {
+    textAlign: "center",
+  },
+  submit: {
+    margin: theme.spacing(3, 0, 2, 0),
+  },
+  progress: {
+    position: "absolute",
+    top: "16px",
+    left: 0,
+    right: 0,
+  },
+}));
 function LoginForm(props) {
-  function handleClick(event) {
-    event.preventDefault();
-    console.info("You clicked a breadcrumb.");
-  }
-  const breadcrumbs = [
-    <Link underline="hover" key="1" color="inherit" href="/" onClick={handleClick}>
-      <NavLink to="/" style={{ color: "#1c1c1c" }}>
-        TRANG CHỦ
-      </NavLink>
-    </Link>,
+  const classes = useStyles();
+  const schema = yup.object().shape({
+    email: yup
+      .string()
+      .required("Please enter your email.")
+      .email("Please enter a valid email address."),
 
-    <Typography key="2" color="text.primary" sx={{ fontWeight: "550", textTransform: "uppercase" }}>
-      Đăng nhập tài khoản
-    </Typography>,
-  ];
+    password: yup.string().required("Please enter your password."),
+  });
+  const form = useForm({
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+    resolver: yupResolver(schema),
+  });
+
+  const handleSubmit = async (values) => {
+    const { onSubmit } = props;
+    if (onSubmit) {
+      await onSubmit(values);
+    }
+  };
+  const { isSubmitting } = form.formState;
   return (
-    <div className="login">
-      <div className="login__breadcrumb">
-        <Container>
-          <Stack spacing={2}>
-            <Breadcrumbs
-              separator={<NavigateNextIcon fontSize="small" />}
-              aria-label="breadcrumb"
-              sx={{ color: "#5C5757" }}
-            >
-              {breadcrumbs}
-            </Breadcrumbs>
-          </Stack>
-        </Container>
-      </div>
-      <div className="login__head">
-        <h2 className="login__head--title">ĐĂNG NHẬP TÀI KHOẢN</h2>
-        <Typography variant="subtitle1" sx={{ textAlign: "center" }}>
-          Nếu đã có tài khoản vui lòng đăng ký tại đây &nbsp;
-          <a href="" style={{ color: "#2e7d32" }}>
-            tại đây
-          </a>
-        </Typography>
-      </div>
-      <div className="login__social">
-        <Grid
-          container
-          spacing={1}
-          sx={{ display: "flex", justifyContent: "center", alignContent: "center" }}
+    <div className={classes.root}>
+      {isSubmitting && (
+        <LinearProgress
+          sx={{ position: "absolute", top: "10px", left: 0, right: 0 }}
+          className={classes.progress}
+        />
+      )}
+      <Avatar className={classes.avatar}>
+        <LockOutlined></LockOutlined>
+      </Avatar>
+      <Typography sx={{ margin: "16px 0px" }} className={classes.title} component="h3" variant="h5">
+        Đăng Nhập
+      </Typography>
+      <form onSubmit={form.handleSubmit(handleSubmit)}>
+        <InputField name="email" label="Email" placeholder="Nhập Địa chỉ Email" form={form} />
+        <PasswordField name="password" label="Mật Khẩu" placeholder="Nhập Mật khẩu" form={form} />
+
+        <Button
+          disabled={isSubmitting}
+          type="submit"
+          sx={{ margin: "32px 0 16px 0px" }}
+          fullWidth
+          className={classes.submit}
+          color="success"
+          variant="contained"
+          size="large"
         >
-          <Grid item xs={12} sm={6} md={6} lg={1} sx={{ marginRight: "4px" }}>
-            <div className="login__social--facebook">
-              <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkPAcp6myHZQn8VsfoQV5Lmv2OE24hD22VCdBkHoO2LVc0nv9M1VSMkuuHO1NMs_H1tfU&usqp=CAU"
-                alt=""
-              />
-              <span>Facebook</span>
-            </div>
-          </Grid>
-          <Grid item xs={12} sm={6} md={6} lg={1} sx={{ marginLeft: "4px" }}>
-            <div className="login__social--google">
-              <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyBF69Ugt82cQ4Agk9RFemPGatG_2MhmSpgO_eTOrBLxC24CutQjdmnXiBB7jSCQB6Ef0&usqp=CAU"
-                alt=""
-              />
-              <span>Google</span>
-            </div>
-          </Grid>
-        </Grid>
-      </div>
-      <div className="login__form">
-        <Container>
-          <form action="">
-            <div className="login__form--item">
-              <div>
-                <TextField
-                  id="outlined-textarea"
-                  label="EMAIL"
-                  placeholder="Nhập Địa chỉ Email"
-                  color="success"
-                  multiline
-                  sx={{ width: "60%" }}
-                  size="small"
-                  margin="dense"
-                />
-              </div>
-            </div>
-            <div className="login__form--item">
-              <div>
-                <TextField
-                  id="outlined-textarea"
-                  label="MẬT KHẨU"
-                  placeholder="Nhập Mật khẩu"
-                  color="success"
-                  multiline
-                  sx={{ width: "60%", color: "#1c1c1c" }}
-                  size="small"
-                  margin="dense"
-                />
-              </div>
-            </div>
-            <div className="login__form--submit">
-              <button className="login__form--btn login__form--btn1">ĐĂNG NHẬP</button>
-            </div>
-          </form>
-          <div className="login__forget">
-            <Link underline="hover" color="inherit" href="" sx={{ color: "#4B4949" }}>
-              Quên mật khẩu?
-            </Link>
-          </div>
-          <div className="login__box">
-            <p className="">
-              BẠN CHƯA CÓ TÀI KHOẢN. ĐĂNG KÝ &nbsp;
-              <a href="login__box--link" style={{ color: "#2e7d32" }}>
-                <NavLink to="/register" style={{ color: "#2e7d32" }}>
-                  TẠI ĐÂY.
-                </NavLink>
-              </a>
-            </p>
-          </div>
-        </Container>
-      </div>
+          Đăng Nhập
+        </Button>
+      </form>
     </div>
   );
 }

@@ -1,11 +1,8 @@
 import React from "react";
-import PropTypes from "prop-types";
-import { List } from "@material-ui/core";
-import ListPageBlog from "./pages/ListPageBlog";
-import DetailPageBlog from "./pages/DetailPageBlog";
-import { Route, useRouteMatch } from "react-router-dom/cjs/react-router-dom.min";
 import { Switch } from "react-router-dom";
-import DetailPage from "./pages/DetailPageBlog";
+import { Route, useRouteMatch } from "react-router-dom/cjs/react-router-dom.min";
+import DetailPageBlog from "./pages/DetailPageBlog";
+import ListPageBlog from "./pages/ListPageBlog";
 // import { Outlet } from "react-router-dom";
 
 BlogFeature.propTypes = {};
@@ -16,7 +13,7 @@ function BlogFeature(props) {
     <div>
       <Switch>
         <Route path={match.url} exact component={ListPageBlog} />
-        <Route path={`${match.url}/:productId`} exact component={DetailPage} />
+        <Route path={`${match.url}/:blogId`} exact component={DetailPageBlog} />
       </Switch>
     </div>
   );

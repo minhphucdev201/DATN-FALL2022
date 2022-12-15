@@ -36,23 +36,6 @@ function ListPage(props) {
   });
   const [loading, setLoading] = useState(true);
 
-  // filters default
-  // const [filters, setFilters] = useState(() => ({
-  //   ...queryParams,
-  //   column: queryParams.column || "salePrice",
-  //   type: queryParams.type || "ASC",
-  //   page: Number.parseInt(queryParams.page) || 1,
-  //   limit: Number.parseInt(queryParams.limit) || 9,
-  // }));
-  // useEffect(() => {
-  //   history.push({
-  //     // lay pathname hien tai
-  //     pathname: history.location.pathname,
-  //     // update filter len tren url
-  //     search: queryString.stringify(filters),
-  //   });
-  // }, [history, filters]);
-
   // lay data product
   useEffect(() => {
     (async () => {
@@ -87,12 +70,6 @@ function ListPage(props) {
   };
   // sap xep theo gia
   const handleSortChange = (newValues) => {
-    // setFilters((prevFilters) => ({
-    //   ...prevFilters,
-    //   column: "salePrice",
-    //   type: "DESC",
-    // }));
-
     const filters = {
       ...queryParams,
       column: "salePrice",
@@ -107,10 +84,6 @@ function ListPage(props) {
   };
 
   const handleFiltersChange = (newFilters) => {
-    // setFilters((prevFilters) => ({
-    //   ...prevFilters,
-    //   ...newFilters,
-    // }));
     const filters = {
       ...queryParams,
       ...newFilters,

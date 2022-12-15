@@ -1,162 +1,120 @@
-import React from "react";
-import {
-  Breadcrumbs,
-  Button,
-  ButtonGroup,
-  Container,
-  Grid,
-  Link,
-  Stack,
-  TextField,
-  Typography,
-} from "@mui/material";
-import NavigateNextIcon from "@mui/icons-material/NavigateNext";
-import { NavLink } from "react-router-dom";
+import { yupResolver } from "@hookform/resolvers/yup";
+import InputField from "../../../../components/form-controls/InputField";
 import PropTypes from "prop-types";
+import React from "react";
+import { useForm } from "react-hook-form";
+import * as yup from "yup";
+import { Avatar, Button, Typography } from "@mui/material";
+import { LockOutlined } from "@mui/icons-material";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import LinearProgress from "@mui/material/LinearProgress";
+import { makeStyles } from "@material-ui/core";
+import PasswordField from "../../../../components/form-controls/PasswordField";
 
-import "./styles.scss";
-RegisterForm.propTypes = {};
-
+RegisterForm.propTypes = {
+  onSubmit: PropTypes.func,
+};
+const useStyles = makeStyles((theme) => ({
+  root: {
+    position: "relative",
+    paddingTop: theme.spacing(3),
+  },
+  avatar: {
+    margin: "0 auto",
+    backgroundColor: "#546de5",
+  },
+  title: {
+    textAlign: "center",
+  },
+  submit: {
+    margin: theme.spacing(3, 0, 2, 0),
+  },
+  progress: {
+    position: "absolute",
+    top: "16px",
+    left: 0,
+    right: 0,
+  },
+}));
 function RegisterForm(props) {
-  function handleClick(event) {
-    event.preventDefault();
-    console.info("You clicked a breadcrumb.");
-  }
-  const breadcrumbs = [
-    <Link underline="hover" key="1" color="inherit" href="/" onClick={handleClick}>
-      <NavLink to="/" style={{ color: "#1c1c1c" }}>
-        TRANG CHỦ
-      </NavLink>
-    </Link>,
-    <Typography key="2" color="text.primary" sx={{ fontWeight: "550", textTransform: "uppercase" }}>
-      Đăng kí tài khoản
-    </Typography>,
-  ];
+  const classes = useStyles();
+  const schema = yup.object().shape({
+    fullName: yup
+      .string()
+      .required("Vui lòng nhập tên đầy đủ")
+      .test("Nên nhập ít nhất 2 từ", "Vui lòng nhập ít nhất 2 từ", (value) => {
+        return value.split(" ").length >= 2;
+      }),
+    email: yup
+      .string()
+      .required("Please enter your email.")
+      .email("Please enter a valid email address."),
+
+    password: yup
+      .string()
+      .required("Please enter your password.")
+      .min(6, "Please enter at least six characters."),
+    retypePassword: yup
+      .string()
+      .required("Please enter your RetypePassword.")
+      .oneOf([yup.ref("password")], "Please does not match"),
+  });
+  const form = useForm({
+    defaultValues: {
+      fullName: "",
+      email: "",
+      phone: "",
+      password: "",
+      retypePassword: "",
+    },
+    resolver: yupResolver(schema),
+  });
+
+  const handleSubmit = async (values) => {
+    const { onSubmit } = props;
+    if (onSubmit) {
+      await onSubmit(values);
+    }
+  };
+  const { isSubmitting } = form.formState;
   return (
-    <div className="register">
-      <div className="register__breadcrumb">
-        <Container>
-          <Stack spacing={2}>
-            <Breadcrumbs
-              separator={<NavigateNextIcon fontSize="small" />}
-              aria-label="breadcrumb"
-              sx={{ color: "#5C5757" }}
-            >
-              {breadcrumbs}
-            </Breadcrumbs>
-          </Stack>
-        </Container>
-      </div>
-      <div className="register__head">
-        <h2 className="register__head--title">ĐĂNG KÝ TÀI KHOẢN</h2>
-        <Typography variant="subtitle1" sx={{ textAlign: "center" }}>
-          Nếu chưa có tài khoản vui lòng đăng ký tại đây &nbsp;
-          <a href="" style={{ color: "#2e7d32" }}>
-            <NavLink to="/register" style={{ color: "#2e7d32" }}>
-              tại đây
-            </NavLink>
-          </a>
-        </Typography>
-      </div>
-      <div className="register__social">
-        <Grid
-          container
-          spacing={1}
-          sx={{ display: "flex", justifyContent: "center", alignContent: "center" }}
+    <div className={classes.root}>
+      {isSubmitting && (
+        <LinearProgress
+          sx={{ position: "absolute", top: "10px", left: 0, right: 0 }}
+          className={classes.progress}
+        />
+      )}
+      <Avatar className={classes.avatar}>
+        <LockOutlined></LockOutlined>
+      </Avatar>
+      <Typography sx={{ margin: "16px 0px" }} className={classes.title} component="h3" variant="h5">
+        Đăng Ký
+      </Typography>
+      <form onSubmit={form.handleSubmit(handleSubmit)}>
+        <InputField name="fullName" label="Họ và Tên" placeholder="Nhập họ và tên " form={form} />
+        <InputField name="email" label="Email" placeholder="Nhập Địa chỉ Email" form={form} />
+        <PasswordField name="password" label="Mật Khẩu" placeholder="Nhập Mật khẩu" form={form} />
+        <PasswordField
+          name="retypePassword"
+          label="Nhập Lại Mật Khẩu "
+          placeholder="Vui lòng xác nhận lại mật khẩu"
+          form={form}
+        />
+
+        <Button
+          disabled={isSubmitting}
+          type="submit"
+          sx={{ margin: "32px 0 16px 0px" }}
+          fullWidth
+          className={classes.submit}
+          color="success"
+          variant="contained"
+          size="large"
         >
-          <Grid item xs={12} sm={6} md={6} lg={1} sx={{ marginRight: "4px" }}>
-            <div className="login__social--facebook">
-              <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkPAcp6myHZQn8VsfoQV5Lmv2OE24hD22VCdBkHoO2LVc0nv9M1VSMkuuHO1NMs_H1tfU&usqp=CAU"
-                alt=""
-              />
-              <span>Facebook</span>
-            </div>
-          </Grid>
-          <Grid item xs={12} sm={6} md={6} lg={1} sx={{ marginLeft: "4px" }}>
-            <div className="login__social--google">
-              <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyBF69Ugt82cQ4Agk9RFemPGatG_2MhmSpgO_eTOrBLxC24CutQjdmnXiBB7jSCQB6Ef0&usqp=CAU"
-                alt=""
-              />
-              <span>Google</span>
-            </div>
-          </Grid>
-        </Grid>
-      </div>
-      <div className="register__form">
-        <Container>
-          <form action="">
-            <div className="register__form--item">
-              <div>
-                <TextField
-                  id="outlined-textarea"
-                  label="HỌ Và Tên"
-                  placeholder="Nhập Họ và Tên"
-                  color="success"
-                  multiline
-                  sx={{ width: "60%" }}
-                  size="small"
-                />
-              </div>
-            </div>
-            <div className="register__form--item">
-              <div>
-                <TextField
-                  id="outlined-textarea"
-                  label="SỐ ĐIỆN THOẠI"
-                  placeholder="Nhập Số điện thoại"
-                  color="success"
-                  multiline
-                  sx={{ width: "60%", color: "#1c1c1c" }}
-                  size="small"
-                />
-              </div>
-            </div>
-            <div className="register__form--item">
-              <div>
-                <TextField
-                  id="outlined-textarea"
-                  label="EMAIL"
-                  placeholder="Nhập Địa chỉ Email"
-                  color="success"
-                  multiline
-                  sx={{ width: "60%" }}
-                  size="small"
-                  margin="dense"
-                />
-              </div>
-            </div>
-            <div className="register__form--item">
-              <div>
-                <TextField
-                  id="outlined-textarea"
-                  label="MẬT KHẨU"
-                  placeholder="Nhập Mật khẩu"
-                  color="success"
-                  multiline
-                  sx={{ width: "60%" }}
-                  size="small"
-                  margin="dense"
-                />
-              </div>
-            </div>
-            <div className="register__form--submit">
-              <button className="register__form--btn register__form--btn1">TẠO TÀI KHOẢN</button>
-            </div>
-          </form>
-          <div className="register__box">
-            <p className="">
-              BẠN ĐÃ CÓ TÀI KHOẢN. ĐĂNG NHẬP &nbsp;
-              <a href="register__box--link" style={{ color: "#2e7d32" }}>
-                <NavLink to="/login" style={{ color: "#2e7d32" }}>
-                  TẠI ĐÂY.
-                </NavLink>
-              </a>
-            </p>
-          </div>
-        </Container>
-      </div>
+          Đăng Ký
+        </Button>
+      </form>
     </div>
   );
 }
