@@ -115,7 +115,9 @@ function DetailPage(props) {
             <Route path={`${url}/additional`} component={ProductAdditional}>
               <ProductAdditional product={product} />
             </Route>
-            <Route path={`${url}/reviews`} component={ProductReviews} />
+            <Route path={`${url}/reviews`} component={ProductReviews}>
+              <ProductReviews />
+            </Route>
           </Switch>
 
           <div className="productDetail__related">
