@@ -1,21 +1,45 @@
-import { React } from "react";
-import { useDispatch } from "react-redux";
+import { unwrapResult } from "@reduxjs/toolkit";
+import { useSnackbar } from "notistack";
+import { PropTypes } from "prop-types";
+import { React, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
+import { cartItemsSelector } from "../../Cart/selector";
+import { comment } from "../productSlice";
 import ProductReviewsForm from "./ProductReviewsForm";
 
-ProductReviews.propTypes = {};
-function ProductReviews(props) {
-  const dispatch = useDispatch();
+import "./styles.scss";
+ProductReviews.propTypes = {
+  product: PropTypes.object,
+};
 
+function ProductReviews({ product = {} }) {
+  const dispatch = useDispatch();
+  const history = useHistory();
+  const loggedInUser = useSelector((state) => state.user.current);
+
+  const customer = useSelector((state) => state.user.current);
+  const listProductCart = useSelector(cartItemsSelector);
+  const { enqueueSnackbar } = useSnackbar();
   const handleSubmit = async (values) => {
     try {
-      console.log(values);
+      if (customer._id && product._id) {
+        console.log(values);
+        const action = comment(values);
+        const resultAction = await dispatch(action);
+        unwrapResult(resultAction);
+        enqueueSnackbar("Đánh giá sản phẩm thành công!!! 🎉", { variant: "success" });
+      } else {
+        history.push(`/products/${product._id}/reviews`);
+        enqueueSnackbar("Bạn cần phải đăng nhập để đánh giá!!!", { variant: "error" });
+      }
     } catch (error) {
-      console.log("Failed to register:", error);
+      console.log("Failed to Comment:", error);
     }
   };
   return (
     <div>
-      <ProductReviewsForm onSubmit={handleSubmit} />
+      <ProductReviewsForm product={product} onSubmit={handleSubmit} />
     </div>
   );
 }

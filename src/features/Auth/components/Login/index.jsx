@@ -20,12 +20,13 @@ function Login(props) {
       // toast error
       unwrapResult(resultAction);
       // close dialog
+      window.location.reload();
       const { closeDialog } = props;
       if (closeDialog) {
         closeDialog();
       }
       // hien thi thong bao
-      // enqueueSnackbar("Đăng nhập thành công!!! 🎉", { variant: "success" });
+      enqueueSnackbar("Đăng nhập thành công!!! 🎉", { variant: "success" });
     } catch (error) {
       console.log("Failed to login:", error);
       enqueueSnackbar(error.message, { variant: "error" });

@@ -116,7 +116,7 @@ function DetailPage(props) {
               <ProductAdditional product={product} />
             </Route>
             <Route path={`${url}/reviews`} component={ProductReviews}>
-              <ProductReviews />
+              <ProductReviews product={product} />
             </Route>
           </Switch>
 

@@ -272,24 +272,6 @@ export default function Header() {
         </Grid>
       </Container>
 
-      <Menu
-        // id="demo-positioned-menu"
-        // aria-labelledby="demo-positioned-button"
-        anchorEl={anchorElement}
-        open={Boolean(anchorElement)}
-        onClose={handleCloseMenu}
-        anchorOrigin={{
-          vertical: "bottom",
-          horizontal: "left",
-        }}
-        transformOrigin={{
-          vertical: "top",
-          horizontal: "left",
-        }}
-      >
-        <MenuItem onClick={handleCloseMenu}>Tài khoản của tôi</MenuItem>
-        <MenuItem onClick={handleLogoutClick}>Đăng xuất</MenuItem>
-      </Menu>
       <Dialog disableEscapeKeyDown open={open} onClose={handleClose}>
         <IconButton
           sx={{
@@ -306,7 +288,7 @@ export default function Header() {
         <DialogContent>
           {mode === MODE.REGISTER && (
             <>
-              <RegisterForm closeDialog={handleClose} />
+              <Register closeDialog={handleClose} />
               <Box textAlign="center">
                 <Button color="primary" onClick={() => setMode(MODE.LOGIN)}>
                   Bạn đã có tài khoản? Đăng nhập
@@ -327,6 +309,25 @@ export default function Header() {
           )}
         </DialogContent>
       </Dialog>
+
+      <Menu
+        // id="demo-positioned-menu"
+        // aria-labelledby="demo-positioned-button"
+        anchorEl={anchorElement}
+        open={Boolean(anchorElement)}
+        onClose={handleCloseMenu}
+        anchorOrigin={{
+          vertical: "bottom",
+          horizontal: "left",
+        }}
+        transformOrigin={{
+          vertical: "top",
+          horizontal: "left",
+        }}
+      >
+        <MenuItem onClick={handleCloseMenu}>Tài khoản của tôi</MenuItem>
+        <MenuItem onClick={handleLogoutClick}>Đăng xuất</MenuItem>
+      </Menu>
     </div>
   );
 }

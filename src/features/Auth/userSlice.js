@@ -5,16 +5,17 @@ export const register = createAsyncThunk("user/register", async (payload) => {
   // call API to register
   const data = await userApi.register(payload);
   // save data to localstorage
-  localStorage.setItem("user", JSON.stringify(data.data));
-  return data.data;
+  localStorage.setItem("user", JSON.stringify(data.user));
+  return data.user;
 });
 
 export const login = createAsyncThunk("user/login", async (payload) => {
   // call API to register
   const data = await userApi.login(payload);
   // save data to localstorage
-  localStorage.setItem("user", JSON.stringify(data));
-  return data;
+  localStorage.setItem("access_token", data.jwt);
+  localStorage.setItem("user", JSON.stringify(data.user));
+  return data.user;
 });
 
 const userSlice = createSlice({
@@ -27,6 +28,7 @@ const userSlice = createSlice({
     logout(state, action) {
       // clear local storage
       localStorage.removeItem("user");
+      localStorage.removeItem("access_token");
       state.current = {};
     },
   },
