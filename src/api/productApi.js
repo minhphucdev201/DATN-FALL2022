@@ -7,7 +7,7 @@ const productApi = {
   },
 
   getProductNew(params) {
-    const url = "/products?column=_id&type=desc&idCatalog=6392d444a06dff0ae86f5d3e";
+    const url = "/products?column=_id&type=desc&idCatalog=63a310108975bf54b69118ca";
     return axiosClient.get(url, { params });
   },
   getProductDiscount(params) {

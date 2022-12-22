@@ -12,6 +12,8 @@ function Product({ product }) {
   const handleClick = () => {
     history.push(`/products/${product._id}`);
   };
+  // const percentProduct = [(product.originalPrice - product.salePrice) / 100000] * (100%)
+
   return (
     <div className="single-product-wrapper" onClick={handleClick}>
       <div className="product-img">
@@ -19,7 +21,7 @@ function Product({ product }) {
         <img className="hover-img" src={product.thumbnail[1].img2} alt="" />
 
         <div className="product-badge offer-badge">
-          <span>-12%</span>
+          <span>-{product.promotionPercent}%</span>
         </div>
       </div>
       <div className="product-description">

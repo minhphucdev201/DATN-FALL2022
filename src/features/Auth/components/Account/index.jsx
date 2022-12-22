@@ -3,20 +3,35 @@ import PropTypes from "prop-types";
 import { Breadcrumbs, Container, Grid, Link, makeStyles, Stack, Typography } from "@mui/material";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import "./styles.scss";
+import { useHistory, useRouteMatch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
+import { useSelector } from "react-redux";
+import AccountMenu from "./components/AccounntMenu";
+import AccountInfo from "./components/AccountInfo";
+import AccountOrders from "./components/AccountOrders";
+import AccountChangePassword from "./components/AccountChangePassword";
+import AccountAddress from "./components/AccountAddress";
 Account.propTypes = {};
 // const useStyles = makeStyles((theme) => {});
 function Account(props) {
-  //   const classes = useStyles();
+  const history = useHistory();
+  const { url } = useRouteMatch();
+  const customer = useSelector((state) => state.user.current);
   function handleClick(event) {
-    event.preventDefault();
-    console.info("You clicked a breadcrumb.");
+    history.push("/");
   }
   const breadcrumbs = [
-    <Link underline="hover" key="1" color="inherit" href="/" onClick={handleClick}>
+    <Link
+      underline="hover"
+      key="1"
+      sx={{ cursor: "pointer" }}
+      color="inherit"
+      onClick={handleClick}
+    >
       TRANG CHỦ
     </Link>,
 
-    <Typography key="2" color="text.primary" sx={{ fontWeight: "550", textTransform: "uppercase" }}>
+    <Typography key="2" color="text.primary" sx={{ fontWeight: "500", textTransform: "uppercase" }}>
       thông tin của tôi
     </Typography>,
   ];
@@ -38,50 +53,22 @@ function Account(props) {
       <div className="account__info">
         <Container>
           <Grid container>
-            <Grid item xs={12} lg={4}>
-              <div className="account__left">
-                <h5 className="account__left--title">TRANG TÀI KHOẢN</h5>
-                <p className="account__left--fullname">
-                  Xin chào, &nbsp;
-                  <span>TRƯƠNG MINH PHÚC !</span>
-                </p>
-                <ul className="account__list">
-                  <li className="account__item">
-                    <a href="" className="account__item--link account__item--active">
-                      Thông tin tài khoản
-                    </a>
-                  </li>
-                  <li className="account__item">
-                    <a href="" className="account__item--link">
-                      Đơn hàng của bạn
-                    </a>
-                  </li>
-                  <li className="account__item">
-                    <a href="" className="account__item--link">
-                      Đổi mật khẩu
-                    </a>
-                  </li>
-                  <li className="account__item">
-                    <a href="" className="account__item--link">
-                      Sổ địa chỉ (0)
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </Grid>
-            <Grid item xs={12} lg={8}>
-              <div className="account__right">
-                <h5 className="account__right--title">THÔNG TIN TÀI KHOẢN</h5>
-                <div className="account__right--useraccount">
-                  <p>
-                    <strong>Họ tên:</strong> Trương Minh Phúc
-                  </p>
-                  <p>
-                    <strong>Email:</strong> truongminhphuc2001@gmail.com
-                  </p>
-                </div>
-              </div>
-            </Grid>
+            <AccountMenu />
+            <Switch>
+              <Route exact path={url}>
+                <AccountInfo />
+              </Route>
+
+              <Route path={`${url}/orders`} component={AccountOrders}>
+                <AccountOrders />
+              </Route>
+              <Route path={`${url}/changepassword`} component={AccountChangePassword}>
+                <AccountChangePassword />
+              </Route>
+              <Route path={`${url}/address`} component={AccountAddress}>
+                <AccountAddress />
+              </Route>
+            </Switch>
           </Grid>
         </Container>
       </div>

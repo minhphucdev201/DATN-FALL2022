@@ -3,6 +3,7 @@ import Link from "@mui/material/Link";
 import Typography from "@mui/material/Typography";
 // Import Swiper styles
 import * as React from "react";
+import { useHistory } from "react-router-dom";
 import "./styles.scss";
 ProductBestSell.propTypes = {};
 
@@ -11,6 +12,7 @@ function ProductBestSell(props) {
     event.preventDefault();
     console.info("You clicked a breadcrumb.");
   }
+  const history = useHistory();
   return (
     <div className="sectionNew">
       <Container>

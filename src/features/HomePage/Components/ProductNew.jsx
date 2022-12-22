@@ -5,6 +5,7 @@ import Typography from "@mui/material/Typography";
 import { Container } from "@mui/system";
 import { PropTypes } from "prop-types";
 import { React } from "react";
+import { useHistory } from "react-router-dom";
 import { formatPrice } from "./../../../utils/common";
 // Import Swiper styles
 
@@ -19,6 +20,7 @@ function ProductNew({ data }) {
     event.preventDefault();
     console.info("You clicked a breadcrumb.");
   }
+  const history = useHistory();
   return (
     <div className="sectionNew">
       <Container>
@@ -50,13 +52,24 @@ function ProductNew({ data }) {
         </div>
         <Grid container spacing={2} className="sectionNew__blocks">
           {data.map((product) => (
-            <Grid key={product.id} className="sectionNew__item" item xs={12} md={4} sm={6} lg={3}>
+            <Grid
+              key={product._id}
+              className="sectionNew__item"
+              item
+              xs={12}
+              md={4}
+              sm={6}
+              lg={3}
+              onClick={() => {
+                history.push(`/products/${product._id}`);
+              }}
+            >
               <div className="single-product-wrapper">
                 <div className="product-img">
                   <img src={product.thumbnail[0].imageUrl} alt="" />
                   <img src={product.thumbnail[1].img2} className="hover-img" alt="" />
                   <div className="product-badge offer-badge">
-                    <span>{product.promotionPercent}%</span>
+                    <span>-{product.promotionPercent}%</span>
                   </div>
                 </div>
                 <div className="product-description">
@@ -69,7 +82,7 @@ function ProductNew({ data }) {
                   </p>
                 </div>
                 <div className="product-addtocart">
-                  <a href="" className="product-btn">
+                  <a href={`/products/${product._id}`} className="product-btn">
                     Thêm giỏ hàng
                   </a>
                 </div>

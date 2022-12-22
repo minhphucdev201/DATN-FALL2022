@@ -5,6 +5,7 @@ import ProductBestSell from "./Components/ProductBestSell";
 import ProductDiscount from "./Components/ProductDiscount";
 import NewsPage from "./Components/NewsPage";
 import productApi from "./../../api/productApi";
+import blogApi from "./../../api/blogApi";
 
 HomePage.propTypes = {};
 
@@ -12,7 +13,8 @@ function HomePage(props) {
   const [productNew, setProductNew] = useState([]);
   const [productDiscount, setProductDiscount] = useState([]);
   const [productList, setProductList] = useState({});
-
+  const [blogList, setBlogList] = useState([]);
+  // productList
   useEffect(() => {
     (async () => {
       try {
@@ -24,6 +26,7 @@ function HomePage(props) {
       }
     })();
   }, []);
+  // product new
   useEffect(() => {
     (async () => {
       try {
@@ -34,6 +37,7 @@ function HomePage(props) {
       }
     })();
   }, []);
+  // product discount
   useEffect(() => {
     (async () => {
       try {
@@ -45,12 +49,24 @@ function HomePage(props) {
       }
     })();
   }, []);
+  // blog list
+  useEffect(() => {
+    (async () => {
+      try {
+        const { data } = await blogApi.getAll({ page: 1, limit: 4 });
+        setBlogList(data);
+        console.log(data);
+      } catch (error) {
+        console.log("Failed to fetch product new", error);
+      }
+    })();
+  }, []);
   return (
     <div>
       <ProductNew data={productNew} />
       <ProductBestSell />
       <ProductDiscount data={productDiscount} />
-      <NewsPage />
+      <NewsPage data={blogList} />
     </div>
   );
 }

@@ -214,15 +214,23 @@ export default function Header() {
           <Grid item xs={12} md={4} sm={6} lg={3} className="header__box">
             <Typography align="center ">
               <NavLink
-                to="/products?column=salePrice&isPromotion=true&limit=9&page=1&type=ASC"
+                to="/chinh-sach-huong-dan"
                 className={({ isActive }) => (isActive ? "active" : "inactive")}
               >
-                <a className="header__box--link">Giảm giá</a>
+                <a className="header__box--link">Chính sách - Hướng dẫn</a>
               </NavLink>
             </Typography>
           </Grid>
 
-          <Grid item xs={12} md={4} sm={6} lg={3} className="header__box">
+          <Grid
+            item
+            xs={12}
+            md={4}
+            sm={6}
+            lg={3}
+            className="header__box"
+            sx={{ textAlign: "center" }}
+          >
             <Typography>
               <Button
                 id="basic-button"
@@ -325,7 +333,14 @@ export default function Header() {
           horizontal: "left",
         }}
       >
-        <MenuItem onClick={handleCloseMenu}>Tài khoản của tôi</MenuItem>
+        <MenuItem
+          onClick={() => {
+            history.push("/account");
+            setAnchorElement(null);
+          }}
+        >
+          Tài khoản của tôi
+        </MenuItem>
         <MenuItem onClick={handleLogoutClick}>Đăng xuất</MenuItem>
       </Menu>
     </div>

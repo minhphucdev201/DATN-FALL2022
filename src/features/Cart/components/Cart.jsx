@@ -89,12 +89,22 @@ function Cart(props) {
                       </div>
                       <div className="cart__right--btn" style={{ marginTop: "30px" }}>
                         <div className="cart__checkout">
-                          <button className="cart__checkout--btn cart__checkout--btn1">
+                          <button
+                            className="cart__checkout--btn cart__checkout--btn1"
+                            onClick={() => {
+                              history.push("/checkout");
+                            }}
+                          >
                             THANH TOÁN NGAY
                           </button>
                         </div>
                         <div className="cart__proceed">
-                          <button className="cart__proceed--btn cart__proceed--btn1">
+                          <button
+                            className="cart__proceed--btn cart__proceed--btn1"
+                            onClick={() => {
+                              history.push("/products");
+                            }}
+                          >
                             TIẾP TỤC MUA HÀNG
                           </button>
                         </div>

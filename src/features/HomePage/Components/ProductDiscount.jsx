@@ -9,6 +9,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "./styles.scss";
 import { PropTypes } from "prop-types";
 import { formatPrice } from "./../../../utils/common";
+import { useHistory } from "react-router-dom";
 ProductDiscount.propTypes = {
   data: PropTypes.array,
 };
@@ -17,6 +18,7 @@ ProductDiscount.defaultProps = {
 };
 
 function ProductDiscount({ data }) {
+  const history = useHistory();
   return (
     <div className="sectionNew">
       <Container>
@@ -51,9 +53,19 @@ function ProductDiscount({ data }) {
         <div className="sectionNew__head">
           <h3 className="sectionNew__head--title">GIẢM GIÁ - KHUYẾN MÃI</h3>
         </div>
-        <Grid container spacing={2} className="sectionNew__blocks">
+        <Grid container spacing={2} pt={2} className="sectionNew__blocks">
           {data.map((product) => (
-            <Grid key={product.id} item xs={12} md={4} sm={6} lg={3}>
+            <Grid
+              key={product.id}
+              item
+              xs={12}
+              md={4}
+              sm={6}
+              lg={3}
+              onClick={() => {
+                history.push(`/products/${product._id}`);
+              }}
+            >
               <div className="single-product-wrapper">
                 <div className="product-img">
                   <img src={product.thumbnail[0].imageUrl} alt="" />

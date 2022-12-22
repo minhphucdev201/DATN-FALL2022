@@ -6,7 +6,7 @@ import { Add } from "@mui/icons-material";
 import catalogApi from "./../../../../api/catalogApi";
 import { React, useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 FilterByCatalog.propTypes = {
   onChange: PropTypes.func,
 };
@@ -22,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 function FilterByCatalog({ onChange }) {
+  const history = useHistory();
   const [categoryList, setCategoryList] = useState([]);
   const [open, setOpen] = useState(true);
   const [selectedIndex, setSelectedIndex] = useState("");
@@ -50,7 +51,14 @@ function FilterByCatalog({ onChange }) {
   return (
     <div className="main__viewcat">
       <h2 className="main__viewcat--title">Danh Mục</h2>
-      <h3 className="main__viewcat--title">Trang chủ</h3>
+      <h3
+        className="main__viewcat--title"
+        onClick={() => {
+          history.push("/");
+        }}
+      >
+        Trang chủ
+      </h3>
       <List sx={{ width: "90%" }} className="main__viewcat--list">
         <ListItemButton onClick={handleClick} autoFocus={true} disableGutters>
           <ListItemText primary="Sản phẩm" className="main__viewcat--txt" />
@@ -74,7 +82,14 @@ function FilterByCatalog({ onChange }) {
         </Collapse>
       </List>
 
-      <h3 className="main__viewcat--title">Giảm giá</h3>
+      <h3
+        className="main__viewcat--title"
+        onClick={() => {
+          history.push("/products?column=salePrice&isPromotion=true&limit=9&page=1&type=ASC");
+        }}
+      >
+        Giảm giá
+      </h3>
     </div>
   );
 }

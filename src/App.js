@@ -6,8 +6,11 @@ import Header from "./components/Headers";
 import NotFound from "./components/NotFound";
 import BlogFeature from "./features/Blog";
 import CartFeature from "./features/Cart";
+import CheckoutFeature from "./features/Checkout";
+import Contact from "./features/Contact/Contact";
 import HomePage from "./features/HomePage";
 import ProductFeature from "./features/Product";
+import Account from "./features/Auth/components/Account/index";
 function App() {
   return (
     <div className="App">
@@ -18,7 +21,11 @@ function App() {
         <Route path="/products" component={ProductFeature} />
         <Route path="/cart" component={CartFeature} />
         <Route path="/blogs" component={BlogFeature} />
-
+        <Route path="/account" component={Account} />
+        <Route path="/chinh-sach-huong-dan" component={Contact} />
+        <Route path="/checkout">
+          <CheckoutFeature />
+        </Route>
         <Route component={NotFound} />
       </Switch>
       <Footer />

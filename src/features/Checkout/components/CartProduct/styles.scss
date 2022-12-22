@@ -1,0 +1,32 @@
+.cart__items {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0px 0 18px 0px;
+  &--thumbnail {
+    width: 100%;
+    height: 100%;
+  }
+  &--thumbnail > img {
+    width: 65px;
+    height: 60px;
+    border-radius: 8px;
+  }
+  &--name {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+  &--link {
+    font-size: 14px;
+    color: #4b4b4b;
+    word-wrap: break-word;
+    white-space: normal;
+    overflow: hidden;
+    display: -webkit-box;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    text-transform: capitalize;
+    cursor: pointer;
+  }
+}
