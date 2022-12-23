@@ -11,6 +11,7 @@ import Contact from "./features/Contact/Contact";
 import HomePage from "./features/HomePage";
 import ProductFeature from "./features/Product";
 import Account from "./features/Auth/components/Account/index";
+import Thankyou from "./features/Checkout/components/Thankyou/Thankyou";
 function App() {
   return (
     <div className="App">
@@ -22,6 +23,7 @@ function App() {
         <Route path="/cart" component={CartFeature} />
         <Route path="/blogs" component={BlogFeature} />
         <Route path="/account" component={Account} />
+        <Route path="/thankyou" component={Thankyou} />
         <Route path="/chinh-sach-huong-dan" component={Contact} />
         <Route path="/checkout">
           <CheckoutFeature />

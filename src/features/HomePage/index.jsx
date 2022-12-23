@@ -13,6 +13,7 @@ function HomePage(props) {
   const [productNew, setProductNew] = useState([]);
   const [productDiscount, setProductDiscount] = useState([]);
   const [productList, setProductList] = useState({});
+  const [productTopSeller, setProductTopSeller] = useState([]);
   const [blogList, setBlogList] = useState([]);
   // productList
   useEffect(() => {
@@ -23,6 +24,18 @@ function HomePage(props) {
         console.log(data);
       } catch (error) {
         console.log("Failed to fetch productList", error);
+      }
+    })();
+  }, []);
+  // product top seller
+  useEffect(() => {
+    (async () => {
+      try {
+        const { data } = await productApi.getProductTopSeller({ page: 1, limit: 4 });
+        setProductTopSeller(data);
+        console.log(data);
+      } catch (error) {
+        console.log("Failed to fetch productTopSeller", error);
       }
     })();
   }, []);
@@ -64,7 +77,7 @@ function HomePage(props) {
   return (
     <div>
       <ProductNew data={productNew} />
-      <ProductBestSell />
+      <ProductBestSell data={productTopSeller} />
       <ProductDiscount data={productDiscount} />
       <NewsPage data={blogList} />
     </div>

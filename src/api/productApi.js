@@ -10,6 +10,10 @@ const productApi = {
     const url = "/products?column=_id&type=desc&idCatalog=63a310108975bf54b69118ca";
     return axiosClient.get(url, { params });
   },
+  getProductTopSeller(params) {
+    const url = "/products?column=_id&type=desc&productTopSeller=true";
+    return axiosClient.get(url, { params });
+  },
   getProductDiscount(params) {
     const url = "/products?column=_id&type=desc&isPromotion=true";
     return axiosClient.get(url, { params });

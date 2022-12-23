@@ -4,12 +4,14 @@ const { createSlice, createAsyncThunk } = require("@reduxjs/toolkit");
 export const checkout = createAsyncThunk("checkout/create", async (payload) => {
   const data = await orderApi.create(payload);
   console.log("data==>", data);
-  return data;
+  localStorage.setItem("order", JSON.stringify(data.data));
+  return data.data;
 });
 
 const checkoutSlice = createSlice({
   name: "checkout",
   initialState: {
+    current: JSON.parse(localStorage.getItem("order")) || {},
     checkout: [],
   },
   reducers: {},

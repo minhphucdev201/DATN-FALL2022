@@ -29,6 +29,7 @@ const userSlice = createSlice({
       // clear local storage
       localStorage.removeItem("user");
       localStorage.removeItem("access_token");
+      localStorage.removeItem("order");
       state.current = {};
     },
   },

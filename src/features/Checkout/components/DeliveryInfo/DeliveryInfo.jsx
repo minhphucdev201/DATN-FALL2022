@@ -193,6 +193,7 @@ function DeliveryInfo(props) {
             />
             <Box sx={{ textAlign: "right" }} spacing={2} px={12}>
               <Button
+                disabled={isSubmitting}
                 type="submit"
                 sx={{ margin: "16px 0 16px 0px", textAlign: "right" }}
                 color="success"

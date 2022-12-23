@@ -94,7 +94,12 @@ function ProductDiscount({ data }) {
           ))}
         </Grid>
         <div className="sectionNew__viewmore">
-          <button className="sectionNew__viewmore--btn sectionNew__viewmore--btn1">
+          <button
+            onClick={() => {
+              history.push("/products");
+            }}
+            className="sectionNew__viewmore--btn sectionNew__viewmore--btn1"
+          >
             Xem tất cả
           </button>
         </div>

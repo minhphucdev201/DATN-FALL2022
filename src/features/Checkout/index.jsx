@@ -32,6 +32,7 @@ function CheckoutFeature(props) {
       console.log("resultAction ==>", resultAction);
       unwrapResult(resultAction);
       enqueueSnackbar("Đặt hàng thành công!!! 🎉", { variant: "success" });
+      history.push("/thankyou");
       // close dialog
 
       // hien thi thong bao
