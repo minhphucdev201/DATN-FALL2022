@@ -12,6 +12,7 @@ import {
 import cartReducer from "../features/Cart/cartSlice";
 import userReducer from "../features/Auth/userSlice";
 import commentReducer from "../features/Product/productSlice";
+import checkoutReducer from "../features/Checkout/checkoutSlice";
 import storage from "redux-persist/lib/storage";
 
 const persistConfig = {
@@ -24,6 +25,7 @@ const rootReducer = combineReducers({
   user: userReducer,
   cart: cartReducer,
   comment: commentReducer,
+  checkout: checkoutReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

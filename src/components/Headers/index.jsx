@@ -136,7 +136,6 @@ export default function Header() {
     (async () => {
       try {
         const { data } = await blogCatalogApi.getAll();
-        console.log(data);
         setCatalogBlog(data);
       } catch (error) {
         console.log("Failed to fetch catalog blog:", error);

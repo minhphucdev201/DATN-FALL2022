@@ -20,7 +20,7 @@ function CartProduct({ product = {}, quantity = 1 }) {
   const history = useHistory();
   return (
     <Grid className="cart__items">
-      <Badge badgeContent={countItem} color="success">
+      <Badge badgeContent={quantity} color="success">
         <div className="cart__items--thumbnail">
           <img src={product.thumbnail[0].imageUrl} alt="" />
         </div>

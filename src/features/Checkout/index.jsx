@@ -8,21 +8,30 @@ import Stack from "@mui/material/Stack";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import { useHistory } from "react-router-dom";
 import CartProduct from "./components/CartProduct/CartProduct";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { cartItemsCountSelector, cartItemsSelector, cartTotalSelector } from "../Cart/selector";
 import { formatPrice } from "../../utils";
 import DeliveryInfo from "./components/DeliveryInfo/DeliveryInfo";
+import { checkout } from "./checkoutSlice";
+import { unwrapResult } from "@reduxjs/toolkit";
+import { useSnackbar } from "notistack";
 
 CheckoutFeature.propTypes = {};
 
 function CheckoutFeature(props) {
-  const countItem = useSelector(cartItemsCountSelector);
+  const history = useHistory();
+  const dispatch = useDispatch();
+  const { enqueueSnackbar } = useSnackbar();
   const totalPrices = useSelector(cartTotalSelector);
   const listProductCart = useSelector(cartItemsSelector);
-  const history = useHistory();
   const handleSubmit = async (values) => {
     try {
-      console.log("values ==>", values);
+      const action = checkout(values);
+      console.log("action : ", action);
+      const resultAction = await dispatch(action);
+      console.log("resultAction ==>", resultAction);
+      unwrapResult(resultAction);
+      enqueueSnackbar("Đặt hàng thành công!!! 🎉", { variant: "success" });
       // close dialog
 
       // hien thi thong bao

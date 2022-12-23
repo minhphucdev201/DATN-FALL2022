@@ -14,6 +14,11 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { makeStyles } from "@material-ui/core";
 import "./styles.scss";
+import {
+  cartItemsCountSelector,
+  cartItemsSelector,
+  cartTotalSelector,
+} from "../../../Cart/selector";
 DeliveryInfo.propTypes = {
   onSubmit: PropTypes.func,
 };
@@ -28,6 +33,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 function DeliveryInfo(props) {
   const classes = useStyles();
+  const totalPrices = useSelector(cartTotalSelector);
+  const listProductCart = useSelector(cartItemsSelector);
+  const customer = useSelector((state) => state.user.current);
+  console.log("listProductCart==>", listProductCart);
+
   const history = useHistory();
   function handleClick(event) {
     history.push("/cart");
@@ -67,10 +77,17 @@ function DeliveryInfo(props) {
   });
   const form = useForm({
     defaultValues: {
+      customer: customer._id,
       fullName: "",
       email: "",
       phone: "",
       address: "",
+      total: totalPrices,
+      orderDetail: listProductCart.map((item) => ({
+        productId: item.product._id,
+        quantity: item.quantity,
+        price: item.product.salePrice * item.quantity,
+      })),
     },
     resolver: yupResolver(schema),
   });
@@ -100,6 +117,15 @@ function DeliveryInfo(props) {
         </Typography>
         <Box>
           <form onSubmit={form.handleSubmit(handleSubmit)}>
+            <InputField
+              name="customer"
+              hidden="none"
+              size="small"
+              width="550px"
+              label="customer"
+              form={form}
+            />
+            <br />
             <InputField
               name="email"
               size="small"
@@ -144,6 +170,26 @@ function DeliveryInfo(props) {
               placeholder="Nhập ghi chú của bạn"
               form={form}
               rows={4}
+            />
+            <br />
+            <InputField
+              name="total"
+              size="small"
+              width="550px"
+              label="total"
+              placeholder=""
+              form={form}
+              hidden="none"
+            />
+            <br />
+            <InputField
+              name="orderDetail"
+              size="small"
+              width="550px"
+              label="orderDetail"
+              placeholder=""
+              form={form}
+              hidden="none"
             />
             <Box sx={{ textAlign: "right" }} spacing={2} px={12}>
               <Button
