@@ -34,7 +34,7 @@ function FilterPriceFast({ onChange }) {
         >
           {/* <ul className="main__filterPrice--list"> */}
           {[
-            { name: "salePrice[$gte]", value: "500000", label: "Giá trên 500.000đ" },
+            { name: "salePrice[$gte]", value: "200000", label: "Giá trên 200.000đ" },
             {
               name: "salePrice[$gte]",
               value: "1000000",

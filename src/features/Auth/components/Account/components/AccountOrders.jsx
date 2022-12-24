@@ -8,13 +8,29 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import moment from "moment/moment";
 import React from "react";
+import { useEffect } from "react";
+import { useState } from "react";
+import orderApi from "../../../../../api/orderApi";
 import { formatPrice } from "./../../../../../utils/common";
+import { useSelector } from "react-redux";
 
 AccountOrders.propTypes = {};
 
 function AccountOrders(props) {
-  const order = JSON.parse(localStorage.getItem("order"));
-  console.log("order", order);
+  const [order, setOrder] = useState([]);
+  const customer = useSelector((state) => state.user.current);
+  console.log("id: ", customer._id);
+  useEffect(() => {
+    (async () => {
+      try {
+        const { data } = await orderApi.getOrderByCustomerId(customer._id);
+        setOrder(data);
+        console.log("data:", data);
+      } catch (error) {
+        console.log("Failed to fetch data orderList:", error);
+      }
+    })();
+  }, []);
   return (
     <Grid item xs={12} lg={9} pt={4}>
       <Box>
@@ -32,15 +48,17 @@ function AccountOrders(props) {
                 </TableRow>
               </TableHead>
               <TableBody>
-                <TableRow sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
-                  <TableCell component="th" scope="row">
-                    {order._id}
-                  </TableCell>
-                  <TableCell align="left">{moment(order.createdA).format("l")}</TableCell>
-                  <TableCell align="left">{order.address}</TableCell>
-                  <TableCell align="left">{formatPrice(order.total)}</TableCell>
-                  <TableCell align="left">Chưa thu tiền</TableCell>
-                </TableRow>
+                {order.map((item) => (
+                  <TableRow sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
+                    <TableCell component="th" scope="row">
+                      {item._id}
+                    </TableCell>
+                    <TableCell align="left">{moment(item.createdAt).format("l")}</TableCell>
+                    <TableCell align="left">{item.address}</TableCell>
+                    <TableCell align="left">{formatPrice(item.total)}</TableCell>
+                    <TableCell align="left">Chưa thu tiền</TableCell>
+                  </TableRow>
+                ))}
               </TableBody>
             </Table>
           </TableContainer>
