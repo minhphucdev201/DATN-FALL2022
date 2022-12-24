@@ -133,7 +133,7 @@ function ListPage(props) {
           </Grid>
           <Grid item xs={8} className="main__right">
             <div className="main__products">
-              <ProductSearch onSubmit={handleSearchChange} />
+              {/* <ProductSearch onSubmit={handleSearchChange} /> */}
               <ProductSort currentSort="column=salePrice&type=asc" onChange={handleSortChange} />
               <FilterViewer filters={queryParams} onChange={setNewFilters} />
               <div className="main__productsview">

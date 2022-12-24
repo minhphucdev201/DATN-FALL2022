@@ -12,7 +12,7 @@ function Contact(props) {
           src="https://images.unsplash.com/photo-1466781783364-36c955e42a7f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80"
           alt=""
         />
-        <h1>Chính sách - hướng dẫn</h1>
+        <h1>Chính sách - Hướng dẫn</h1>
       </div>
       <div className="content">
         <Container>
@@ -21,9 +21,9 @@ function Contact(props) {
               <strong>1. MỤC ĐÍCH THU THẬP THÔNG TIN CÁ NHÂN CỦA NGƯỜI TIÊU DÙNG</strong>
             </p>
             <p className="content__item--txt">
-              Cung cấp dịch vụ cho Khách Hàng và quản lý, sử dụng thông tin cá nhân của Người Tiêu
-              Dùng nhằm mục đích quản lý cơ sở dữ liệu về Người Tiêu Dùng và kịp thời xử lý các tình
-              huống phát sinh (nếu có).
+              Cung cấp dịch vụ cho <strong>khách hàng</strong> và quản lý, sử dụng thông tin cá nhân
+              của <strong>người tiêu dùng</strong> nhằm mục đích quản lý cơ sở dữ liệu về Người Tiêu
+              Dùng và kịp thời xử lý các tình huống phát sinh (nếu có).
             </p>
             <p>&nbsp;</p>
           </div>
