@@ -24,7 +24,7 @@ function ProductNew({ data }) {
           <img
             style={{ height: "400px", objectFit: "fill" }}
             alt=""
-            src="https://cf.shopee.vn/file/a5229181a82796a61e60f5437f671113"
+            src="https://cf.shopee.vn/file/ce6990931063310baf90f73758be3fa6"
           />
         </div>
         <div className="sectionNew__head">
