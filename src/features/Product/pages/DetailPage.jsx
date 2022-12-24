@@ -71,7 +71,6 @@ function DetailPage(props) {
       try {
         const { data } = await productApi.getProductNew({ page: 1, limit: 4 });
         setRelate(data);
-        console.log(data);
       } catch (error) {
         console.log("Failed to fetch product new", error);
       }
@@ -88,7 +87,6 @@ function DetailPage(props) {
       product,
       quantity,
     });
-    console.log(action);
     dispatch(action);
     dispatch(showMiniCart());
   };

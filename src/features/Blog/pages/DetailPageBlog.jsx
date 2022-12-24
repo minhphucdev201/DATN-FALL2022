@@ -27,7 +27,6 @@ function DetailPage(props) {
       try {
         const { data } = await blogApi.getBlogNewest({ page: 1, limit: 6 });
         setRelate(data);
-        console.log(data);
       } catch (error) {
         console.log("Failed to fetch product new", error);
       }

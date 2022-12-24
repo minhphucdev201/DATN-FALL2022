@@ -240,8 +240,8 @@ export default function Header() {
                 endIcon={<KeyboardArrowDownIcon />}
                 sx={{
                   color: "#1c1c1c",
-                  fontSize: "18px",
-                  fontWeight: "400",
+                  fontSize: "16px",
+                  fontWeight: "500",
                 }}
               >
                 TIN TỨC

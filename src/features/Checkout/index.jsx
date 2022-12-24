@@ -27,9 +27,7 @@ function CheckoutFeature(props) {
   const handleSubmit = async (values) => {
     try {
       const action = checkout(values);
-      console.log("action : ", action);
       const resultAction = await dispatch(action);
-      console.log("resultAction ==>", resultAction);
       unwrapResult(resultAction);
       enqueueSnackbar("Đặt hàng thành công!!! 🎉", { variant: "success" });
       history.push("/thankyou");

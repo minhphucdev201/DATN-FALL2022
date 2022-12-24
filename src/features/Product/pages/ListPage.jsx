@@ -42,7 +42,6 @@ function ListPage(props) {
       try {
         const { data, pagination } = await productApi.getAll(queryParams);
         setProductList(data);
-        console.log(data, pagination);
         setPagination(pagination);
       } catch (error) {
         console.log("Failed fetch to data:", error);
@@ -105,7 +104,6 @@ function ListPage(props) {
     });
   };
   const handleSearchChange = (newFilters) => {
-    console.log("New filters:", newFilters);
     const filters = {
       ...queryParams,
       page: 1,

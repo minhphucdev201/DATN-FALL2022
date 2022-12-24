@@ -1,3 +1,21 @@
+.btnCart {
+  padding: 6px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: capitalize;
+  letter-spacing: 0.5;
+  font-weight: 500;
+  margin-left: 6px;
+  font-size: 16px;
+  background-color: #f5f5f5;
+  border-style: none;
+  outline: none;
+  color: #2e7d32;
+}
+.btnCart:hover {
+  cursor: pointer;
+}
 .product-images-slider {
   width: 100%;
   .swiper-slide {

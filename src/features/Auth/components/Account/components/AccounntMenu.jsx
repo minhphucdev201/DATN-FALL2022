@@ -38,7 +38,7 @@ function AccountMenu(props) {
   const { url } = useRouteMatch();
   const customer = useSelector((state) => state.user.current);
   return (
-    <Grid item xs={12} lg={4}>
+    <Grid item xs={12} lg={3}>
       <div className="account__left">
         <h5 className="account__left--title">TRANG TÀI KHOẢN</h5>
         <p className="account__left--fullname">

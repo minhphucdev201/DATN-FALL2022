@@ -50,36 +50,6 @@ function ProductInfo({ product = {} }) {
           </span>
         </div>
       </div>
-      {/* <div className="productDetail__formgroup">
-        <div className="productDetail__formgroup--box">
-          <label className="productDetail__formgroup--label">Số lượng : </label>
-          <div class="qty-input">
-            <button className="qty-count qty-count--minus" data-action="minus" type="button">
-              -
-            </button>
-            <input
-              className="product-qty"
-              type="number"
-              name="product-qty"
-              min="0"
-              max="10"
-              value="1"
-            />
-            <button className="qty-count qty-count--add" data-action="add" type="button">
-              +
-            </button>
-          </div>
-        </div>
-        <div className="productDetail__btn">
-          <div className="productDetail__addtocart">
-            <ShoppingCartIcon sx={{ marginRight: "6px" }} color="success" />
-            <a className="productDetail__addtocart--btn">THÊM GIỎ HÀNG</a>
-          </div>
-          <div className="productDetail__btnmua">
-            <a className="productDetail__btnmua--btn">Mua Ngay</a>
-          </div>
-        </div>
-      </div> */}
 
       <div className="productDetail__service">
         <div className="productDetail__service--item">

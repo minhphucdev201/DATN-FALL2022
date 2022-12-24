@@ -44,16 +44,12 @@ function CartProduct({ product = {}, quantity = 1 }) {
       id: product._id,
       quantity,
     });
-    console.log("item ==>", quantity);
     dispatch(action);
     handleClose();
   };
   const handleDeleteItem = (id) => {
     const action = removeFromCart(id);
     dispatch(action);
-    console.log("product id ==>", id);
-    // history.push("/cart");
-    console.log("==>", action);
   };
   return (
     <Grid

@@ -45,19 +45,16 @@ function RegisterForm(props) {
       .test("Nên nhập ít nhất 2 từ", "Vui lòng nhập ít nhất 2 từ", (value) => {
         return value.split(" ").length >= 2;
       }),
-    email: yup
-      .string()
-      .required("Please enter your email.")
-      .email("Please enter a valid email address."),
+    email: yup.string().required("Vui lòng nhập email.").email("Địa chỉ email không hợp lệ."),
 
     password: yup
       .string()
-      .required("Please enter your password.")
-      .min(6, "Please enter at least six characters."),
+      .required("Nhập mật khẩu của bạn")
+      .min(6, "Vui lòng nhập ít nhất 6 kí tự."),
     retypePassword: yup
       .string()
-      .required("Please enter your RetypePassword.")
-      .oneOf([yup.ref("password")], "Please does not match"),
+      .required("Xác nhận mật khẩu")
+      .oneOf([yup.ref("password")], "Mật khẩu không trùng khớp"),
   });
   const form = useForm({
     defaultValues: {

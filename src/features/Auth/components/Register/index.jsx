@@ -17,7 +17,6 @@ function Register(props) {
     try {
       const action = register(values);
       const resultAction = await dispatch(action);
-      console.log(resultAction);
       // toast error
       unwrapResult(resultAction);
       // close dialog

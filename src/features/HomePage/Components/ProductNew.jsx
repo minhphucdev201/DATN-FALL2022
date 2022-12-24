@@ -16,24 +16,21 @@ ProductNew.defaultProps = {
   data: [],
 };
 function ProductNew({ data }) {
-  function handleClick(event) {
-    event.preventDefault();
-    console.info("You clicked a breadcrumb.");
-  }
   const history = useHistory();
   return (
     <div className="sectionNew">
       <Container>
         <div className="banner">
           <img
+            style={{ height: "400px", objectFit: "fill" }}
             alt=""
-            src="https://haeva.com.vn/wwwroot/resources/upload/img/banner/8-2022/778x233.jpg"
+            src="https://cf.shopee.vn/file/a5229181a82796a61e60f5437f671113"
           />
         </div>
         <div className="sectionNew__head">
           <h3 className="sectionNew__head--title">SẢN PHẨM MỚI</h3>
           <div className="sectionNew__head--allcat">
-            <div role="presentation" onClick={handleClick}>
+            <div role="presentation">
               <Breadcrumbs aria-label="breadcrumb">
                 <Link underline="hover" color="inherit" href="/">
                   Sản phẩm mới
@@ -45,7 +42,17 @@ function ProductNew({ data }) {
                 >
                   Tinh Dầu
                 </Link>
-                <Typography color="text.primary">Tinh Dầu Thiên Nhiên</Typography>
+                <Typography
+                  sx={{ cursor: "pointer" }}
+                  color="text.primary"
+                  onClick={() => {
+                    history.push(
+                      "/products?column=salePrice&idCatalog=63a310108975bf54b69118ca&limit=9&page=1&type=ASC"
+                    );
+                  }}
+                >
+                  Tinh Dầu Thiên Nhiên
+                </Typography>
               </Breadcrumbs>
             </div>
           </div>

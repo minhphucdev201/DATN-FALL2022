@@ -33,11 +33,8 @@ function FormSetQuantity({ onSubmit = null, quantity = 1 }) {
   } = form;
 
   const callSubmit = (quantity) => {
-    // console.log(value);
-
     if (!onSubmit) return;
     onSubmit(quantity);
-    // console.log('form submit', value);
   };
   return (
     <form onSubmit={(e) => e.preventDefault()}>

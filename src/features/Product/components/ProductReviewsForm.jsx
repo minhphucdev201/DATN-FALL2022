@@ -62,14 +62,6 @@ function ProductReviewsForm(props) {
     total: 6,
   });
   const schema = yup.object().shape({
-    // fullName: yup
-    //   .string()
-    //   .required("Vui lòng nhập tên đầy đủ")
-    //   .test("Nên nhập ít nhất 2 từ", "Vui lòng nhập ít nhất 2 từ", (value) => {
-    //     return value.split(" ").length >= 2;
-    //   }),
-    // email: yup.string().required("Vui lòng nhập Email của bạn").email("Email không hợp lệ"),
-
     content: yup.string().required("Vui lòng nhập nội dung đánh giá"),
   });
   const handleSubmit = async (values) => {
@@ -96,7 +88,6 @@ function ProductReviewsForm(props) {
         const { data, pagination } = await commentApi.getIdProduct(product._id, filters);
         setCommentList(data);
         setPagination(pagination);
-        console.log(data);
       } catch (error) {
         console.log("Failed to fecth data comment by IdProduct:", error);
       }

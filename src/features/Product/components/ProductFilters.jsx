@@ -19,17 +19,13 @@ function ProductFilters({ filters, onChange }) {
       idCatalog: category._id,
     };
     onChange(newFilters);
-    console.log(newFilters);
-    console.log(category);
   };
   const handleChange = (values) => {
-    console.log(values);
     if (onChange) {
       onChange(values);
     }
   };
   const handlePriceFastChange = (values) => {
-    console.log(values);
     if (onChange) {
       onChange(values);
     }

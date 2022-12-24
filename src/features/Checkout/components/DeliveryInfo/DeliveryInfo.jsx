@@ -36,7 +36,6 @@ function DeliveryInfo(props) {
   const totalPrices = useSelector(cartTotalSelector);
   const listProductCart = useSelector(cartItemsSelector);
   const customer = useSelector((state) => state.user.current);
-  console.log("listProductCart==>", listProductCart);
 
   const history = useHistory();
   function handleClick(event) {
