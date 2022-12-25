@@ -122,7 +122,7 @@ function DeliveryInfo(props) {
               width="550px"
               label="customer"
               form={form}
-              // hidden="none"
+              hidden="none"
             />
             <br />
             <InputField
