@@ -36,7 +36,6 @@ function ListPage(props) {
       try {
         const { data, pagination } = await blogApi.getAll(queryParams);
         setBlogList(data);
-        console.log(data, pagination);
         setPagination(pagination);
       } catch (error) {
         console.log("Failed fetch to data:", error);
@@ -50,7 +49,6 @@ function ListPage(props) {
       try {
         const { data } = await blogApi.getBlogNewest({ page: 1, limit: 6 });
         setBlogNewest(data);
-        console.log(data);
       } catch (error) {
         console.log("Failed to fetch blog newest:", error);
       }
@@ -61,7 +59,6 @@ function ListPage(props) {
     (async () => {
       try {
         const { data } = await blogCatalogApi.get();
-        console.log(data);
         setCatalogBlog(data);
       } catch (error) {
         console.log("Failed to fetch catalog blog:", error);

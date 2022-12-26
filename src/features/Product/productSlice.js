@@ -5,7 +5,6 @@ const { createSlice, createAsyncThunk } = require("@reduxjs/toolkit");
 export const comment = createAsyncThunk("comment/create", async (payload) => {
   // call API to register
   const data = await commentApi.create(payload);
-  console.log("data:", data);
   // save data to localstorage
   return data;
 });

@@ -19,7 +19,6 @@ function FilterByPrice({ onChange }) {
     }));
   };
   const handleSubmit = () => {
-    console.log(values);
     if (onChange) onChange(values);
     // setValues({
     //   "salePrice[$gte]": 0,

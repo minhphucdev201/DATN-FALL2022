@@ -36,7 +36,6 @@ function DeliveryInfo(props) {
   const totalPrices = useSelector(cartTotalSelector);
   const listProductCart = useSelector(cartItemsSelector);
   const customer = useSelector((state) => state.user.current);
-  console.log("listProductCart==>", listProductCart);
 
   const history = useHistory();
   function handleClick(event) {
@@ -77,7 +76,7 @@ function DeliveryInfo(props) {
   });
   const form = useForm({
     defaultValues: {
-      customer: customer._id,
+      customerId: customer._id,
       fullName: "",
       email: "",
       phone: "",
@@ -118,12 +117,12 @@ function DeliveryInfo(props) {
         <Box>
           <form onSubmit={form.handleSubmit(handleSubmit)}>
             <InputField
-              name="customer"
-              hidden="none"
+              name="customerId"
               size="small"
               width="550px"
               label="customer"
               form={form}
+              hidden="none"
             />
             <br />
             <InputField

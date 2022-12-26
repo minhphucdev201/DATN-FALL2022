@@ -24,7 +24,7 @@ function Cart(props) {
   ];
   const countItem = useSelector(cartItemsCountSelector);
   const totalPrices = useSelector(cartTotalSelector);
-  const listProductCart = useSelector(cartItemsSelector);
+  const listProductCart = useSelector((state) => state.cart.cartItems);
 
   const history = useHistory();
   const onClickShopping = () => {

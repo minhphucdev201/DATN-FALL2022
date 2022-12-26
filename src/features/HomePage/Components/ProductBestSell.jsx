@@ -12,24 +12,17 @@ ProductBestSell.propTypes = {
 };
 
 function ProductBestSell({ data = [] }) {
-  function handleClick(event) {
-    event.preventDefault();
-    console.info("You clicked a breadcrumb.");
-  }
   const history = useHistory();
   return (
     <div className="sectionNew">
       <Container>
         <div className="sectionNew__banner">
-          <img
-            src="https://haeva.com.vn/wwwroot/resources/upload/img/banner/4-2022/banner-chu-de-1200x300-01.jpg"
-            alt=""
-          />
+          <img src="https://cf.shopee.vn/file/5e0c9d0b3b598e0b646b6403e2079805" alt="" />
         </div>
         <div className="sectionNew__head">
           <h3 className="sectionNew__head--title">SẢN PHẨM bán chạy</h3>
           <div className="sectionNew__head--allcat">
-            <div role="presentation" onClick={handleClick}>
+            <div role="presentation">
               <Breadcrumbs aria-label="breadcrumb">
                 <Link underline="hover" color="inherit" href="/">
                   Sản phẩm mới

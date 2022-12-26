@@ -10,7 +10,6 @@ export default function useBlogDetail(blogId) {
       try {
         setLoading(true);
         const result = await blogApi.get(blogId);
-        console.log(result);
         setBlog(result.data);
       } catch (error) {
         console.log("Failed to fetch product", error);

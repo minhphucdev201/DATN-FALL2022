@@ -1,6 +1,6 @@
 .sectionBanners {
   width: 100%;
-  height: 300px;
+  height: 250px;
   overflow: hidden;
   position: relative;
   margin-top: 2rem;
@@ -13,16 +13,17 @@
 }
 
 .sectionBanners h1 {
-  text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 2.5px;
   color: #1c1c1c;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-family: Open Sans, sans-serif;
+  top: 35%;
+  left: 25%;
+  transform: translateY(-50%);
+  font-family: "Caramel", cursive;
   font-weight: 500;
-  font-size: 1.6rem;
+  font-size: 3.4rem;
+  color: #2e7d32;
+  text-shadow: 1px 2px 2px #d5d5d5;
 }
 .sectionBanners:hover h1 {
   opacity: 1;

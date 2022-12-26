@@ -12,7 +12,7 @@ function Contact(props) {
           src="https://images.unsplash.com/photo-1466781783364-36c955e42a7f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80"
           alt=""
         />
-        <h1>Chính sách - hướng dẫn</h1>
+        <h1>Chính sách - Hướng dẫn</h1>
       </div>
       <div className="content">
         <Container>
@@ -21,9 +21,9 @@ function Contact(props) {
               <strong>1. MỤC ĐÍCH THU THẬP THÔNG TIN CÁ NHÂN CỦA NGƯỜI TIÊU DÙNG</strong>
             </p>
             <p className="content__item--txt">
-              Cung cấp dịch vụ cho Khách hàng và quản lý, sử dụng thông tin cá nhân của Người Tiêu
-              Dùng nhằm mục đích quản lý cơ sở dữ liệu về Người Tiêu Dùng và kịp thời xử lý các tình
-              huống phát sinh (nếu có).
+              Cung cấp dịch vụ cho <strong>khách hàng</strong> và quản lý, sử dụng thông tin cá nhân
+              của <strong>người tiêu dùng</strong> nhằm mục đích quản lý cơ sở dữ liệu về Người Tiêu
+              Dùng và kịp thời xử lý các tình huống phát sinh (nếu có).
             </p>
             <p>&nbsp;</p>
           </div>
@@ -32,7 +32,8 @@ function Contact(props) {
               <strong>2. PHẠM VI SỬ DỤNG THÔNG TIN CÁ NHÂN</strong>
             </p>
             <p className="content__item--txt">
-              Website Hafos.vn sử dụng thông tin của Người Tiêu Dùng cung cấp để:
+              Website <i>tan-herbal-store.vercel.app</i> sử dụng thông tin của Người Tiêu Dùng cung
+              cấp để:
             </p>
             <div className="content__box">
               <ul className="content__list">
@@ -85,7 +86,7 @@ function Contact(props) {
               <ul className="content__list">
                 <li className="content__list--item">Ban quản trị</li>
                 <li className="content__list--item">
-                  Bên thứ ba có dịch vụ tích hợp với Website hafos.vn
+                  Bên thứ ba có dịch vụ tích hợp với Website <i>tan-herbal-store.vercel.app</i>
                 </li>
                 <li className="content__list--item">Công ty tổ chức sự kiện và nhà tài trợ</li>
                 <li className="content__list--item">
@@ -113,9 +114,9 @@ function Contact(props) {
             <p className="content__item--txt">
               Thông tin cá nhân của Người Tiêu Dùng trên Website Hafos.vn được Ban quản trị cam kết
               bảo mật tuyệt đối theo chính sách bảo mật thông tin cá nhân được đăng tải trên Website
-              Hafos.vn. Việc thu thập và sử dụng thông tin của mỗi Người Tiêu Dùng chỉ được thực
-              hiện khi có sự đồng ý của Người Tiêu Dùng trừ những trường hợp pháp luật có quy định
-              khác và quy định này.
+              <i>tan-herbal-store.vercel.app</i> Việc thu thập và sử dụng thông tin của mỗi Người
+              Tiêu Dùng chỉ được thực hiện khi có sự đồng ý của Người Tiêu Dùng trừ những trường hợp
+              pháp luật có quy định khác và quy định này.
             </p>
             <p className="content__item--txt">
               Không sử dụng, không chuyển giao, cung cấp hoặc tiết lộ cho bên thứ 3 về thông tin cá

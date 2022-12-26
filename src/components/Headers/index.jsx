@@ -241,7 +241,7 @@ export default function Header() {
                 sx={{
                   color: "#1c1c1c",
                   fontSize: "18px",
-                  fontWeight: "400",
+                  fontWeight: "500",
                 }}
               >
                 TIN TỨC

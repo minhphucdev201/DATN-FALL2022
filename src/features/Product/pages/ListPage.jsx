@@ -21,7 +21,7 @@ function ListPage(props) {
     page: 1,
   });
   const [loading, setLoading] = useState(true);
-  const [valueSort, setValueSort] = useState('desc');
+  const [valueSort, setValueSort] = useState('asc');
 
   const history = useHistory();
   const location = useLocation();
@@ -100,7 +100,6 @@ function ListPage(props) {
     });
   };
   const handleSearchChange = (newFilters) => {
-    console.log("New filters:", newFilters);
     const filters = {
       ...queryParams,
       page: 1,
@@ -116,7 +115,7 @@ function ListPage(props) {
 
   const handleSort = () => {
     let newArr = [...productList];
-    if (valueSort === 'asc' && productList) {
+    if (valueSort === 'asc' && newArr) {
       setProductList(newArr.sort((a, b) => a.salePrice - b.salePrice));
     } else {
       setProductList(newArr.sort((a, b) => b.salePrice - a.salePrice));
@@ -158,8 +157,8 @@ function ListPage(props) {
                     name="row-radio-buttons-group"
                     sx={{ pl: 4 }}
                     onChange={handleSortChange}
-                    defaultChecked="desc"
-                    defaultValue={"desc"}
+                    defaultChecked="asc"
+                    defaultValue={"asc"}
                   >
                     <FormControlLabel
                       value="asc"

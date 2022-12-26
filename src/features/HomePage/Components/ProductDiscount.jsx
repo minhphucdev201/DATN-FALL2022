@@ -22,7 +22,7 @@ function ProductDiscount({ data }) {
   return (
     <div className="sectionNew">
       <Container>
-        <Box sx={{ height: "400px" }}>
+        <Box sx={{ height: "400px" }} pb={6}>
           <Swiper
             spaceBetween={30}
             centeredSlides={true}
@@ -37,16 +37,17 @@ function ProductDiscount({ data }) {
             className="mySwiper"
           >
             <SwiperSlide>
-              <img src="https://cf.shopee.vn/file/94f7e4ab3e707e1dc893480187910e24" alt="" />
+              <img
+                src="https://cf.shopee.vn/file/6b52c31f443f2ca721e9f3db13fb9d25
+"
+                alt=""
+              />
             </SwiperSlide>
             <SwiperSlide>
-              <img src="https://cf.shopee.vn/file/168788478864476ed96c35fdbdad13fb" alt="" />
+              <img src="https://cf.shopee.vn/file/e54aa510d2bba94e99af191448597a47" alt="" />
             </SwiperSlide>
             <SwiperSlide>
-              <img src="https://cf.shopee.vn/file/3f71ad11cbe105f8b55ca89dadd9073a" alt="" />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src="https://cf.shopee.vn/file/f03fb9081cccbc08595f1289aa6483f5" alt="" />
+              <img src="https://cf.shopee.vn/file/629b633d28fee62e7d793e711202de87" alt="" />
             </SwiperSlide>
           </Swiper>
         </Box>
@@ -72,7 +73,7 @@ function ProductDiscount({ data }) {
                   <img className="hover-img" src={product.thumbnail[1].img2} alt="" />
 
                   <div className="product-badge offer-badge">
-                    <span>{product.promotionPercent}%</span>
+                    <span>-{product.promotionPercent}%</span>
                   </div>
                 </div>
                 <div className="product-description">

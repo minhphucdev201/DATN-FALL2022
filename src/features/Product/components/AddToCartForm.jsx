@@ -6,6 +6,7 @@ import PropTypes from "prop-types";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { Box } from "@mui/material";
+import "./styles.scss";
 AddToCartForm.propTypes = {
   onSubmit: PropTypes.func,
 };
@@ -24,26 +25,6 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: "216px",
     maxHeight: "46px",
     borderRadius: "2px",
-  },
-  btncart: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    textTransform: "capitalize",
-    letterSpacing: "0.5px",
-    fontWeight: "500",
-    marginLeft: "6px",
-    fontSize: "16px",
-    backgroundColor: "none",
-    outline: "none",
-    color: "#2E7D32",
-    "& > span": {
-      background: "none",
-      "& :hover": {
-        background: "none",
-        outline: "none",
-      },
-    },
   },
 }));
 function AddToCartForm({ onSubmit = null }) {
@@ -73,9 +54,9 @@ function AddToCartForm({ onSubmit = null }) {
       <QuantityField name="quantity" label="Quantity" form={form} />
       <Box className={classes.main}>
         <AddShoppingCartIcon color="success" />
-        <Button type="submit" className={classes.btncart} color="success">
+        <button type="submit" className="btnCart" color="success">
           Thêm Vào Giỏ Hàng
-        </Button>
+        </button>
       </Box>
     </form>
   );

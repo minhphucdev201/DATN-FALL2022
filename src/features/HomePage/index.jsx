@@ -21,7 +21,6 @@ function HomePage(props) {
       try {
         const { data } = await productApi.getAll({});
         setProductList(data);
-        console.log(data);
       } catch (error) {
         console.log("Failed to fetch productList", error);
       }
@@ -33,7 +32,6 @@ function HomePage(props) {
       try {
         const { data } = await productApi.getProductTopSeller({ page: 1, limit: 4 });
         setProductTopSeller(data);
-        console.log(data);
       } catch (error) {
         console.log("Failed to fetch productTopSeller", error);
       }
@@ -56,7 +54,6 @@ function HomePage(props) {
       try {
         const { data } = await productApi.getProductDiscount({ page: 1, limit: 4 });
         setProductDiscount(data);
-        console.log(data);
       } catch (error) {
         console.log("Failed to fetch product new", error);
       }
@@ -68,7 +65,6 @@ function HomePage(props) {
       try {
         const { data } = await blogApi.getAll({ page: 1, limit: 4 });
         setBlogList(data);
-        console.log(data);
       } catch (error) {
         console.log("Failed to fetch product new", error);
       }

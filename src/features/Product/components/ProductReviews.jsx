@@ -24,7 +24,6 @@ function ProductReviews({ product = {} }) {
   const handleSubmit = async (values) => {
     try {
       if (customer._id && product._id) {
-        console.log(values);
         const action = comment(values);
         const resultAction = await dispatch(action);
         unwrapResult(resultAction);

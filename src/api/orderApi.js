@@ -9,6 +9,10 @@ const orderApi = {
     const url = "/orders/create";
     return axiosClient.post(url, data);
   },
+  getOrderByCustomerId(id) {
+    const url = `/orders?customerId=${id}`;
+    return axiosClient.get(url);
+  },
 };
 
 export default orderApi;

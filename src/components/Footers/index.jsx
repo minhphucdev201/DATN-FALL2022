@@ -1,10 +1,15 @@
 import CopyrightIcon from "@mui/icons-material/Copyright";
 import { Container, Grid } from "@mui/material";
 import React from "react";
+import { useHistory } from "react-router-dom";
 import "./styles.scss";
 Footer.propTypes = {};
 
 function Footer(props) {
+  const history = useHistory();
+  const handleClick = () => {
+    history.push("/chinh-sach-huong-dan");
+  };
   return (
     <div className="footer">
       <Container>
@@ -28,23 +33,57 @@ function Footer(props) {
               <div className="footer__content">
                 <ul className="footer__lists">
                   <li className="footer__items">
-                    <a href="#" className="footer__items--link">
+                    <a
+                      href
+                      className="footer__items--link"
+                      onClick={() => {
+                        history.push(
+                          "/products?column=_id&type=desc&idCatalog=63a310108975bf54b69118ca"
+                        );
+                      }}
+                    >
                       SẢN PHẨM MỚI
                     </a>
                   </li>
+
                   <li className="footer__item">
-                    <a href="#" className="footer__items--link">
-                      TINH DẦU THIÊN NHIÊN
+                    <a
+                      href
+                      className="footer__items--link"
+                      onClick={() => {
+                        history.push(
+                          "/products?column=_id&type=desc&idCatalog=63a310228975bf54b69118ce"
+                        );
+                      }}
+                    >
+                      TINH DẦU PHỐI HƯƠNG
                     </a>
                   </li>
                   <li className="footer__item">
-                    <a href="#" className="footer__items--link">
-                      TINH DẦU THƠM PHÒNG
+                    <a
+                      href
+                      className="footer__items--link"
+                      onClick={() => {
+                        history.push(
+                          "/products?column=_id&type=desc&idCatalog=63a3106f8975bf54b69118d2"
+                        );
+                      }}
+                    >
+                      NẾN THƠM
                     </a>
                   </li>
+
                   <li className="footer__item">
-                    <a href="#" className="footer__items--link">
-                      TINH DẦU XỊT THƠM
+                    <a
+                      href
+                      className="footer__items--link"
+                      onClick={() => {
+                        history.push(
+                          "/products?column=_id&type=desc&idCatalog=63a3122f8975bf54b69118e3"
+                        );
+                      }}
+                    >
+                      NẾN THƠM GIÁNG SINH
                     </a>
                   </li>
                 </ul>
@@ -57,22 +96,22 @@ function Footer(props) {
               <div className="footer__content">
                 <ul className="footer__lists">
                   <li className="footer__items">
-                    <a href="#" className="footer__items--link">
+                    <a className="footer__items--link" href onClick={handleClick}>
                       CHÍNH SÁCH BẢO MẬT
                     </a>
                   </li>
                   <li className="footer__item">
-                    <a href="#" className="footer__items--link">
+                    <a className="footer__items--link" href onClick={handleClick}>
                       CHỈNH SÁCH BẢO HÀNH
                     </a>
                   </li>
                   <li className="footer__item">
-                    <a href="#" className="footer__items--link">
+                    <a className="footer__items--link" href onClick={handleClick}>
                       CHÍNH SÁCH ĐỔI TRẢ
                     </a>
                   </li>
                   <li className="footer__item">
-                    <a href="#" className="footer__items--link">
+                    <a className="footer__items--link" href onClick={handleClick}>
                       HƯỚNG DẪN MUA HÀNG
                     </a>
                   </li>
