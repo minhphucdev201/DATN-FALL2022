@@ -12,6 +12,7 @@ Thankyou.propTypes = {};
 function Thankyou(props) {
   const history = useHistory();
   const checkout = useSelector((state) => state.checkout.current);
+  const customer = useSelector((state) => state.user.current);
   const listProductCart = useSelector(cartItemsSelector);
   const totalPrices = useSelector(cartTotalSelector);
   //   console.log("checkout:", checkout);
@@ -30,7 +31,8 @@ function Thankyou(props) {
               <div className="thankyou__headling--message">
                 <Typography variant="body1">Cảm ơn bạn đã đặt hàng</Typography>
                 <p className="thankyou__headling--txt">
-                  Một email xác nhận đã được gửi tới <strong> {checkout.email} </strong>
+                  Một email xác nhận đã được gửi tới{" "}
+                  <strong> {customer._id ? customer.email : checkout.email} </strong>
                   &nbsp; <span>Xin vui lòng kiểm tra email của bạn</span>
                 </p>
               </div>
@@ -39,15 +41,15 @@ function Thankyou(props) {
               <div className="thankyou__box">
                 <div className="thankyou__item">
                   <h2>Thông tin mua hàng</h2>
-                  <p>{checkout.fullName}</p>
-                  <p>{checkout.email}</p>
+                  <p> {customer._id ? customer.fullName : checkout.fullName}</p>
+                  <p> {customer._id ? customer.email : checkout.email}</p>
                   <p>{checkout.phone}</p>
                 </div>
                 <div className="thankyou__item">
                   <h2>Địa chỉ nhận hàng</h2>
-                  <p>{checkout.fullName}</p>
-                  <p>{checkout.address}</p>
-                  <p>{checkout.phone}</p>
+                  <p>{customer._id ? customer.fullName : checkout.fullName}</p>
+                  <p>{customer._id ? customer.address : checkout.address}</p>
+                  <p>{customer._id ? customer.phone : checkout.phone}</p>
                 </div>
               </div>
               <div className="thankyou__box">
