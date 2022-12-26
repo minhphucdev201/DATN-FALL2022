@@ -20,7 +20,6 @@ function Login(props) {
       // toast error
       unwrapResult(resultAction);
       // close dialog
-      window.location.reload();
       const { closeDialog } = props;
       if (closeDialog) {
         closeDialog();

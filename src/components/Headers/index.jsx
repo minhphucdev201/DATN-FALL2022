@@ -146,22 +146,23 @@ export default function Header() {
     <div>
       <Container className="header">
         <Grid container spacing={2} className="header__top">
-          <Grid item xs={12} md={4} sm={6} lg={6} className="header__item">
+          <Grid item xs={12} md={4} sm={6} lg={4} className="header__item">
             <Typography variant="h3">
               <p className="header__item--hotline">
                 HOTLINE : <span>028 7308 8800</span>
               </p>
             </Typography>
           </Grid>
-
-          <Grid item xs={12} md={4} sm={6} lg={6}>
+          <Grid item xs={12} md={4} sm={6} lg={4} className="header__item">
+            <div className="header__item--logo">
+              <img
+                alt="logo-tan-store"
+                src="https://res.cloudinary.com/phucdev/image/upload/v1672063387/f6c254926abcb2e2ebad_p0uqe1.jpg"
+              />
+            </div>
+          </Grid>
+          <Grid item xs={12} md={4} sm={6} lg={4}>
             <div className="header__icon">
-              <div className="header__search">
-                <input className="header__search--txt" type="text" placeholder="Nhập để tìm kiếm" />
-                <a href="#" className="header__search--btn">
-                  <SearchIcon />
-                </a>
-              </div>
               <div className="header__user">
                 {!isLoggedIn && (
                   <a className="header__user--btn" onClick={handleClickOpen}>
