@@ -33,7 +33,7 @@ function ProductFilters({ filters, onChange }) {
   return (
     <Box>
       <FilterByCatalog filters={filters} onChange={handleCatalogChange} />
-      <FilterPriceFast filters={filters} onChange={handlePriceFastChange} />
+      {/* <FilterPriceFast filters={filters} onChange={handlePriceFastChange} /> */}
       <FilterByPrice onChange={handleChange} />
       <FilterByService filters={filters} onChange={handleChange} />
     </Box>

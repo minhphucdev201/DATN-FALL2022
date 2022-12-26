@@ -20,10 +20,10 @@ function FilterByPrice({ onChange }) {
   };
   const handleSubmit = () => {
     if (onChange) onChange(values);
-    // setValues({
-    //   "salePrice[$gte]": 0,
-    //   "salePrice[$lte]": 0,
-    // });
+    setValues({
+      "salePrice[$gte]": 0,
+      "salePrice[$lte]": 0,
+    });
   };
   return (
     <div className="main__filterPrice--range">
