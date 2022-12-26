@@ -3,7 +3,7 @@ const axiosClient = axios.create({
   baseURL: "https://tan-store.onrender.com/",
   headers: {
     "Content-Type": "application/json",
-    token: "Bearer " + localStorage.getItem("access_token"),
+    // token: "Bearer " + localStorage.getItem("access_token"),
   },
 });
 // Interceptors
