@@ -21,8 +21,8 @@ function ProductThumbnail({ product }) {
         spaceBetween={10}
         navigation={true}
         modules={[Navigation, Thumbs]}
-        // thumbs={{ swiper: activeThumb }}
-        thumbs={{ activeThumb }}
+        thumbs={{ swiper: activeThumb }}
+        // thumbs={{ activeThumb }}
         className="product-images-slider"
       >
         {product.images.map((img) => (
