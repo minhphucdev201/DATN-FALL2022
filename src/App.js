@@ -22,7 +22,7 @@ function App() {
         <Route path="/products" component={ProductFeature} />
         <Route path="/cart" component={CartFeature} />
         <Route path="/blogs" component={BlogFeature} />
-        <Route path="/account" component={Account} />
+        <Route pathA="/account" component={Account} />
         <Route path="/thankyou" component={Thankyou} />
         <Route path="/chinh-sach-huong-dan" component={Contact} />
         <Route path="/checkout">
@@ -34,5 +34,4 @@ function App() {
     </div>
   );
 }
-
 export default App;
