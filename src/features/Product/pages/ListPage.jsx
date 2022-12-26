@@ -1,11 +1,11 @@
-import { Box, Container, Grid, Pagination } from "@mui/material";
+/* eslint-disable react-hooks/exhaustive-deps */
+import { Box, Container, FormControl, FormControlLabel, Grid, Pagination, Radio, RadioGroup, Typography } from "@mui/material";
 import { React, useEffect, useState } from "react";
 import ProductSkeletonList from "../components/ProductSkeletonList";
 import queryString from "query-string";
 import { useHistory, useLocation } from "react-router-dom";
 import FilterViewer from "../components/FilterViewer";
 import ProductFilters from "../components/ProductFilters";
-import ProductSort from "../components/ProductSort";
 import productApi from "./../../../api/productApi";
 import ProductList from "./../components/ProductList";
 import { useMemo } from "react";
@@ -14,6 +14,15 @@ import ProductSearch from "../components/ProductSearch";
 ListPage.propTypes = {};
 
 function ListPage(props) {
+  const [productList, setProductList] = useState([]);
+  const [pagination, setPagination] = useState({
+    limit: 9,
+    total: 10,
+    page: 1,
+  });
+  const [loading, setLoading] = useState(true);
+  const [valueSort, setValueSort] = useState('desc');
+
   const history = useHistory();
   const location = useLocation();
   const queryParams = useMemo(() => {
@@ -28,13 +37,7 @@ function ListPage(props) {
       // isFreeShip: params.isFreeShip === "true",
     };
   }, [location.search]);
-  const [productList, setProductList] = useState([]);
-  const [pagination, setPagination] = useState({
-    limit: 9,
-    total: 10,
-    page: 1,
-  });
-  const [loading, setLoading] = useState(true);
+
 
   // lay data product
   useEffect(() => {
@@ -42,7 +45,6 @@ function ListPage(props) {
       try {
         const { data, pagination } = await productApi.getAll(queryParams);
         setProductList(data);
-        console.log(data, pagination);
         setPagination(pagination);
       } catch (error) {
         console.log("Failed fetch to data:", error);
@@ -68,19 +70,12 @@ function ListPage(props) {
       search: queryString.stringify(filters),
     });
   };
+
   // sap xep theo gia
   const handleSortChange = (newValues) => {
-    const filters = {
-      ...queryParams,
-      column: "salePrice",
-      type: "DESC",
-    };
-    history.push({
-      // lay pathname hien tai
-      pathname: history.location.pathname,
-      // update filter len tren url
-      search: queryString.stringify(filters),
-    });
+    if (newValues?.target.value) {
+      setValueSort(newValues?.target.value);
+    }
   };
 
   const handleFiltersChange = (newFilters) => {
@@ -119,6 +114,18 @@ function ListPage(props) {
     });
   };
 
+  const handleSort = () => {
+    let newArr = [...productList];
+    if (valueSort === 'asc' && productList) {
+      setProductList(newArr.sort((a, b) => a.salePrice - b.salePrice));
+    } else {
+      setProductList(newArr.sort((a, b) => b.salePrice - a.salePrice));
+    }
+  };
+  useEffect(() => {
+    handleSort();
+  }, [valueSort]);
+
   return (
     <div>
       <div className="sectionBanner">
@@ -136,7 +143,38 @@ function ListPage(props) {
           <Grid item xs={8} className="main__right">
             <div className="main__products">
               <ProductSearch onSubmit={handleSearchChange} />
-              <ProductSort currentSort="column=salePrice&type=asc" onChange={handleSortChange} />
+              <div className="main__sortcat">
+                <Typography
+                  variant="subtitle1"
+                  className="main__sortcat--txt"
+                  sx={{ letterSpacing: "0.5px" }}
+                >
+                  Xếp theo :
+                </Typography>
+                <FormControl className="main__sortcat--btn">
+                  <RadioGroup
+                    row
+                    aria-labelledby="demo-row-radio-buttons-group-label"
+                    name="row-radio-buttons-group"
+                    sx={{ pl: 4 }}
+                    onChange={handleSortChange}
+                    defaultChecked="desc"
+                    defaultValue={"desc"}
+                  >
+                    <FormControlLabel
+                      value="asc"
+                      control={<Radio size="small" color="success" />}
+                      label="Giá thấp đến cao"
+                    />
+                    <FormControlLabel
+                      value="desc"
+                      control={<Radio size="small" color="success" />}
+                      label="Giá cao xuống thấp"
+                    />
+                  </RadioGroup>
+                </FormControl>
+              </div>
+              {/* <ProductSort currentSort="column=salePrice&type=asc" onChange={handleSortChange} /> */}
               <FilterViewer filters={queryParams} onChange={setNewFilters} />
               <div className="main__productsview">
                 <Grid container spacing={2}>

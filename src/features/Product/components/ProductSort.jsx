@@ -8,10 +8,11 @@ ProductSort.propTypes = {
 };
 
 function ProductSort({ currentSort, onChange }) {
+
   const handleSortChange = (event, newValue) => {
-    console.log("newvalue ---> ", newValue);
     if (onChange) onChange(newValue);
   };
+
   return (
     <div className="main__sortcat">
       <Typography
