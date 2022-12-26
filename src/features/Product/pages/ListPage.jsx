@@ -1,5 +1,15 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { Box, Container, FormControl, FormControlLabel, Grid, Pagination, Radio, RadioGroup, Typography } from "@mui/material";
+import {
+  Box,
+  Container,
+  FormControl,
+  FormControlLabel,
+  Grid,
+  Pagination,
+  Radio,
+  RadioGroup,
+  Typography,
+} from "@mui/material";
 import { React, useEffect, useState } from "react";
 import ProductSkeletonList from "../components/ProductSkeletonList";
 import queryString from "query-string";
@@ -21,7 +31,7 @@ function ListPage(props) {
     page: 1,
   });
   const [loading, setLoading] = useState(true);
-  const [valueSort, setValueSort] = useState('asc');
+  const [valueSort, setValueSort] = useState("asc");
 
   const history = useHistory();
   const location = useLocation();
@@ -37,7 +47,6 @@ function ListPage(props) {
       // isFreeShip: params.isFreeShip === "true",
     };
   }, [location.search]);
-
 
   // lay data product
   useEffect(() => {
@@ -115,7 +124,7 @@ function ListPage(props) {
 
   const handleSort = () => {
     let newArr = [...productList];
-    if (valueSort === 'asc' && newArr) {
+    if (valueSort === "asc" && newArr) {
       setProductList(newArr.sort((a, b) => a.salePrice - b.salePrice));
     } else {
       setProductList(newArr.sort((a, b) => b.salePrice - a.salePrice));
@@ -141,7 +150,6 @@ function ListPage(props) {
           </Grid>
           <Grid item xs={8} className="main__right">
             <div className="main__products">
-              <ProductSearch onSubmit={handleSearchChange} />
               <div className="main__sortcat">
                 <Typography
                   variant="subtitle1"
